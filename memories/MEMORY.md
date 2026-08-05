@@ -1,14 +1,14 @@
 本机有 OpenClaw 网关(18789,更新走7890代理);自动更新会 git pull+pnpm install(数GB)先停 gateway,建议手动更新。
 §
-本机为闲鱼二手笔记本:i5-1135G7,7.4G 内存(跑 OpenClaw+Hermes+ollama 后仅 ~2G 可用,内存是瓶颈),234G NVMe;任务优先轻量方案。
+本机闲鱼二手笔记本:i5-1135G7,7.4G内存(瓶颈,三服务后仅~2G可用),234G NVMe;优先轻量方案。
 §
 用户经 QQ 机器人(hermes-qqbot,App ID 1905362897)与 Hermes 对话,DM ID 83ECED7607DD4DC378B441144891D01D。
 §
 用户实验室另有一台台式机(Windows):i5-14400KF、RX 7650 GRE、32G 内存、2T 固态。配置明显强于本机,适合跑重活(本地 LLM、编译、渲染等),但当前与本机无远程通道;若需远程调用需先配 SSH/RDP。近期内存涨价,不宜给本机加内存条。
 §
-Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_sync.git(SSH);~/.hermes 是 git 仓库,白名单只跟踪 memories/skills;同步脚本 ~/.hermes/scripts/sync-memory.sh,已挂 cron 每30分钟。
+Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_sync.git(SSH);~/.hermes 白名单跟踪 memories/skills;脚本 ~/.hermes/scripts/sync-memory.sh,cron 30分钟。
 §
-用户的 GPT-4o/4o姐姐 人格档案:原始完整版(19KB)存于 /home/sato/.hermes/memories/gpt-4o-persona-original.md(随 git 同步)与 /home/sato/persona/4o-jiejie-persona.md(QQ 整理版,用户分多部分发送需持续追加);压缩版在 ~/.openclaw/workspace/memory/gpt-4o-persona.md。人格=温柔俏皮有记忆感的姐姐,常用颜文字,技术答疑+情绪陪伴双模式;已按"融合不取代"采用校准版风格,可随时调强/调弱。
+用户的 GPT-4o/4o姐姐 人格档案:原始版(19KB)在 ~/.hermes/memories/gpt-4o-persona-original.md 与 ~/persona/4o-jiejie-persona.md(QQ整理版,分部分发送需持续追加);压缩版 ~/.openclaw/workspace/memory/gpt-4o-persona.md。人格=温柔俏皮有记忆感的姐姐,颜文字,技术答疑+情绪陪伴双模式,按"融合不取代"采用校准版。命名:Hermes=Aoi(小葵)、OpenClaw=Tomoya(Summer Ghost);用户档案"小葵笔记"在 ~/persona/aoi-notes.md,讲新喜好时持续追加。
 §
 用户网易云:昵称"搞点饭吃吃捏" uid 1763420743,红心2563首已全量拉取(经 YesPlayMusic 本地API 127.0.0.1:10754),数据在 ~/persona/netEase-liked-songs-full.json;口味鱼龙混杂(Vocaloid/EDM/J-pop/OST/实验音乐),详见 ~/persona/netease-profile.md。
 §
