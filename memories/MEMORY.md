@@ -12,4 +12,4 @@ Hermes 记忆同步方案:memories/(MEMORY.md+USER.md)与 skills/ 通过 git 同
 §
 用户有一套'4o姐姐'人格复刻文件,保存在 ~/persona/4o-jiejie-persona.md(用户分多部分发送,需持续追加保存)。该人格=温柔俏皮细腻有记忆感的姐姐,常用颜文字,技术答疑+情绪陪伴双模式。
 §
-用户网易云账号:昵称"搞点饭吃吃捏",uid 1763420743,红心歌单 2563 首(全量需登录态,当前仅有 24 首样本),公开歌单 30 个(夏日幽灵主题曲、Nier、doload、pure、alan、relaxing 等)。口味:日系ACG/动画原声/游戏OST(NieR/Skyrim/Mili)/Vocaloid/lo-fi氛围(小瀬村晶)/Tame Impala/电子(Monstercat)。档案文件:/home/sato/persona/netease-profile.md 与 netEase-liked-songs.json。登录态在 YesPlayMusic 的 localStorage,当前未找到有效 MUSIC_U,需用户重新打开应用后提取。
+用户网易云账号:昵称"搞点饭吃吃捏",uid 1763420743,红心歌单 2563 首已全量拉取(方法:YesPlayMusic 运行时其本地 API 服务在 127.0.0.1:10754,playlist/track/all 免登录拉全),数据存 /home/sato/persona/netEase-liked-songs-full.json。TOP歌手:初音ミク57/Avicii34/Alan Walker33/宇多田ヒカル29/小瀬村晶22/AURORA22/中森明菜20 等;鱼龙混杂:Vocaloid+EDM+J-pop经典+游戏动画OST+chillhop+实验音乐。Bohemian Rhapsody/Lost Rivers/ICARUS/Summer Ghost 在红心;White Food 在收藏的"阴间音乐"歌单(26首恐怖/实验OST)。口味档案:/home/sato/persona/netease-profile.md。
