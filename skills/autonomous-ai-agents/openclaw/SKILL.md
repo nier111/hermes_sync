@@ -59,6 +59,8 @@ No `apiKey` field found in config — localhost may be auth-free; verify with a 
 1. **Update/restart mixed state.** `openclaw update --yes` unpacks new dist files while the OLD gateway keeps running. In that window, the on-disk bundle advertises routes the running process 404s on — the API looks broken but isn't. Diagnose: compare `stat -c %y dist/index.js` (new) against the gateway process start time (old); check for a running `openclaw-update` process. Don't call the API mid-update; wait for the restart (a `gateway-supervisor-restart-handoff.json` in `~/.openclaw` signals the handoff).
 2. **Secrets.** Config may hold provider keys without a plain `apiKey` field. Never dump the config raw — redact with sed when grepping.
 3. Don't run CLI commands while an update holds the pnpm store lock.
+4. **`/tmp` is a small tmpfs (~3.8G) and the update preflight alone uses ~2.5G.** Mid-update, writes to /tmp fail with `OSError: [Errno 122] Disk quota exceeded` while `df -h /` looks fine (and a sqlite3 redirect-to-file can silently produce 0 bytes). Check `df -h /tmp` before using /tmp; write outputs to the home dir instead. After the update finishes, offer to clean `/tmp/openclaw-update-preflight-*`.
+5. **`read_file` misdetects Chinese/emoji-heavy UTF-8 markdown as binary** (reports "Binary file" and returns empty). Confirm with `file` (it says "Unicode text, UTF-8") and read via `cat` — applies to persona/memory files in `workspace/memory/`.
 
 ## Verification
 Run `scripts/probe.sh` before relying on the API — it prints gateway pid/start time, port state, whether an update is in flight, dist-vs-process age, and key endpoint HTTP codes.
