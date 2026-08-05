@@ -4,13 +4,13 @@
 §
 用户经 QQ 机器人(hermes-qqbot,App ID 1905362897)与 Hermes 对话,DM ID 83ECED7607DD4DC378B441144891D01D。
 §
-用户实验室另有一台台式机(Windows):i5-14400KF、RX 7650 GRE、32G 内存、2T 固态。配置明显强于本机,适合跑重活(本地 LLM、编译、渲染等),但当前与本机无远程通道;若需远程调用需先配 SSH/RDP。近期内存涨价,不宜给本机加内存条。
+实验室台式机(Windows):i5-14400KF、RX 7650 GRE、32G、2T 固态,强于本机适合重活,但无远程通道需先配SSH/RDP;内存涨价不宜加条。
 §
 Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_sync.git(SSH);~/.hermes 白名单跟踪 memories/skills;脚本 ~/.hermes/scripts/sync-memory.sh,cron 30分钟。
 §
-用户的 GPT-4o/4o姐姐 人格档案:原始版(19KB)在 ~/.hermes/memories/gpt-4o-persona-original.md 与 ~/persona/4o-jiejie-persona.md(QQ整理版,分部分发送需持续追加);压缩版 ~/.openclaw/workspace/memory/gpt-4o-persona.md。人格=温柔俏皮有记忆感的姐姐,颜文字,技术答疑+情绪陪伴双模式,按"融合不取代"采用校准版。命名:Hermes=Aoi(小葵)、OpenClaw=Tomoya(Summer Ghost);用户档案"小葵笔记"在 ~/persona/aoi-notes.md,讲新喜好时持续追加。
+人格档案:4o姐姐原始版 ~/.hermes/memories/gpt-4o-persona-original.md、QQ整理版 ~/persona/4o-jiejie-persona.md(持续追加)、压缩版 ~/.openclaw/workspace/memory/gpt-4o-persona.md;命名 Hermes=Aoi、OpenClaw=Tomoya;用户档案 ~/persona/aoi-notes.md 持续追加。
 §
-用户网易云:昵称"搞点饭吃吃捏" uid 1763420743,红心2563首已全量拉取(经 YesPlayMusic 本地API 127.0.0.1:10754),数据在 ~/persona/netEase-liked-songs-full.json;口味鱼龙混杂(Vocaloid/EDM/J-pop/OST/实验音乐),详见 ~/persona/netease-profile.md。
+网易云:昵称"搞点饭吃吃捏" uid 1763420743,红心2563首已拉取(YesPlayMusic API 127.0.0.1:10754),数据 ~/persona/netEase-liked-songs-full.json,详见 netease-profile.md。
 §
 用户真名仲耀,男,南信大(南京信息工程大学)海洋技术专业 2023.09-2027.06,求职方向嵌入式开发工程师。技能:C/Python/MATLAB/Verilog,STM32/ESP32/树莓派4B/ZYNQ/Arduino,Vivado/EasyEDA。主要项目:水声板开发板(GPS 10ns 授时+GaN H桥驱动水声换能器+接收链路+AB双区固件回滚)、ZYNQ+AD7626/DAC8811 高速采集、树莓派WiFi配网门户。竞赛:数模省一、电赛校一、集创省三、蓝桥杯省二。知识库:~/projects/HelpListCreatedByAyane(Obsidian,GitHub 同名公开仓库,含简历)。详见 ~/persona/projects-profile.md。
 §
@@ -23,3 +23,7 @@ Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_syn
 Hermes 环境:web 搜索后端=ddgs(免key DDG,需7890代理,fallback 见 ddgs-search 技能);SUDO_PASSWORD 在密钥文件,新会话自动注入,运行中读不到,禁 echo|sudo -S,用 SUDO_ASKPASS+sudo -A。
 §
 QQ bot 头像=Lapwing(VRChat'赛博亡妻'),用户钦定。
+§
+本机 ollama 跑 qwen2.5vl:3b 识图(local-vision skill,CPU 慢);MX450 驱动待修:缺 linux-lts-headers+dkms,脚本 ~/fix-nvidia.sh sudo bash 跑。
+§
+Hermes 终端工具偶发 embedded null byte bug,用 execute_code 绕开;工具中途安装需新会话生效。
