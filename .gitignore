@@ -1,0 +1,10 @@
+# Hermes 记忆同步仓库 — 白名单模式
+# 只跟踪 memories/ 和 skills/,其余全部忽略(含密钥、会话库、日志)
+/*
+!/memories/
+!/memories/**
+!/skills/
+!/skills/**
+!/.gitignore
+/memories/*.lock
+/skills/**/*.lock

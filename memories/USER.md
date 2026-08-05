@@ -1,0 +1,1 @@
+用户通过多种入口与 Hermes 聊天:QQ 机器人(hermes-qqbot,App ID 1905362897,QQ 身份 ID 83ECED7607DD4DC378B441144891D01D)和本机终端 CLI 都常用,不限于 QQ。聊天记录在 ~/.hermes/state.db 与 ~/.hermes/sessions/,长期记忆在 ~/.hermes/memories/MEMORY.md。用户常用中文、语气随意(啾咪、好捏),喜欢简洁直接的回复。
