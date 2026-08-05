@@ -1,0 +1,11 @@
+# Hermes 记忆同步仓库 — 白名单模式
+# 只跟踪 memories/ 和 skills/,其余全部忽略(含密钥、会话库、日志)
+# 顺序很重要:先忽略全部,再用 ! 放开白名单,最后重新忽略 .lock 噪音
+/*
+!/memories/
+!/memories/**
+!/skills/
+!/skills/**
+!/.gitignore
+/memories/*.lock
+/skills/**/*.lock

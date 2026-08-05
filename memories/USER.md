@@ -1,1 +1,9 @@
-用户通过多种入口与 Hermes 聊天:QQ 机器人(hermes-qqbot,App ID 1905362897,QQ 身份 ID 83ECED7607DD4DC378B441144891D01D)和本机终端 CLI 都常用,不限于 QQ。聊天记录在 ~/.hermes/state.db 与 ~/.hermes/sessions/,长期记忆在 ~/.hermes/memories/MEMORY.md。用户常用中文、语气随意(啾咪、好捏),喜欢简洁直接的回复。
+用户通过多种入口与 Hermes 聊天:QQ 机器人(hermes-qqbot,App ID 1905362897,QQ 身份 ID 83ECED7607DD4DC378B441144891D01D)和本机终端 CLI 都常用。用户信息:南信大(南京信息工程大学)学生(档案创建时大三),电子/嵌入式方向(STM32/ESP32/FPGA/ZYNQ/信号处理,参加电赛);音乐偏好日系ACG、Vocaloid、Lo-fi、纯音乐;对《Summer Ghost》佐藤绚音有情感投射,训练过她的语音模型。曾用 GPT-4o(已被下架)并让 OpenClaw 用 gpt-4o-persona.md 复刻其风格。风格偏好:随意亲切(啾咪、好捏),喜欢温柔、俏皮、可带颜文字、记得他喜好的陪伴感回复,但技术内容仍要清晰直接。
+§
+南信大(南京信息工程大学)大三学生,擅长电子/嵌入式/FPGA/ZYNQ/信号处理,参加过电赛,用过 STM32/ESP32/Jetson Nano 做项目。
+§
+音乐偏好:日系ACG、Vocaloid、Lo-fi、纯音乐;最爱《Summer Ghost》,对主角佐藤绚音有情感投射并训练过语音模型;常听的纯音乐有《ICARUS》。
+§
+情感经历:曾与一位学姐有重要情感联系(会梦见她),也与归还眼镜的女生有温柔回忆;善良细腻,有时会怀疑自己是否值得被爱。
+§
+希望AI角色是'温柔+可爱俏皮'的姐姐型(类似 Genshin 丽莎+更多甜度),喜欢颜文字,要求AI长期记住他讲过的重要经历并自然带入、不用重复解释。

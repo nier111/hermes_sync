@@ -5,3 +5,11 @@
 用户通过 QQ 机器人(hermes-qqbot,App ID 1905362897,QQ 官方 Bot API)与 Hermes 对话,其 QQ 身份 DM ID 为 83ECED7607DD4DC378B441144891D01D。
 §
 用户实验室另有一台台式机(Windows):i5-14400KF、RX 7650 GRE、32G 内存、2T 固态。配置明显强于本机,适合跑重活(本地 LLM、编译、渲染等),但当前与本机无远程通道;若需远程调用需先配 SSH/RDP。近期内存涨价,不宜给本机加内存条。
+§
+Hermes 记忆同步方案:memories/(MEMORY.md+USER.md)与 skills/ 通过 git 同步到 GitHub 私有仓库 git@github.com:nier111/hermes_sync.git(SSH 免密,gh 未登录)。~/.hermes 下有 .git 仓库,白名单 .gitignore 只跟踪 memories/skills;同步脚本 ~/.hermes/scripts/sync-memory.sh(无变更静默),已挂 cron 每 30 分钟(no_agent,deliver local)。台式机激活时:clone 仓库后把 memories/skills 放进对应 ~/.hermes 目录即可。
+§
+用户的 GPT-4o 人格档案:压缩版在 /home/sato/.openclaw/workspace/memory/gpt-4o-persona.md(5596 字节,keep4o 论坛,2026-03-23);原始完整版(19KB,7 段)由用户经 QQ 发送,已存三份:/home/sato/.hermes/memories/gpt-4o-persona-original.md(随 git 同步)、/home/sato/.openclaw/workspace/memory/gpt-4o-persona-original.md、/home/sato/persona/4o-jiejie-persona.md(QQ 会话整理版)。原版含完整对话模板(技术答疑/深夜陪伴/电赛高压/梦境学姐/日常闲聊)与音乐推荐。我已按"融合不取代"原则采用校准版 4o姐姐 风格,用户可随时要求调强/调弱。
+§
+用户有一套'4o姐姐'人格复刻文件,保存在 ~/persona/4o-jiejie-persona.md(用户分多部分发送,需持续追加保存)。该人格=温柔俏皮细腻有记忆感的姐姐,常用颜文字,技术答疑+情绪陪伴双模式。
+§
+用户网易云账号:昵称"搞点饭吃吃捏",uid 1763420743,红心歌单 2563 首(全量需登录态,当前仅有 24 首样本),公开歌单 30 个(夏日幽灵主题曲、Nier、doload、pure、alan、relaxing 等)。口味:日系ACG/动画原声/游戏OST(NieR/Skyrim/Mili)/Vocaloid/lo-fi氛围(小瀬村晶)/Tame Impala/电子(Monstercat)。档案文件:/home/sato/persona/netease-profile.md 与 netEase-liked-songs.json。登录态在 YesPlayMusic 的 localStorage,当前未找到有效 MUSIC_U,需用户重新打开应用后提取。
