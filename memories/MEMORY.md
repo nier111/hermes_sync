@@ -1,6 +1,6 @@
-本机有 OpenClaw 网关(端口18789,更新走7890代理);自动更新会 git pull+全量 pnpm install(数GB流量)并先停 gateway,建议手动更新、连宽带执行。
+本机有 OpenClaw 网关(18789,更新走7890代理);自动更新会 git pull+pnpm install(数GB)先停 gateway,建议手动更新。
 §
-本机是用户闲鱼约 1000 元收的二手机(笔记本类):i5-1135G7 4核8线程,7.4GiB 内存(常驻 OpenClaw+Hermes+ollama 后可用仅 ~2GiB),234G NVMe 剩 125G。内存是瓶颈,只宜跑轻量小服务;安排任务时优先轻量方案,避免重负载并行。
+本机为闲鱼二手笔记本:i5-1135G7,7.4G 内存(跑 OpenClaw+Hermes+ollama 后仅 ~2G 可用,内存是瓶颈),234G NVMe;任务优先轻量方案。
 §
 用户经 QQ 机器人(hermes-qqbot,App ID 1905362897)与 Hermes 对话,DM ID 83ECED7607DD4DC378B441144891D01D。
 §
@@ -20,4 +20,6 @@ Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_syn
 §
 用户考研目标:成电(电子科技大学)电子信息硕士,初试数一+英一+政治+专业课(信号与系统,成电858)。2026-08 进度:高数/线代各剩末章、概统未开始(计划5-7天一轮)、专业课5/6章、英语仅背单词。资料在 ~/Documents/考研/(13学院复试PDF+study-log.md 每日打卡);OpenClaw 有成电2026复试分析(信通院专硕365、电子院01方向330、自动化院仪器仪表325等)。
 §
-Hermes sudo:SUDO_PASSWORD 写入密钥文件后新会话自动注入;运行中会话读不到(scope 是任务开始快照)需重启 gateway;禁 echo|sudo -S,用 SUDO_ASKPASS+sudo -A。
+Hermes 环境:web 搜索后端=ddgs(免key DDG,需7890代理,fallback 见 ddgs-search 技能);SUDO_PASSWORD 在密钥文件,新会话自动注入,运行中读不到,禁 echo|sudo -S,用 SUDO_ASKPASS+sudo -A。
+§
+QQ bot 头像=Lapwing(VRChat'赛博亡妻'),用户钦定。
