@@ -48,6 +48,7 @@ Call it directly: `curl -X POST http://127.0.0.1:18789/api/chat -H 'Content-Type
 
 ## Pitfalls
 
+- **Auto-update hijacks the gateway (observed 2026-08-06)**: the gateway checks for new versions (`~/.openclaw/update-check.json`) and, when one is found, systemd-run's a TRANSIENT user service (`openclaw-updateN.service` — no unit file, appears only via `systemctl --user list-units`) running `pnpm openclaw update --yes`. That flow STOPS the gateway service, git-pulls, and pnpm-installs ALL dependencies (multi-GB; proxied through local clash 7890 if proxy env is set — burns metered/hotspot traffic). Retries show as numbered logs `/tmp/openclaw-updateN.log`. Consequence for interop: a stopped gateway + 404s on the API is often the auto-update in progress, not a crash. After an interrupted update: node_modules half-built, gateway left stopped — recovery is re-running the update (or `pnpm install` + rebuild + `systemctl --user start openclaw-gateway`).
 - **Mid-update mixed state**: while `openclaw update --yes` runs, disk `dist/` files are newer than the running process → API returns 404 for routes the frontend knows. Wait for restart before relying on the API.
 - Updates run through a local proxy if configured (env `HTTPS_PROXY=http://127.0.0.1:7890` etc. in the update process cmdline) — mirror it when you need outbound network for OpenClaw tooling.
 - `~/.openclaw/memory/main.sqlite` being tiny (a handful of chunks) is normal — OpenClaw leans on session files for context.

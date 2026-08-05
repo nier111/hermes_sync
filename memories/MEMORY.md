@@ -1,4 +1,4 @@
-本机有 OpenClaw 网关(项目 ~/projects/openclaw,配置 ~/.openclaw,端口18789,控制台 /docs,更新走 7890 代理,2026-08-06 曾自动更新偷跑 4GB 流量)。注意:OpenClaw 有自动更新机制——检测到新版本后自动 systemd-run 执行 git pull + 全量 pnpm install(数GB),会先停 gateway 再更新;中断后 node_modules 半装、gateway 停止需重跑 update 恢复。建议更新改为手动、连宽带执行。
+本机有 OpenClaw 网关(~/projects/openclaw,端口18789,更新走 7890 代理)。注意其自动更新:检测到新版会自动 git pull+全量 pnpm install(数GB流量,曾偷跑4GB)并先停 gateway;中断后 node_modules 半装需重跑 update。建议手动更新、连宽带执行。
 §
 本机是用户闲鱼约 1000 元收的二手机(笔记本类):i5-1135G7 4核8线程,7.4GiB 内存(常驻 OpenClaw+Hermes+ollama 后可用仅 ~2GiB),234G NVMe 剩 125G。内存是瓶颈,只宜跑轻量小服务;安排任务时优先轻量方案,避免重负载并行。
 §
@@ -17,3 +17,5 @@ Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_syn
 水声板 V2 硬件平台:2×LMG1210 GaN 驱动(双输入互补PWM模式,芯片不做死区插入,死区全靠 MCU 波形)、GaN 为 INN700 系列(700V 过杀,导师要求换低压大电流管)、主控 STM32G474RET6(HRTIM 184ps 分辨率,已澄清 5.44GHz 是内部计数精度非物理频率)、实验室示波器仅 200MHz;当前两路反相无死区(有直通风险),计划用 HRTIM DTG 加 20-50ns 死区+软件预补偿。
 §
 用户 2026 电赛 G 题(仪器仪表组)省一候选,若进邀请赛(断网)需预案:开发全靠 codex SSH 上 Jetson Nano 写 C++/CUDA/Qt5 代码(用户读不懂其屎山代码);预案优先级:作战手册+一键脚本 > 断网演练 > 本地小模型+RAG(Nano 只能跑 1-3B,定位现场参谋非 codex 平替)。
+§
+用户考研目标:成电(电子科技大学)电子信息硕士,初试数一+英一+政治+专业课(信号与系统,成电858)。2026-08 进度:高数/线代各剩末章、概统未开始(计划5-7天一轮)、专业课5/6章、英语仅背单词。资料在 ~/Documents/考研/(13学院复试PDF+study-log.md 每日打卡);OpenClaw 有成电2026复试分析(信通院专硕365、电子院01方向330、自动化院仪器仪表325等)。
