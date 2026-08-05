@@ -68,6 +68,7 @@ curl -s --max-time 180 http://127.0.0.1:11434/api/generate -d "{
 - **超时**:CPU 上 3b 单张图约 20-60 秒,curl 设 `--max-time 180`。
 - **服务没起**:`ollama serve` 需在跑;检查 `curl http://127.0.0.1:11434/api/tags`。
 - **大图**:>2000px 先缩到 1280,否则又慢又费 token。
+- **curl 参数过长**:大图 base64 直接放 `-d "..."` 会报 `Argument list too long`。改用 Python urllib 发请求,或 `curl --data-binary @payload.json`。
 - 识别不确定时如实说"看起来像X,但我不太确定",不要编造细节。
 
 ## OCR 用途(读 PDF 书籍)

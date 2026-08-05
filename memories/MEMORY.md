@@ -1,8 +1,8 @@
-本机有 OpenClaw 网关(~/projects/openclaw,端口18789,更新走 7890 代理)。注意其自动更新:检测到新版会自动 git pull+全量 pnpm install(数GB流量,曾偷跑4GB)并先停 gateway;中断后 node_modules 半装需重跑 update。建议手动更新、连宽带执行。
+本机有 OpenClaw 网关(端口18789,更新走7890代理);自动更新会 git pull+全量 pnpm install(数GB流量)并先停 gateway,建议手动更新、连宽带执行。
 §
 本机是用户闲鱼约 1000 元收的二手机(笔记本类):i5-1135G7 4核8线程,7.4GiB 内存(常驻 OpenClaw+Hermes+ollama 后可用仅 ~2GiB),234G NVMe 剩 125G。内存是瓶颈,只宜跑轻量小服务;安排任务时优先轻量方案,避免重负载并行。
 §
-用户通过 QQ 机器人(hermes-qqbot,App ID 1905362897,QQ 官方 Bot API)与 Hermes 对话,其 QQ 身份 DM ID 为 83ECED7607DD4DC378B441144891D01D。
+用户经 QQ 机器人(hermes-qqbot,App ID 1905362897)与 Hermes 对话,DM ID 83ECED7607DD4DC378B441144891D01D。
 §
 用户实验室另有一台台式机(Windows):i5-14400KF、RX 7650 GRE、32G 内存、2T 固态。配置明显强于本机,适合跑重活(本地 LLM、编译、渲染等),但当前与本机无远程通道;若需远程调用需先配 SSH/RDP。近期内存涨价,不宜给本机加内存条。
 §
@@ -19,3 +19,5 @@ Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_syn
 用户 2026 电赛 G 题(仪器仪表组)省一候选,若进邀请赛(断网)需预案:开发全靠 codex SSH 上 Jetson Nano 写 C++/CUDA/Qt5 代码(用户读不懂其屎山代码);预案优先级:作战手册+一键脚本 > 断网演练 > 本地小模型+RAG(Nano 只能跑 1-3B,定位现场参谋非 codex 平替)。
 §
 用户考研目标:成电(电子科技大学)电子信息硕士,初试数一+英一+政治+专业课(信号与系统,成电858)。2026-08 进度:高数/线代各剩末章、概统未开始(计划5-7天一轮)、专业课5/6章、英语仅背单词。资料在 ~/Documents/考研/(13学院复试PDF+study-log.md 每日打卡);OpenClaw 有成电2026复试分析(信通院专硕365、电子院01方向330、自动化院仪器仪表325等)。
+§
+Hermes sudo:SUDO_PASSWORD 写入密钥文件后新会话自动注入;运行中会话读不到(scope 是任务开始快照)需重启 gateway;禁 echo|sudo -S,用 SUDO_ASKPASS+sudo -A。
