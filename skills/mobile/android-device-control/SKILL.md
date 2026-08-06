@@ -63,6 +63,24 @@ EOF
 
 Loop: screenshot → describe → `input tap` → screenshot again = blind remote control of the phone.
 
+## UI automation: find elements, tap precisely
+
+```bash
+adb shell uiautomator dump /sdcard/ui.xml && adb shell cat /sdcard/ui.xml
+```
+
+Parse `<node ... bounds="[x1,y1][x2,y2]" class="...">` to get button/input-field coordinates, then `input tap <cx> <cy>`.
+
+**Coordinate-space gotcha (verified 2026-08)**: uiautomator bounds can be in LOGICAL px (e.g. width ~1600) while the physical panel is smaller (e.g. 720 wide — `wm size` shows physical). `adb shell input tap` takes PHYSICAL coordinates. If bounds numbers are larger than the physical panel, scale: `physical = logical × physical_width / logical_width`. When in doubt, iterate blind: tap an estimated physical point → screenshot → describe → adjust.
+
+## adb reverse: phone → PC services over USB
+
+```bash
+adb reverse tcp:5900 tcp:5900
+```
+
+Makes the phone reach the PC's `localhost:5900` through the USB cable — **no WiFi needed** (survives dorm network cuts 00:00–06:30). Re-set after any adb server restart. Essential for pointing a phone app at a PC-hosted service (VNC, web server, etc.). See `references/phone-as-secondary-display.md` for a full worked example (phone as a second monitor).
+
 ## Pitfalls
 
 - **Locked screen blocks everything**: authorization dialogs, input, even screencap may return a black/lockscreen image. Ask the user to unlock before remote work.
