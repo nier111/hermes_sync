@@ -28,4 +28,4 @@ Hermes 终端工具偶发 embedded null byte bug,用 execute_code 绕开;工具�
 §
 宿舍00:00-6:30断网。
 §
-Gmail(zyyyds208660669@gmail.com)已接himalaya;备用机VNE-AN00(锁BL):adb+Termux ssh8022(pwd=sato,adb forward)+waybar副屏。
+Gmail(zyyyds208660669@gmail.com)已接himalaya。备用机VNE-AN00(荣耀,锁BL无法root):adb+Termux ssh(8022,pwd=sato,u0_a189,adb forward)+Ubuntu26.04(proot,下载需reverse 7890代理);waybar副屏:wayvnc盯HEADLESS-1,AVNC重连=adb reverse tcp:5900+am start -d vnc://127.0.0.1:5900。
