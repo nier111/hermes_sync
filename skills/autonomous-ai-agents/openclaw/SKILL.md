@@ -48,12 +48,14 @@ Known endpoints (found in bundle):
 - `POST /api/v1/rpc` — JSON-RPC transport (what the CLI itself uses)
 - `GET /api/me`, `GET /api/messages`, `POST /api/prompt`, `GET /api/v1/models`
 
-No `apiKey` field found in config — localhost may be auth-free; verify with a real call after restart.
+**2026.7.2+ (verified 2026-08-06): HTTP API now requires auth.** `/api/chat` was removed (404), `/api/channels` returns 401, and the token flow lives in the frontend bundle — no plain `apiKey` in config. Don't fight the HTTP API; use the CLI below (it handles auth internally).
 
 ## Calling it
-- HTTP: `curl -s -X POST http://127.0.0.1:18789/api/chat -H 'Content-Type: application/json' -d '{"message":"..."}'`
-- CLI: `cd ~/projects/openclaw && pnpm openclaw ask "..."` (or `chat`)
-- Config hints: `auth.profiles` lists providers (moonshot / openrouter / minimax / kimi / deepseek); channels: telegram / discord / slack / whatsapp. Updates route through local proxy `127.0.0.1:7890`.
+- CLI (reliable, handles auth): `export PATH="$HOME/.nvm/versions/node/v22.22.3/bin:$PATH" && cd ~/projects/openclaw && pnpm openclaw agent --agent main -m "message" [--json]`
+  - `--agent <id>` required (list: `pnpm openclaw agents list`); `--deliver` sends the reply to a channel, `--channel qqbot` targets QQ.
+  - `ask`/`chat` are NOT present in 2026.7.2's CLI — use `agent` (or `message` subcommand).
+  - PATH prefix is mandatory: Hermes terminal env is a per-command snapshot, so `nvm use` doesn't persist and the next call falls back to old node (fails the engines gate). `nvm alias default 22.22.3` once for interactive shells.
+- Config hints: `auth.profiles` lists providers (moonshot / openrouter / minimax / kimi / deepseek); channels: telegram / discord / slack / whatsapp / qqbot. Updates route through local proxy `127.0.0.1:7890`.
 
 ## Pitfalls
 1. **Update/restart mixed state.** `openclaw update --yes` unpacks new dist files while the OLD gateway keeps running. In that window, the on-disk bundle advertises routes the running process 404s on — the API looks broken but isn't. Diagnose: compare `stat -c %y dist/index.js` (new) against the gateway process start time (old); check for a running `openclaw-update` process. Don't call the API mid-update; wait for the restart (a `gateway-supervisor-restart-handoff.json` in `~/.openclaw` signals the handoff).

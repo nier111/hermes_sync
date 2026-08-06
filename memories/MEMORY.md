@@ -1,4 +1,4 @@
-本机有 OpenClaw 网关(18789,更新走7890代理);自动更新会 git pull+pnpm install(数GB)先停 gateway,建议手动更新。版本已配好:node 22.22.3(nvm default)+ pnpm 11.15.1(corepack 自动切);勿用 /usr/bin/pnpm(11.3.0)。
+本机 OpenClaw(18789,已更至2026.7.2;自动更新数GB先停gateway,建议手动)。node22.22.3(nvm default)+pnpm11.15.1。交互:export PATH加22.22.3后 pnpm openclaw agent --agent main -m 'x'。
 §
 本机闲鱼二手笔记本:i5-1135G7,7.4G内存(瓶颈,三服务后仅~2G可用),234G NVMe;优先轻量方案。
 §
