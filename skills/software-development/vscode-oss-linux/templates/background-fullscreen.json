@@ -1,0 +1,12 @@
+{
+  "background.enabled": true,
+  "background.fullscreen": {
+    "images": ["/home/sato/Pictures/ayane.jpg"],
+    "opacity": 0.2,
+    "size": "cover",
+    "position": "center",
+    "styles": [],
+    "interval": 0,
+    "random": false
+  }
+}

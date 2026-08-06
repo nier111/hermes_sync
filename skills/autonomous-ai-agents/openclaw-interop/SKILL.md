@@ -53,6 +53,11 @@ cd ~/projects/openclaw && pnpm openclaw agent --agent main -m "message text" [--
 
 `agent` subcommand options: `--agent <id>` (list via `pnpm openclaw agents list`), `-m/--message`, `--message-file`, `--json`, `--deliver` (send reply to channel), `--channel <name>` (incl. `qqbot`), `--model`, `--local`. Omitting the agent errors with "No target session selected" — always pass `--agent`.
 
+## Skill inventory & cross-deployment planning
+
+- `pnpm openclaw skills list` prints the full skill table (status / name / description / source; this box: 58 skills, 24 ready, sources `openclaw-bundled` / `openclaw-extra` / `openclaw-workspace`). Install/search via `pnpm openclaw skills search|install|update` (ClawHub).
+- OpenClaw's bundled skills heavily overlap Hermes' library (spike, xurl, songsee, summarize, nano-pdf, notion, debugpy, github...). Before installing anything on either side, check the complement plan at `~/persona/skills-complement-plan.md` (regenerated 2026-08-06) — it lists overlaps (don't duplicate), OpenClaw-only gems (circuit-analyzer, healthcheck, qqbot-channel/media/remind, acp-router, clawhub), and Hermes-only skills. Rule of thumb: new capability → check the plan → then ClawHub/Hermes library → only then create fresh.
+
 ## Building & version requirements (observed 2026-08-06)
 
 - Version gates live in `package.json`: `engines` (node >=22.22.3 <23) and `packageManager` (pnpm@11.15.1+sha512...). `pnpm build` exits 1 if either is unmet.
