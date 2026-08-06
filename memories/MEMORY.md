@@ -4,7 +4,7 @@
 §
 用户经 QQ 机器人(hermes-qqbot,App ID 1905362897)与 Hermes 对话,DM ID 83ECED7607DD4DC378B441144891D01D。
 §
-实验室台式机(Windows):i5-14400KF、RX 7650 GRE、32G、2T 固态,强于本机适合重活,但无远程通道需先配SSH/RDP。
+实验室台式机(Windows):i5-14400KF、RX 7650 GRE、32G、2T 固态,适合重活,无远程通道需配SSH/RDP;拟部署AIRI。
 §
 Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_sync.git(SSH);~/.hermes 白名单跟踪 memories/skills;脚本 ~/.hermes/scripts/sync-memory.sh,cron 30分钟。
 §
