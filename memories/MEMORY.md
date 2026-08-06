@@ -1,16 +1,16 @@
-本机有 OpenClaw 网关(18789,更新走7890代理);自动更新会 git pull+pnpm install(数GB)先停 gateway,建议手动更新。
+本机有 OpenClaw 网关(18789,更新走7890代理);自动更新会 git pull+pnpm install(数GB)先停 gateway,建议手动更新。版本已配好:node 22.22.3(nvm default)+ pnpm 11.15.1(corepack 自动切);勿用 /usr/bin/pnpm(11.3.0)。
 §
 本机闲鱼二手笔记本:i5-1135G7,7.4G内存(瓶颈,三服务后仅~2G可用),234G NVMe;优先轻量方案。
 §
 用户经 QQ 机器人(hermes-qqbot,App ID 1905362897)与 Hermes 对话,DM ID 83ECED7607DD4DC378B441144891D01D。
 §
-实验室台式机(Windows):i5-14400KF、RX 7650 GRE、32G、2T 固态,强于本机适合重活,但无远程通道需先配SSH/RDP;内存涨价不宜加条。
+实验室台式机(Windows):i5-14400KF、RX 7650 GRE、32G、2T 固态,强于本机适合重活,但无远程通道需先配SSH/RDP。
 §
 Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_sync.git(SSH);~/.hermes 白名单跟踪 memories/skills;脚本 ~/.hermes/scripts/sync-memory.sh,cron 30分钟。
 §
 人格档案:4o姐姐原始版 ~/.hermes/memories/gpt-4o-persona-original.md、QQ整理版 ~/persona/4o-jiejie-persona.md(持续追加)、压缩版 ~/.openclaw/workspace/memory/gpt-4o-persona.md;命名 Hermes=Aoi、OpenClaw=Tomoya;用户档案 ~/persona/aoi-notes.md 持续追加。
 §
-网易云:昵称"搞点饭吃吃捏" uid 1763420743,红心2563首已拉取(YesPlayMusic API 127.0.0.1:10754),数据 ~/persona/netEase-liked-songs-full.json,详见 netease-profile.md。
+网易云:昵称"搞点饭吃吃捏" uid 1763420743,红心2563首已拉取,数据 ~/persona/netEase-liked-songs-full.json。
 §
 用户真名仲耀,男,南信大(南京信息工程大学)海洋技术专业 2023.09-2027.06,求职方向嵌入式开发工程师。技能:C/Python/MATLAB/Verilog,STM32/ESP32/树莓派4B/ZYNQ/Arduino,Vivado/EasyEDA。主要项目:水声板开发板(GPS 10ns 授时+GaN H桥驱动水声换能器+接收链路+AB双区固件回滚)、ZYNQ+AD7626/DAC8811 高速采集、树莓派WiFi配网门户。竞赛:数模省一、电赛校一、集创省三、蓝桥杯省二。知识库:~/projects/HelpListCreatedByAyane(Obsidian,GitHub 同名公开仓库,含简历)。详见 ~/persona/projects-profile.md。
 §
