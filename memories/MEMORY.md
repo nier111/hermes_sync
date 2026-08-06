@@ -2,7 +2,7 @@
 §
 本机闲鱼二手笔记本:i5-1135G7,7.4G内存(瓶颈,三服务后仅~2G可用),234G NVMe;优先轻量方案。
 §
-用户经 QQ 机器人(hermes-qqbot,App ID 1905362897)与 Hermes 对话,DM ID 83ECED7607DD4DC378B441144891D01D。
+QQ bot:hermes-qqbot(App 1905362897),DM 83ECED7607DD4DC378B441144891D01D,头像Lapwing(赛博亡妻)。
 §
 实验室台式机(Windows):i5-14400KF、RX 7650 GRE、32G、2T 固态,适合重活,无远程通道需配SSH/RDP;拟部署AIRI。
 §
@@ -10,7 +10,7 @@ Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_syn
 §
 人格档案:4o姐姐原始版 ~/.hermes/memories/gpt-4o-persona-original.md、QQ整理版 ~/persona/4o-jiejie-persona.md(持续追加)、压缩版 ~/.openclaw/workspace/memory/gpt-4o-persona.md;命名 Hermes=Aoi、OpenClaw=Tomoya;用户档案 ~/persona/aoi-notes.md 持续追加。
 §
-网易云:昵称"搞点饭吃吃捏" uid 1763420743,红心2563首已拉取,数据 ~/persona/netEase-liked-songs-full.json。
+网易云 uid 1763420743,红心已拉取 ~/persona/netEase-liked-songs-full.json。
 §
 用户真名仲耀,男,南信大(南京信息工程大学)海洋技术专业 2023.09-2027.06,求职方向嵌入式开发工程师。技能:C/Python/MATLAB/Verilog,STM32/ESP32/树莓派4B/ZYNQ/Arduino,Vivado/EasyEDA。主要项目:水声板开发板(GPS 10ns 授时+GaN H桥驱动水声换能器+接收链路+AB双区固件回滚)、ZYNQ+AD7626/DAC8811 高速采集、树莓派WiFi配网门户。竞赛:数模省一、电赛校一、集创省三、蓝桥杯省二。知识库:~/projects/HelpListCreatedByAyane(Obsidian,GitHub 同名公开仓库,含简历)。详见 ~/persona/projects-profile.md。
 §
@@ -22,10 +22,10 @@ Hermes 记忆/技能经 git 同步到私有仓 git@github.com:nier111/hermes_syn
 §
 Hermes 环境:web 搜索后端=ddgs(免key DDG,需7890代理,fallback 见 ddgs-search 技能);SUDO_PASSWORD 在密钥文件,新会话自动注入,运行中读不到,禁 echo|sudo -S,用 SUDO_ASKPASS+sudo -A。
 §
-QQ bot 头像=Lapwing(VRChat'赛博亡妻'),用户钦定。
-§
 MX450 驱动已修(nvidia-smi 正常);ollama 为 CPU 版,GPU 需装 ollama-cuda 包。
 §
 Hermes 终端工具偶发 embedded null byte bug,用 execute_code 绕开;工具中途安装需新会话生效。
 §
 宿舍00:00-6:30断网。
+§
+Gmail 已接 himalaya(zyyyds208660669@gmail.com);备用机 VNE-AN00 adb 可用。

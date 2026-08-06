@@ -56,6 +56,14 @@ Recurring question; give the user the composition, not just more cleanup. Typica
   for i in $(seq 1 38); do dkms status | grep -q "$(uname -r).*installed" && break; pgrep -f "dkms install" >/dev/null || break; sleep 15; done
   ```
 - A hung foreground `pacman -S` that times out under the Hermes terminal can leave the dkms hook still compiling — the fix is to wait for the hook, not to kill it.
+- **Module built but modprobe says "not found" = depmod never ran.** The pacman dkms hook builds with `--no-depmod`; the module index is refreshed later by `60-depmod.hook` at transaction end. If the pacman transaction got killed (foreground timeout), the hook never fires: `dkms status` shows installed, `ls /lib/modules/<ver>/updates/dkms/` has the .ko, but `modprobe nvidia` fails with "Module nvidia not found in directory". Fix: `sudo depmod -a && sudo modprobe nvidia` (then nvidia_modeset, nvidia_uvm) — `nvidia-smi` should come up.
+- NVIDIA driver fix timeline on this box (2026-08): headers + dkms built, but only after the depmod step above did nvidia-smi work — that step is the one that's easy to miss after an interrupted pacman.
+
+## ollama GPU on Arch (NVIDIA)
+
+- The `ollama` package is the CPU-only build (Depends: libgcc/libstdc++/glibc only). GPU acceleration needs `sudo pacman -S ollama-cuda` (same version, adds CUDA runtime). Both packages can coexist.
+- After installing, `sudo systemctl restart ollama`; verify with `journalctl -u ollama | grep "inference compute"` — `id=cpu` means GPU not detected; you want a CUDA entry. The ollama systemd service runs as user `ollama` (can't kill from user shell; use systemctl).
+- Hard reality: MX450 has 2 GB VRAM — a 3.8B VLM (~4.2GB GGUF) only offloads ~150MB to GPU, so speed ≈ CPU. Don't promise big wins on this laptop; real GPU inference needs the lab desktop (16GB).
 
 ## node/pnpm toolchain
 
