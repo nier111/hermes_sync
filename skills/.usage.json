@@ -147,13 +147,13 @@
     "created_at": "2026-08-05T16:30:19.772077+00:00",
     "created_by": "agent",
     "last_patched_at": null,
-    "last_used_at": "2026-08-05T16:57:36.487641+00:00",
-    "last_viewed_at": "2026-08-05T16:57:36.480809+00:00",
+    "last_used_at": "2026-08-06T07:05:31.369735+00:00",
+    "last_viewed_at": "2026-08-06T07:05:31.363260+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "local-app-data-forensics": {
     "archived_at": null,
@@ -211,14 +211,14 @@
     "archived_at": null,
     "created_at": "2026-08-05T14:31:32.886252+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-05T16:58:12.075107+00:00",
-    "last_used_at": "2026-08-05T16:58:07.522714+00:00",
-    "last_viewed_at": "2026-08-05T16:58:07.517468+00:00",
-    "patch_count": 1,
+    "last_patched_at": "2026-08-06T07:06:06.065630+00:00",
+    "last_used_at": "2026-08-06T07:06:01.393838+00:00",
+    "last_viewed_at": "2026-08-06T07:06:01.379956+00:00",
+    "patch_count": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 4,
+    "view_count": 4
   },
   "persona-notes": {
     "archived_at": null,
@@ -238,13 +238,13 @@
     "created_at": "2026-08-05T16:29:53.913486+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-05T16:30:10.113734+00:00",
-    "last_used_at": "2026-08-05T16:57:36.489320+00:00",
-    "last_viewed_at": "2026-08-05T16:57:36.486038+00:00",
+    "last_used_at": "2026-08-06T07:05:31.371701+00:00",
+    "last_viewed_at": "2026-08-06T07:05:31.365793+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "user-profile-notes": {
     "archived_at": null,

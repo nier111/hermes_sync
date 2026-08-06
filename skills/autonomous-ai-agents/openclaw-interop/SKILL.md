@@ -46,6 +46,15 @@ Known routes: `/api/chat` (send message), `/api/v1/rpc` (JSON-RPC — what the C
 
 Call it directly: `curl -X POST http://127.0.0.1:18789/api/chat -H 'Content-Type: application/json' -d '{"message":"..."}'`
 
+## Building & version requirements (observed 2026-08-06)
+
+- Version gates live in `package.json`: `engines` (node >=22.22.3 <23) and `packageManager` (pnpm@11.15.1+sha512...). `pnpm build` exits 1 if either is unmet.
+- pnpm mismatch: the pacman `/usr/bin/pnpm` (e.g. 11.3.0) does NOT satisfy `packageManager`. Fix: `corepack enable` (writes a shim into the nvm bin dir), then any `pnpm` run INSIDE the project dir auto-downloads/activates the pinned version — verify with `pnpm --version` there.
+- node mismatch: `Error: Failed to render source browser help: openclaw: Node.js >=22.22.3 <23 ... is required (current: v22.22.0)` LOOKS like a rendering error but is the engines gate. Fix: `source ~/.nvm/nvm.sh && nvm install 22.22.3 && nvm use 22.22.3`.
+- After switching node via nvm, re-run `corepack enable` — the pnpm shim lives under the OLD nvm bin dir and falls off PATH.
+- Build is memory-hungry (tsdown; ~3.7GB peak). On a 7.4GB box: run `pnpm build > /tmp/openclaw-build.log 2>&1` in background, then `grep -nE "error|Error|failed" /tmp/openclaw-build.log` — the real error is a single line buried among fastfetch banner noise.
+- Retry is cheap: build reuses cached phases (tsdown-unified, ui:build...) after a version fix.
+
 ## Pitfalls
 
 - **Auto-update hijacks the gateway (observed 2026-08-06)**: the gateway checks for new versions (`~/.openclaw/update-check.json`) and, when one is found, systemd-run's a TRANSIENT user service (`openclaw-updateN.service` — no unit file, appears only via `systemctl --user list-units`) running `pnpm openclaw update --yes`. That flow STOPS the gateway service, git-pulls, and pnpm-installs ALL dependencies (multi-GB; proxied through local clash 7890 if proxy env is set — burns metered/hotspot traffic). Retries show as numbered logs `/tmp/openclaw-updateN.log`. Consequence for interop: a stopped gateway + 404s on the API is often the auto-update in progress, not a crash. After an interrupted update: node_modules half-built, gateway left stopped — recovery is re-running the update (or `pnpm install` + rebuild + `systemctl --user start openclaw-gateway`).
