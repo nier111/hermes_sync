@@ -24,7 +24,7 @@ Hermes 环境:web 搜索后端=ddgs(免key DDG,需7890代理,fallback 见 ddgs-s
 §
 QQ bot 头像=Lapwing(VRChat'赛博亡妻'),用户钦定。
 §
-本机 ollama 跑 qwen2.5vl:3b 识图(local-vision skill,CPU 慢);MX450 驱动待修:缺 linux-lts-headers+dkms,脚本 ~/fix-nvidia.sh sudo bash 跑。
+MX450 驱动已修(nvidia-smi 正常);ollama 为 CPU 版,GPU 需装 ollama-cuda 包。
 §
 Hermes 终端工具偶发 embedded null byte bug,用 execute_code 绕开;工具中途安装需新会话生效。
 §

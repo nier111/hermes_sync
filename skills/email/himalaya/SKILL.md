@@ -22,6 +22,30 @@ adapter lets people email the agent and uses Hermes' built-in IMAP/SMTP
 adapter; this skill lets the agent operate a mailbox from terminal tools and
 requires the external `himalaya` CLI.
 
+## v2.0.0 breaking changes (Arch 包当前版本,实测 2026-08-06)
+
+- **配置格式大变**:`backend.type/host/port/encryption` 平铺段 → 账号下直接 `imap.*` / `smtp.*`:
+  ```toml
+  [accounts.gmail]
+  default = true
+  imap.server = "imaps://imap.gmail.com:993"
+  imap.sasl.plain.username = "user@gmail.com"
+  imap.sasl.plain.password.command = "cat /path/to/app-password"
+  smtp.server = "smtps://smtp.gmail.com:465"
+  smtp.sasl.plain.username = "user@gmail.com"
+  smtp.sasl.plain.password.command = "cat /path/to/app-password"
+  mailbox.alias.inbox = "INBOX"
+  mailbox.alias.sent = "[Gmail]/Sent Mail"
+  mailbox.alias.drafts = "[Gmail]/Drafts"
+  mailbox.alias.trash = "[Gmail]/Trash"
+  ```
+  注意 v2 的别名键是 `mailbox.alias.*`(单数 alias),不是 v1 的 `folder.aliases.*`。
+- **`himalaya account configure` 向导已移除**:改为运行裸 `himalaya`(交互向导,自动探测服务器,输出 ready-to-save 配置)。密码策略可选 Custom shell command。
+- **`template` 子命令没了**:发信用 `himalaya message compose --from A --to B --subject S --body B --send`(内置 flag 组合器);rich MIME 用 mml 管道到 `himalaya message send`。
+- 子命令结构:`mailbox`(原 folder)、`envelope`、`message`、`smtp`、`imap`、`jmap`、`gmail` 等。
+- Gmail 应用密码:2FA 开启后在 myaccount.google.com/apppasswords 生成 16 位密码(注意不是恢复码——恢复码是 10 个 8 位数字,别混淆)。密码存 `~/.config/himalaya/app-password`(chmod 600),auth 用 `password.command = "cat ..."`。
+- `himalaya account check` 可能报瞬时 Connection reset(Gmail 限流),实际 envelope list 正常即视为连接 OK。
+
 ## References
 
 - `references/configuration.md` (config file setup + IMAP/SMTP authentication)
