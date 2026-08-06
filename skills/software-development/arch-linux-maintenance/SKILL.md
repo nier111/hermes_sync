@@ -38,9 +38,15 @@ Recurring maintenance workflows for the user's Arch boxes (laptop + future ITX).
 | mozilla cache | `rm -rf ~/.cache/mozilla` | only when firefox not running |
 | chromium cache | skip while chromium running (check `ps aux | grep chromium`) | ~1.5G when idle; browser-tool orphans killable — see openclaw-interop skill |
 | nvm old node | `nvm use <new> && nvm uninstall <old>` | nvm refuses to uninstall the "currently-active" version |
+| baloo (KDE file index) | `ps aux | grep -i baloo` then `rm -rf ~/.local/share/baloo` | hidden multi-GB (4.6G here) on non-KDE desktops (Hyprland); balooctl may not be installed — just delete the dir when no baloo process runs |
+| Trash | `rm -rf ~/.local/share/Trash/*` | user-level recycle bin |
 | journal | `sudo journalctl --vacuum-time=7d` | |
 
 Never touch: `~/.minecraft`, `~/.espressif` (ESP-IDF toolchain), `~/projects`, package-manager state outside caches.
+
+## "Why is my disk full when I installed nothing?" — what a dev box's ~100GB actually is
+
+Recurring question; give the user the composition, not just more cleanup. Typical breakdown on this box (after cleanup, 89G): `/usr` 16G (system + all installed software — electron apps alone are GBs each), `~/.local` 15G (pnpm store dominant), `/var` 8.6G (incl. pacman cache), `~/projects` 7.3G (OpenClaw node_modules is the bulk), `~/.minecraft` 6.5G, `/opt` 5.5G + `~/.espressif` 4.8G + `~/tools` 4.4G (embedded toolchains: ESP-IDF, STM32CubeMX), `~/.config` 3.8G (QQ, Code - OSS, music-player caches). The embedded/electron/pnpm stack is a 40-50G base that is NOT garbage — set expectations instead of promising more reclaim. Optionally check `~/.config/yesplaymusic/IndexedDB` (song cache, 1.7G) and QQ cache as user-data items they may choose to clear.
 
 ## dkms drivers (lts kernel + NVIDIA)
 

@@ -27,3 +27,5 @@ QQ bot 头像=Lapwing(VRChat'赛博亡妻'),用户钦定。
 本机 ollama 跑 qwen2.5vl:3b 识图(local-vision skill,CPU 慢);MX450 驱动待修:缺 linux-lts-headers+dkms,脚本 ~/fix-nvidia.sh sudo bash 跑。
 §
 Hermes 终端工具偶发 embedded null byte bug,用 execute_code 绕开;工具中途安装需新会话生效。
+§
+宿舍00:00-6:30断网。
