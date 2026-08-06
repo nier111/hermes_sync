@@ -73,13 +73,15 @@ Parse `<node ... bounds="[x1,y1][x2,y2]" class="...">` to get button/input-field
 
 **Coordinate-space gotcha (verified 2026-08)**: uiautomator bounds can be in LOGICAL px (e.g. width ~1600) while the physical panel is smaller (e.g. 720 wide — `wm size` shows physical). `adb shell input tap` takes PHYSICAL coordinates. If bounds numbers are larger than the physical panel, scale: `physical = logical × physical_width / logical_width`. When in doubt, iterate blind: tap an estimated physical point → screenshot → describe → adjust.
 
-## adb reverse: phone → PC services over USB
+## adb reverse / forward: USB tunnels (no WiFi needed)
 
 ```bash
-adb reverse tcp:5900 tcp:5900
+adb reverse tcp:5900 tcp:5900   # phone → PC: phone reaches PC's localhost:5900
+adb forward  tcp:8022 tcp:8022  # PC → phone: PC reaches phone's localhost:8022 (e.g. Termux sshd)
 ```
 
-Makes the phone reach the PC's `localhost:5900` through the USB cable — **no WiFi needed** (survives dorm network cuts 00:00–06:30). Re-set after any adb server restart. Essential for pointing a phone app at a PC-hosted service (VNC, web server, etc.). See `references/phone-as-secondary-display.md` for a full worked example (phone as a second monitor).
+Direction rule (verified 2026-08): **whoever hosts the service sits on the far side** —
+PC-hosted service (wayvnc, clash proxy) → `reverse`; phone-hosted service (Termux sshd) → `forward`. Using the wrong one shows up as `address already in use` on the phone side or `kex_exchange_identification: Connection closed` on the PC side. Both survive dorm network cuts (00:00–06:30) over USB. Re-set after any adb server restart. Worked examples: `references/phone-as-secondary-display.md` (reverse, VNC) and `references/adb-input-ime-and-termux.md` (forward, Termux sshd + proxy handoff).
 
 ## Pitfalls
 

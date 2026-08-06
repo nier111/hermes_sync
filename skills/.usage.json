@@ -3,14 +3,14 @@
     "archived_at": null,
     "created_at": "2026-08-06T10:18:15.390237+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-06T11:22:01.071951+00:00",
-    "last_used_at": "2026-08-06T11:21:01.786136+00:00",
-    "last_viewed_at": "2026-08-06T11:21:01.783953+00:00",
-    "patch_count": 6,
+    "last_patched_at": "2026-08-06T11:51:27.909998+00:00",
+    "last_used_at": "2026-08-06T11:49:55.391096+00:00",
+    "last_viewed_at": "2026-08-06T11:49:55.377329+00:00",
+    "patch_count": 8,
     "pinned": false,
     "state": "active",
-    "use_count": 7,
-    "view_count": 7
+    "use_count": 10,
+    "view_count": 10
   },
   "arch-linux-maintenance": {
     "archived_at": null,
