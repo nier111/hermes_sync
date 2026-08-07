@@ -42,10 +42,10 @@
     "archived_at": null,
     "created_at": "2026-08-05T18:03:35.244993+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-05T18:03:41.343298+00:00",
+    "last_patched_at": "2026-08-07T03:00:36.404113+00:00",
     "last_used_at": "2026-08-07T02:36:58.844952+00:00",
     "last_viewed_at": "2026-08-07T02:36:58.843071+00:00",
-    "patch_count": 2,
+    "patch_count": 6,
     "pinned": false,
     "state": "active",
     "use_count": 1,
@@ -82,13 +82,13 @@
     "created_at": "2026-08-06T10:37:48.756831+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-08-06T10:37:48.758850+00:00",
-    "last_viewed_at": "2026-08-06T10:37:48.756845+00:00",
+    "last_used_at": "2026-08-07T02:51:41.387929+00:00",
+    "last_viewed_at": "2026-08-07T02:51:41.385487+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "gif-search": {
     "archived_at": null,
@@ -225,13 +225,13 @@
     "created_at": "2026-08-05T18:27:39.298925+00:00",
     "created_by": null,
     "last_patched_at": "2026-08-05T18:27:39.298939+00:00",
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-08-07T02:54:33.555958+00:00",
+    "last_viewed_at": "2026-08-07T02:54:33.544966+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "netease-cloud-music": {
     "archived_at": null,
@@ -297,6 +297,19 @@
     "state": "active",
     "use_count": 2,
     "view_count": 2
+  },
+  "user-profile-maintenance": {
+    "archived_at": null,
+    "created_at": "2026-08-07T03:00:27.173921+00:00",
+    "created_by": "agent",
+    "last_patched_at": null,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
   },
   "user-profile-notes": {
     "archived_at": null,
