@@ -47,6 +47,14 @@ adb reverse tcp:5900 tcp:5900
 - **Confirm which config loaded**: the log line `Using configuration file <path>` tells you whether `-c`/`-b` actually took effect.
 - **Verify without a phone**: `grim -o HEADLESS-1 shot.png` then check pixel content (e.g. PIL: top rows non-black ratio). grim must be installed (`pacman -S grim`).
 - **AVNC APK source**: F-Droid page/API 404'd for several VNC clients over proxy; GitHub releases worked: `github.com/gujjwal00/avnc/releases` → `AVNC-<ver>.apk`. Package id is `com.gaurav.avnc` (NOT com.guyvidal.avnc); launch via `adb shell monkey -p com.gaurav.avnc -c android.intent.category.LAUNCHER 1` or `cmd package resolve-activity --brief com.gaurav.avnc` first to find the real entry activity.
-- **Connect from the agent**: AVNC has a top address bar — `adb shell input tap` it, `input text "127.0.0.1:5900"`, `input keyevent 66` to connect. If you land on a settings page, you hit the wrong spot; screenshot → re-target (see coordinate-space gotcha in the parent SKILL.md).
+- **Connect from the agent — prefer the vnc:// intent (verified 2026-08)**: `adb shell am start -a android.intent.action.VIEW -d "vnc://127.0.0.1:5900" com.gaurav.avnc` connects AVNC directly, no typing. This beats `input tap`+`input text` (IME swallows typed addresses; a stray Enter can land in a settings page). Fallback if intent fails: tap the top address bar (physical coords ≈ 360,56 on a 720-wide panel), type, Enter.
+- **USB re-enumeration wipes ALL tunnels (verified 2026-08)**: if the cable wiggles or re-plugs, `adb devices -l` shows a NEW `transport_id` — every forward/reverse is gone (SSH: connection refused; VNC: dead). One-shot restore:
+  ```bash
+  adb forward tcp:8022 tcp:8022
+  adb reverse tcp:5900 tcp:5900
+  adb reverse tcp:7890 tcp:7890   # if Termux needs PC proxy
+  adb shell am start -a android.intent.action.VIEW -d "vnc://127.0.0.1:5900" com.gaurav.avnc
+  ```
+- **wayvnc can die on its own** — it is a plain background process; if the phone shows the AVNC app but no remote desktop, check `pgrep -a wayvnc` and restart it before re-running the tunnel restore.
 - **User feedback loop**: phone standing landscape → make the virtual output landscape (1600x720), and one waybar row overflows → split modules across two stacked rows.
 - **adb reverse resets** whenever the adb server restarts — re-run before each session.

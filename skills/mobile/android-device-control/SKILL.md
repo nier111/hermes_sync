@@ -81,7 +81,7 @@ adb forward  tcp:8022 tcp:8022  # PC → phone: PC reaches phone's localhost:802
 ```
 
 Direction rule (verified 2026-08): **whoever hosts the service sits on the far side** —
-PC-hosted service (wayvnc, clash proxy) → `reverse`; phone-hosted service (Termux sshd) → `forward`. Using the wrong one shows up as `address already in use` on the phone side or `kex_exchange_identification: Connection closed` on the PC side. Both survive dorm network cuts (00:00–06:30) over USB. Re-set after any adb server restart. Worked examples: `references/phone-as-secondary-display.md` (reverse, VNC) and `references/adb-input-ime-and-termux.md` (forward, Termux sshd + proxy handoff).
+PC-hosted service (wayvnc, clash proxy) → `reverse`; phone-hosted service (Termux sshd) → `forward`. Using the wrong one shows up as `address already in use` on the phone side or `kex_exchange_identification: Connection closed` on the PC side. Both survive dorm network cuts (00:00–06:30) over USB. Re-set after any adb server restart — and after any USB re-enumeration: `adb devices -l` showing a NEW `transport_id` means ALL tunnels dropped, restore with the one-shot command in `references/phone-as-secondary-display.md`. Worked examples: `references/phone-as-secondary-display.md` (reverse, VNC) and `references/adb-input-ime-and-termux.md` (forward, Termux sshd + proxy handoff).
 
 ## Pitfalls
 
