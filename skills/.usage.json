@@ -56,26 +56,26 @@
     "created_at": "2026-08-05T20:29:53.019115+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-08T10:39:18.130141+00:00",
-    "last_used_at": "2026-08-08T10:29:20.098806+00:00",
-    "last_viewed_at": "2026-08-08T10:29:20.093373+00:00",
+    "last_used_at": "2026-08-09T10:06:26.574593+00:00",
+    "last_viewed_at": "2026-08-09T10:06:26.569668+00:00",
     "patch_count": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "companion-persona": {
     "archived_at": null,
     "created_at": "2026-08-05T20:07:33.979430+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-08T10:39:18.233710+00:00",
-    "last_used_at": "2026-08-08T10:29:20.100700+00:00",
-    "last_viewed_at": "2026-08-08T10:29:20.095268+00:00",
-    "patch_count": 2,
+    "last_patched_at": "2026-08-09T10:20:27.211173+00:00",
+    "last_used_at": "2026-08-09T10:20:22.688685+00:00",
+    "last_viewed_at": "2026-08-09T10:20:22.683286+00:00",
+    "patch_count": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "ddgs-search": {
     "archived_at": null,
@@ -276,14 +276,14 @@
     "archived_at": null,
     "created_at": "2026-08-05T14:31:32.886252+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-06T08:31:41.188949+00:00",
-    "last_used_at": "2026-08-06T10:17:37.963703+00:00",
-    "last_viewed_at": "2026-08-06T10:17:37.961732+00:00",
-    "patch_count": 6,
+    "last_patched_at": "2026-08-09T10:07:01.014078+00:00",
+    "last_used_at": "2026-08-09T10:06:55.345631+00:00",
+    "last_viewed_at": "2026-08-09T10:06:55.340262+00:00",
+    "patch_count": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 14,
-    "view_count": 14
+    "use_count": 16,
+    "view_count": 16
   },
   "persona-notes": {
     "archived_at": null,

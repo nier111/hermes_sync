@@ -67,6 +67,29 @@ cd ~/projects/openclaw && pnpm openclaw agent --agent main -m "message text" [--
 - Build is memory-hungry (tsdown; ~3.7GB peak). On a 7.4GB box: run `pnpm build > /tmp/openclaw-build.log 2>&1` in background, then `grep -nE "error|Error|failed" /tmp/openclaw-build.log` — the real error is a single line buried among fastfetch banner noise.
 - Retry is cheap: build reuses cached phases (tsdown-unified, ui:build...) after a version fix.
 
+## QQ Bot health check
+
+QQ's WebSocket gateway disconnects every ~30 minutes (`4009 Session timed out`) — this is normal server-side behavior. OpenClaw auto-reconnects within seconds.
+
+**Quick status:**
+```bash
+cd ~/projects/openclaw && export PATH="$HOME/.nvm/versions/node/v22.22.3/bin:$PATH"
+pnpm openclaw status 2>&1 | grep -A 2 "QQ Bot"
+```
+
+**Check recent disconnect/reconnect events:**
+```bash
+grep -E "(qqbot.*(disconnect|resumed|timeout|closed))" /tmp/openclaw/openclaw-$(date +%F).log | tail -5
+```
+
+**Interpretation:**
+- `Gateway disconnected: server requested reconnect` + `WebSocket closed: 4009 Session timed out` → normal, auto-recovered
+- `Gateway resumed` → reconnection succeeded
+- Long gap (>2 min) between disconnect and resume → possible network issue during reconnect window
+- If QQ Bot shows `ON` + `OK` in status but user reports no response: check if disconnect happened exactly when they sent the message (within the ~2-second reconnection gap)
+
+**Service config drift:** if `pnpm openclaw gateway status` shows "Service config issue: Gateway service was installed by OpenClaw X; current CLI is Y", run `pnpm openclaw doctor --repair` to sync. Harmless but cleans up PATH warnings.
+
 ## Pitfalls
 
 - **Hermes terminal env is a per-command snapshot (verified 2026-08-06)**: `nvm use 22.22.3` only sticks within the command that ran it — the next Hermes terminal call gets the old PATH (node 22.22.0) again, and `pnpm openclaw ...` fails the engines gate with "detected Node 22.22.0 (exec: .../v22.22.0/bin/node)" even though `node -v` showed the new version earlier. Fix: prefix EVERY command with `export PATH="$HOME/.nvm/versions/node/v22.22.3/bin:$PATH"` (also set `nvm alias default 22.22.3` once so interactive shells pick it up). Same applies to background builds.
