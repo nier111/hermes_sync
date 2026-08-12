@@ -238,13 +238,13 @@
     "created_at": "2026-08-05T20:29:53.019115+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-12T11:42:00.581523+00:00",
-    "last_used_at": "2026-08-12T11:41:49.085066+00:00",
-    "last_viewed_at": "2026-08-12T11:41:49.082671+00:00",
+    "last_used_at": "2026-08-12T17:54:36.180262+00:00",
+    "last_viewed_at": "2026-08-12T17:54:36.176977+00:00",
     "patch_count": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "companion-persona": {
     "archived_at": null,
@@ -290,12 +290,12 @@
     "created_at": "2026-08-12T12:46:10.898470+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-08-12T15:28:44.974040+00:00",
+    "last_used_at": "2026-08-12T18:29:47.137812+00:00",
     "last_viewed_at": "2026-08-12T13:32:39.134637+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
+    "use_count": 4,
     "view_count": 2
   },
   "ddgs-search": {
@@ -303,13 +303,13 @@
     "created_at": "2026-08-06T10:37:48.756831+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-08-07T02:51:41.387929+00:00",
-    "last_viewed_at": "2026-08-07T02:51:41.385487+00:00",
+    "last_used_at": "2026-08-12T18:08:10.900241+00:00",
+    "last_viewed_at": "2026-08-12T18:08:10.894685+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 3,
+    "view_count": 3
   },
   "design-md": {
     "archived_at": null,
@@ -524,13 +524,13 @@
     "created_at": "2026-08-12T13:59:01.414064+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-08-12T18:08:28.382873+00:00",
+    "last_viewed_at": "2026-08-12T18:08:28.378778+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "hermes-agent": {
     "archived_at": null,
@@ -862,26 +862,26 @@
     "created_at": "2026-08-05T13:55:03.121543+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-12T15:26:57.051947+00:00",
-    "last_used_at": "2026-08-12T15:24:17.717829+00:00",
-    "last_viewed_at": "2026-08-12T15:24:17.700268+00:00",
+    "last_used_at": "2026-08-12T18:09:36.633094+00:00",
+    "last_viewed_at": "2026-08-12T18:09:36.627795+00:00",
     "patch_count": 6,
     "pinned": false,
     "state": "active",
-    "use_count": 9,
-    "view_count": 9
+    "use_count": 12,
+    "view_count": 12
   },
   "openclaw-interop": {
     "archived_at": null,
     "created_at": "2026-08-05T14:31:32.886252+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-09T10:07:01.014078+00:00",
-    "last_used_at": "2026-08-09T10:06:55.345631+00:00",
-    "last_viewed_at": "2026-08-09T10:06:55.340262+00:00",
+    "last_used_at": "2026-08-12T18:09:36.621684+00:00",
+    "last_viewed_at": "2026-08-12T18:09:36.612874+00:00",
     "patch_count": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 16,
-    "view_count": 16
+    "use_count": 20,
+    "view_count": 20
   },
   "opencode": {
     "archived_at": null,
@@ -978,14 +978,14 @@
     "archived_at": null,
     "created_at": "2026-08-05T16:29:53.913486+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-05T16:30:10.113734+00:00",
-    "last_used_at": "2026-08-06T07:05:31.371701+00:00",
-    "last_viewed_at": "2026-08-06T07:05:31.365793+00:00",
-    "patch_count": 1,
+    "last_patched_at": "2026-08-12T18:07:49.832162+00:00",
+    "last_used_at": "2026-08-12T18:07:07.424603+00:00",
+    "last_viewed_at": "2026-08-12T18:07:07.410380+00:00",
+    "patch_count": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 3,
+    "view_count": 3
   },
   "powerpoint": {
     "archived_at": null,
@@ -1207,6 +1207,19 @@
     "state": "active",
     "use_count": 1,
     "view_count": 1
+  },
+  "volcano-ark-doubao": {
+    "archived_at": null,
+    "created_at": "2026-08-12T18:16:16.384304+00:00",
+    "created_by": "agent",
+    "last_patched_at": null,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
   },
   "vscode-code-oss": {
     "archived_at": null,

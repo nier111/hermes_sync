@@ -75,3 +75,4 @@ description: "Use for power electronics: GaN drivers, dead time."
 
 ## References
 - references/water-acoustic-transducer-board.md — 水声板 project state: chain, V1 findings, V2 plan, open parameters.
+- references/schematic-analysis-vlm.md — 原理图 PDF 转图 + VLM 识图工作流（豆包 doubao-seed-2-0-lite / Codex GPT-5.6），含水声板 4 页结构。
