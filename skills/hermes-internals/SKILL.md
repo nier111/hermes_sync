@@ -3,9 +3,9 @@ name: hermes-internals
 description: Use when asked about Hermes data layout or channel status.
 ---
 
-# Hermes internals — data layout & channel forensics
+# Hermes internals — data layout, channel forensics & programmatic usage accounting
 
-Answers "where is X stored?" and "is channel Y actually connected?" about Hermes itself. Distinct from the bundled `hermes-agent` skill (that covers using/configuring the CLI); this is about the on-disk data and how to prove a channel is live.
+Answers "where is X stored?", "is channel Y actually connected?", and "how much context/cost is this session using?" about Hermes itself. Distinct from the bundled `hermes-agent` skill (that covers using/configuring the CLI); this is about the on-disk data, channel liveness, and CLI-surface accounting flags you can drive from another process.
 
 ## Where things live (~/.hermes/)
 - `config.yaml` — settings; `platform_toolsets` maps platform → toolset (e.g. `qqbot: [hermes-qqbot]`)
@@ -32,6 +32,15 @@ Presence of `qqbot:` under `platform_toolsets` is TEMPLATE config, NOT proof of 
 - Credentials: `QQ_APP_ID` / `QQ_CLIENT_SECRET`, stored via the gateway (NOT in config.yaml — grepping config for keys finds nothing)
 - Connection: websocket `wss://api.sgroup.qq.com/websocket`, C2C (single-chat) messages
 - Onboarding warning `Failed to create bind task: Invalid port: '127.0.0.1:7891'` is NON-FATAL (bind-task misconfig; connection unaffected)
+
+## Programmatic usage accounting (for external callers)
+
+When integrating Hermes into another app (e.g. a multi-agent UI that shells out to `hermes -z`), get usage numbers without parsing chat output:
+
+- `hermes -z "<prompt>" --usage-file /tmp/usage.json` — one-shot mode only; after the run writes a JSON report: `input_tokens`, `output_tokens`, `reasoning_tokens`, `total_tokens`, `estimated_cost_usd`, `api_calls`, `model`, `provider`, `session_id`. Written even when the run fails, so pipelines can always account for spend. No effect outside `-z`/`--oneshot`.
+- `hermes prompt-size` — system-prompt cost breakdown (bytes/chars): skills index, memory, user profile, tool schemas, per-toolset size. Judge fixed overhead before any conversation.
+- `hermes -z` is a FRESH process every call — no session state, so it re-sends the full system prompt + memory + skills index + tool schemas + the entire prompt each time. Continuity must be supplied by the caller (pass prior turns inside the prompt).
+- In-session `/usage` and `/context` print live numbers; the percentage is `last_prompt_tokens / context_length` (context-window occupancy, computed in `cli.py`), NOT cumulative spend. Cumulative spend is `session_total_tokens` (`/usage`).
 
 ## Pitfalls
 - When the user says "the qqbot / the bot" on a machine with BOTH Hermes and OpenClaw deployed, check BOTH `~/.hermes` and `~/.openclaw` — each has a qqbot; only one is live (see the `openclaw` skill for the other side).
