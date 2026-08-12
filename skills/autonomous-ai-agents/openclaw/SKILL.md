@@ -57,6 +57,10 @@ Known endpoints (found in bundle):
   - PATH prefix is mandatory: Hermes terminal env is a per-command snapshot, so `nvm use` doesn't persist and the next call falls back to old node (fails the engines gate). `nvm alias default 22.22.3` once for interactive shells.
 - Config hints: `auth.profiles` lists providers (moonshot / openrouter / minimax / kimi / deepseek); channels: telegram / discord / slack / whatsapp / qqbot. Updates route through local proxy `127.0.0.1:7890`.
 
+## Delegating Chinese Web Research to OpenClaw
+
+OpenClaw's browser/search is stronger against Chinese anti-scraping than Hermes's. When you need authoritative Chinese sources (百度百科/知乎/贴吧) or hit repeated captchas/412s, delegate the search to OpenClaw instead of flailing across sites. It found 百度百科/知乎 sources for meme lookups (e.g. 老吴、耄耋、打窝仙人) that direct curl/browser attempts couldn't reach, and it flags uncertainty with `(?)` instead of hallucinating. Call: `pnpm openclaw agent --agent main -m "search <topic> on 百度百科/知乎, cite sources"`.
+
 ## Pitfalls
 1. **Update/restart mixed state.** `openclaw update --yes` unpacks new dist files while the OLD gateway keeps running. In that window, the on-disk bundle advertises routes the running process 404s on — the API looks broken but isn't. Diagnose: compare `stat -c %y dist/index.js` (new) against the gateway process start time (old); check for a running `openclaw-update` process. Don't call the API mid-update; wait for the restart (a `gateway-supervisor-restart-handoff.json` in `~/.openclaw` signals the handoff).
 2. **Secrets.** Config may hold provider keys without a plain `apiKey` field. Never dump the config raw — redact with sed when grepping.
