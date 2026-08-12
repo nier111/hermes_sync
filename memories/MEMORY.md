@@ -28,8 +28,4 @@ Hermes 终端工具偶发 embedded null byte bug,用 execute_code 绕开;工具�
 §
 Gmail(zyyyds208660669@gmail.com)已接himalaya。备用机VNE-AN00(荣耀,锁BL无法root):adb+Termux ssh(8022,pwd=sato,u0_a189,adb forward)+Ubuntu26.04(proot,下载需reverse 7890代理);waybar副屏:wayvnc盯HEADLESS-1,AVNC重连=adb reverse tcp:5900+am start -d vnc://127.0.0.1:5900。
 §
-cron(no_agent)不进会话,输出~/.hermes/cron/output/;时间查date。
-§
-Minecraft 陪玩:mineflayer ~/projects/mc-aoi,等 Java 版/服务器信息。
-§
-QQ bot2:gf/Kubo(久保渚咲,1905411221),女友短日常;gateway=hermes-gateway-gf,watchdog 06:35+12:00;跨profile同步~/.hermes/shared/每3h。豆包API(ark,doubao-seed-2-0-lite-260428)热梗准确率64%,小众梗编造。
+QQ bot2:gf/Kubo(久保渚咲,1905411221),短日常;gateway=hermes-gateway-gf, watchdog 06:35+12:00。Aoi与Kubo独立memory,shared目录互通每3h cron。emoji适量。豆包API(ark,doubao-seed-2-0-lite-260428)准确率64%但口头梗会编造,仅辅助释义。B站热梗搜索:API≥5s间隔避412,标题梗名>评论区。用户批评:遇风控应先加延时而非绕路。词典17条经审核。
