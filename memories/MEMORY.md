@@ -20,7 +20,7 @@ QQ bot:hermes-qqbot(App 1905362897),DM 83ECED7607DD4DC378B441144891D01D,头像La
 §
 用户考研目标:成电(电子科技大学)电子信息硕士,初试数一+英一+政治+专业课(信号与系统,成电858)。2026-08 进度:高数/线代各剩末章、概统未开始(计划5-7天一轮)、专业课5/6章、英语仅背单词。资料在 ~/Documents/考研/(13学院复试PDF+study-log.md 每日打卡);OpenClaw 有成电2026复试分析(信通院专硕365、电子院01方向330、自动化院仪器仪表325等)。
 §
-Hermes 环境:web 搜索后端=ddgs(免key DDG,需7890代理,fallback 见 ddgs-search 技能);SUDO_PASSWORD 在密钥文件,新会话自动注入,运行中读不到,禁 echo|sudo -S,用 SUDO_ASKPASS+sudo -A。
+Hermes: web搜索=ddgs(7890代理);SUDO_PASSWORD用ASKPASS+sudo -A,禁echo|sudo -S。
 §
 MX450驱动已修;ollama-cuda,2G显存跑3B加速有限。
 §
@@ -30,6 +30,8 @@ Hermes 终端工具偶发 embedded null byte bug,用 execute_code 绕开;工具�
 §
 Gmail(zyyyds208660669@gmail.com)已接himalaya。备用机VNE-AN00(荣耀,锁BL无法root):adb+Termux ssh(8022,pwd=sato,u0_a189,adb forward)+Ubuntu26.04(proot,下载需reverse 7890代理);waybar副屏:wayvnc盯HEADLESS-1,AVNC重连=adb reverse tcp:5900+am start -d vnc://127.0.0.1:5900。
 §
-cron(no_agent)消息不进会话;查~/.hermes/cron/output/;谈时间/天气先查date。
+cron(no_agent)不进会话,输出~/.hermes/cron/output/;时间查date。
 §
-用户想让我以 Aoi 人格接入 Minecraft 陪玩(mineflayer 已装 ~/projects/mc-aoi,等 Java 版/服务器信息)。
+Minecraft 陪玩:mineflayer ~/projects/mc-aoi,等 Java 版/服务器信息。
+§
+Hermes QQ bot 2: profile=gf(App 1905411221),女友短日常,gateway=hermes-gateway-gf,watchdog已覆盖。

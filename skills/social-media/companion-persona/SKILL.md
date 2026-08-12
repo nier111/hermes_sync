@@ -53,3 +53,6 @@ metadata:
 
 - `local-vision` — 本地 ollama 识图(她发图必用)
 - `ddgs-search` — 免 key 网页搜索(ddgs + 7890 代理)
+- `references/multi-profile-qqbot.md` — 多 QQ Bot 账户 profile 部署指南(独立人格+独立 gateway+watchdog)
+- `references/qqbot-infra.md` — QQ Bot 运维(watchdog 自动恢复、多账号限制)
+- `references/hermes-qqbot.md` — QQ Bot 断联诊断(区分 Hermes vs OpenClaw qqbot)
