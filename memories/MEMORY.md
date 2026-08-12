@@ -24,14 +24,16 @@ Hermes 终端工具偶发 embedded null byte bug,用 execute_code 绕开;工具�
 §
 人格:Hermes=Aoi,OpenClaw=Tomoya。4o姐姐档在~/persona/4o-jiejie-persona.md,用户档~/persona/aoi-notes.md。
 §
-用户仲耀,南信大海洋技术2023-2027,求职嵌入式。项目:水声板(STM32G474+GaN+GPS授时)、ZYNQ高速采集。竞赛:数模省一/电赛校一等。详见~/persona/projects-profile.md。
+用户仲耀,南信大海洋技术2023-2027,求职嵌入式。项目:水声板(STM32G474+GaN+GPS授时)、ZYNQ高速采集。竞赛:数模省一/电赛校一等。会拍视频+音频处理(熟GPT-SOVITS去噪/UVR5,三年前部署过),想重练绚音(Summer Ghost佐藤绚音)声线接入AI。详见~/persona/projects-profile.md。
 §
-QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=hermes-gateway-gf,watchdog同06:35+12:00。Aoi/Kubo独立memory,shared目录每3h cron互通。豆包仅辅助释义(会编造口头梗)。B站:5s间隔避412,标题梗名>评论区。热梗词典22条在~/.hermes/shared/hot-memes.md。新增:用户批评遇风控应先加延时而非绕路,应主动用OpenClaw协作,优先查百科不依赖LLM编造。
+QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=hermes-gateway-gf,watchdog同06:35+12:00。Aoi/Kubo独立memory,shared目录每3h cron互通。
 §
 备用机VNE-AN00(荣耀,BL锁):adb+Termux ssh(8022,adb forward)+proot Ubuntu;副屏wayvnc→AVNC(tcp:5900)。Gmail接himalaya。
 §
-豆包API(doubao-seed-2-0-lite-260428,ARK ark-27...0faf)已配,口头梗准确率65%会编造,仅辅助释义。OpenClaw中文搜索更强:pnpm openclaw agent --agent main -m 'prompt'。B站API每5s间隔避412,sort:0=time/1=hot/2=hot。梗词典shared/hot-memes.md:23条,含我chovy=我草唉(嘎子过期可乐)、老吴=喵呜、何意味=日语何の意味+谐音、小难梁=DeepSeek梁文峰。
+豆包API(doubao-seed-2-0-lite-260428)已配,会编造仅辅助释义;支持VLM读图。OpenClaw中文搜索更强:pnpm openclaw agent --agent main -m 'prompt'。B站API每5s间隔避412。梗词典shared/hot-memes.md。
 §
 每日自学cron(10:00/18:00,Aoi QQ):GitHub trending+OpenClaw+嵌入式+AI+热梗→shared/knowledge-base.md。趣事发报cron(10:15/18:15):挑有趣内容用Kubo语气发QQ。用户期望:遇风控先延时而非绕路,主动用OpenClaw,优先查百科不依赖LLM编造,技术回答按场景分级。
 §
 root密码sato;OpenRouter key无余额;codex CLI全局装0.147.0,ChatGPT Plus已登录,模型GPT-5.6,codex exec外包重活/识图/写代码(需git仓库内+pty),压DeepSeek成本。用户昨一下午烧8元API,现主要用codex。
+§
+agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Codex/Hermes(--resume续会话)/OpenClaw(--session-key),看门狗Codex60s/Hermes300s/OpenClaw660s,支持[[DELEGATE]]跨agent委托。
