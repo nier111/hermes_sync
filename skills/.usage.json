@@ -55,27 +55,27 @@
     "archived_at": null,
     "created_at": "2026-08-05T20:29:53.019115+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-08T10:39:18.130141+00:00",
-    "last_used_at": "2026-08-09T10:06:26.574593+00:00",
-    "last_viewed_at": "2026-08-09T10:06:26.569668+00:00",
-    "patch_count": 2,
+    "last_patched_at": "2026-08-12T11:42:00.581523+00:00",
+    "last_used_at": "2026-08-12T11:41:49.085066+00:00",
+    "last_viewed_at": "2026-08-12T11:41:49.082671+00:00",
+    "patch_count": 3,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 3,
+    "view_count": 3
   },
   "companion-persona": {
     "archived_at": null,
     "created_at": "2026-08-05T20:07:33.979430+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-12T11:17:14.324127+00:00",
-    "last_used_at": "2026-08-12T11:17:09.211585+00:00",
-    "last_viewed_at": "2026-08-12T11:17:09.208063+00:00",
-    "patch_count": 8,
+    "last_patched_at": "2026-08-12T11:42:14.642950+00:00",
+    "last_used_at": "2026-08-12T11:42:03.508641+00:00",
+    "last_viewed_at": "2026-08-12T11:42:03.503862+00:00",
+    "patch_count": 10,
     "pinned": false,
     "state": "active",
-    "use_count": 4,
-    "view_count": 4
+    "use_count": 5,
+    "view_count": 5
   },
   "cron-reminders": {
     "archived_at": null,
@@ -102,6 +102,19 @@
     "state": "active",
     "use_count": 2,
     "view_count": 2
+  },
+  "gf-stickers": {
+    "archived_at": null,
+    "created_at": "2026-08-12T11:56:33.155656+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-08-12T11:56:41.335617+00:00",
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 1,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
   },
   "gif-search": {
     "archived_at": null,
