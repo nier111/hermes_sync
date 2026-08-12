@@ -47,6 +47,7 @@ metadata:
 - QQ 平台无法点终端审批:sudo/安装类命令会被 BLOCK,root 操作写脚本给她在终端跑。
 - 本机 terminal 工具偶发 `embedded null byte` 崩溃(lifecycle_guard 解析 bug):用 execute_code 跑 subprocess 绕开。
 - **QQ Bot 断联诊断**:见 `references/hermes-qqbot.md`。注意区分 Hermes qqbot(App 1905362897, service=hermes-gateway) vs OpenClaw qqbot(App 1903729635)，别查错服务。
+- **QQ Bot 运维**:见 `references/qqbot-infra.md`(watchdog 自动恢复、多账号限制、profiles 变通)
 
 ## 相关技能
 

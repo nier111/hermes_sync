@@ -68,14 +68,14 @@
     "archived_at": null,
     "created_at": "2026-08-05T20:07:33.979430+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-09T10:20:27.211173+00:00",
-    "last_used_at": "2026-08-09T10:20:22.688685+00:00",
-    "last_viewed_at": "2026-08-09T10:20:22.683286+00:00",
-    "patch_count": 4,
+    "last_patched_at": "2026-08-12T10:12:01.621053+00:00",
+    "last_used_at": "2026-08-12T10:11:55.029489+00:00",
+    "last_viewed_at": "2026-08-12T10:11:55.023925+00:00",
+    "patch_count": 6,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 3,
+    "view_count": 3
   },
   "cron-reminders": {
     "archived_at": null,
@@ -147,13 +147,13 @@
     "created_at": "2026-08-05T14:05:27.151601+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-08-06T09:18:00.383153+00:00",
-    "last_viewed_at": "2026-08-06T09:18:00.381505+00:00",
+    "last_used_at": "2026-08-12T10:10:09.309435+00:00",
+    "last_viewed_at": "2026-08-12T10:10:09.307137+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 6,
-    "view_count": 6
+    "use_count": 8,
+    "view_count": 8
   },
   "hermes-cross-machine-sync": {
     "archived_at": null,
