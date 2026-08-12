@@ -32,6 +32,16 @@ Requires the codex CLI and a git repository.
 - **Must run inside a git repository** — Codex refuses to run outside one
 - Use `pty=true` in terminal calls — Codex is an interactive terminal app
 
+### ChatGPT 订阅版（省 API 成本）
+
+Codex 可用 ChatGPT Plus/Pro 订阅的 OAuth 登录（`codex login`），走订阅额度而非 API key，模型是 gpt-5.6 系列。这是把重活外包给 GPT-5.6、绕开 DeepSeek/API 成本的关键路径。
+
+- 登录状态：`codex login status`（显示 `Logged in using ChatGPT`）
+- 全局指令：`~/.codex/AGENTS.md`（可配置本机协作分工，如让 codex 调用 OpenClaw）
+- 模型配置：`~/.codex/config.toml`（`model = "gpt-5.6-sol"` 等）
+- **额度无法从 CLI 查询**，只能去 ChatGPT 网页 Settings→Usage 看。额度耗尽会报 rate limit / 401 refresh token 错误，届时 fallback 到其他 provider。
+- token 过期症状：`refresh token was already used`，需 `codex login` 重新 OAuth 授权。
+
 For Hermes itself, `model.provider: openai-codex` uses Hermes-managed Codex
 OAuth from `~/.hermes/auth.json` after `hermes auth add openai-codex`. For the
 standalone Codex CLI, a valid CLI OAuth session may live under

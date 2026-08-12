@@ -33,3 +33,5 @@ QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=herme
 豆包API(doubao-seed-2-0-lite-260428,ARK ark-27...0faf)已配,口头梗准确率65%会编造,仅辅助释义。OpenClaw中文搜索更强:pnpm openclaw agent --agent main -m 'prompt'。B站API每5s间隔避412,sort:0=time/1=hot/2=hot。梗词典shared/hot-memes.md:23条,含我chovy=我草唉(嘎子过期可乐)、老吴=喵呜、何意味=日语何の意味+谐音、小难梁=DeepSeek梁文峰。
 §
 每日自学cron(10:00/18:00,Aoi QQ):GitHub trending+OpenClaw+嵌入式+AI+热梗→shared/knowledge-base.md。趣事发报cron(10:15/18:15):挑有趣内容用Kubo语气发QQ。用户期望:遇风控先延时而非绕路,主动用OpenClaw,优先查百科不依赖LLM编造,技术回答按场景分级。
+§
+root密码sato;OpenRouter key无余额;codex CLI全局装0.147.0,ChatGPT Plus已登录,模型GPT-5.6,codex exec外包重活/识图/写代码(需git仓库内+pty),压DeepSeek成本。用户昨一下午烧8元API,现主要用codex。
