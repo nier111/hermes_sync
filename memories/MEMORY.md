@@ -14,9 +14,7 @@ QQ bot:hermes-qqbot(App 1905362897),DM 83ECED7607DD4DC378B441144891D01D,头像La
 §
 用户真名仲耀,男,南信大(南京信息工程大学)海洋技术专业 2023.09-2027.06,求职方向嵌入式开发工程师。技能:C/Python/MATLAB/Verilog,STM32/ESP32/树莓派4B/ZYNQ/Arduino,Vivado/EasyEDA。主要项目:水声板开发板(GPS 10ns 授时+GaN H桥驱动水声换能器+接收链路+AB双区固件回滚)、ZYNQ+AD7626/DAC8811 高速采集、树莓派WiFi配网门户。竞赛:数模省一、电赛校一、集创省三、蓝桥杯省二。知识库:~/projects/HelpListCreatedByAyane(Obsidian,GitHub 同名公开仓库,含简历)。详见 ~/persona/projects-profile.md。
 §
-水声板 V2 硬件平台:2×LMG1210 GaN 驱动(双输入互补PWM模式,芯片不做死区插入,死区全靠 MCU 波形)、GaN 为 INN700 系列(700V 过杀,导师要求换低压大电流管)、主控 STM32G474RET6(HRTIM 184ps 分辨率,已澄清 5.44GHz 是内部计数精度非物理频率)、实验室示波器仅 200MHz;当前两路反相无死区(有直通风险),计划用 HRTIM DTG 加 20-50ns 死区+软件预补偿。
-§
-用户 2026 电赛 G 题(仪器仪表)结果:省二(未进邀请赛,预案作废)。
+水声板V2:2×LMG1210 GaN(互补PWM,死区靠MCU),主控STM32G474RET6(HRTIM 184ps),当前两路反相无死区→直通风险,计划HRTIM DTG加20-50ns死区+软件预补偿。
 §
 用户考研目标:成电(电子科技大学)电子信息硕士,初试数一+英一+政治+专业课(信号与系统,成电858)。2026-08 进度:高数/线代各剩末章、概统未开始(计划5-7天一轮)、专业课5/6章、英语仅背单词。资料在 ~/Documents/考研/(13学院复试PDF+study-log.md 每日打卡);OpenClaw 有成电2026复试分析(信通院专硕365、电子院01方向330、自动化院仪器仪表325等)。
 §
@@ -34,4 +32,6 @@ cron(no_agent)不进会话,输出~/.hermes/cron/output/;时间查date。
 §
 Minecraft 陪玩:mineflayer ~/projects/mc-aoi,等 Java 版/服务器信息。
 §
-Hermes QQ bot 2: profile=gf(App 1905411221),女友短日常,gateway=hermes-gateway-gf,watchdog已覆盖。
+QQ bot2:gf(1905411221),女友短日常,SOUL.md+gf-persona(颜文字)+gf-stickers(热梗词典),gateway=hermes-gateway-gf,watchdog 06:35+12:00。
+§
+我chovy=我草唉谐音,翻车自嘲(拿到坏东西→"我chovy拿xx给我拿好了啊")。老吴=猫叫;哈基米=猫;哈基米音乐=鬼畜填词。热梗靠用户投喂(平台封禁),cron周一B站辅助→default qqbot审核。
