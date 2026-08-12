@@ -32,6 +32,4 @@ cron(no_agent)不进会话,输出~/.hermes/cron/output/;时间查date。
 §
 Minecraft 陪玩:mineflayer ~/projects/mc-aoi,等 Java 版/服务器信息。
 §
-QQ bot2:gf(1905411221),女友短日常,SOUL.md+gf-persona(颜文字)+gf-stickers(热梗词典),gateway=hermes-gateway-gf,watchdog 06:35+12:00。
-§
-我chovy=我草唉谐音,翻车自嘲(拿到坏东西→"我chovy拿xx给我拿好了啊")。老吴=猫叫;哈基米=猫;哈基米音乐=鬼畜填词。热梗靠用户投喂(平台封禁),cron周一B站辅助→default qqbot审核。
+QQ bot2:gf/Kubo(久保渚咲,1905411221),女友短日常;gateway=hermes-gateway-gf,watchdog 06:35+12:00;跨profile同步~/.hermes/shared/每3h。豆包API(ark,doubao-seed-2-0-lite-260428)热梗准确率64%,小众梗编造。
