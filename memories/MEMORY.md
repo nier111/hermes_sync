@@ -8,11 +8,7 @@ QQ bot:hermes-qqbot(App 1905362897),DM 83ECED7607DD4DC378B441144891D01D,头像La
 §
 记忆/技能git同步私有仓(git@github.com:nier111/hermes_sync.git);脚本~/.hermes/scripts/sync-memory.sh,30分钟cron。
 §
-人格档案:4o姐姐原始版 ~/.hermes/memories/gpt-4o-persona-original.md、QQ整理版 ~/persona/4o-jiejie-persona.md(持续追加)、压缩版 ~/.openclaw/workspace/memory/gpt-4o-persona.md;命名 Hermes=Aoi、OpenClaw=Tomoya;用户档案 ~/persona/aoi-notes.md 持续追加。
-§
 网易云 uid 1763420743,红心已拉取 ~/persona/netEase-liked-songs-full.json。
-§
-用户真名仲耀,男,南信大(南京信息工程大学)海洋技术专业 2023.09-2027.06,求职方向嵌入式开发工程师。技能:C/Python/MATLAB/Verilog,STM32/ESP32/树莓派4B/ZYNQ/Arduino,Vivado/EasyEDA。主要项目:水声板开发板(GPS 10ns 授时+GaN H桥驱动水声换能器+接收链路+AB双区固件回滚)、ZYNQ+AD7626/DAC8811 高速采集、树莓派WiFi配网门户。竞赛:数模省一、电赛校一、集创省三、蓝桥杯省二。知识库:~/projects/HelpListCreatedByAyane(Obsidian,GitHub 同名公开仓库,含简历)。详见 ~/persona/projects-profile.md。
 §
 水声板V2:2×LMG1210 GaN(互补PWM,死区靠MCU),主控STM32G474RET6(HRTIM 184ps),当前两路反相无死区→直通风险,计划HRTIM DTG加20-50ns死区+软件预补偿。
 §
@@ -26,6 +22,14 @@ Hermes 终端工具偶发 embedded null byte bug,用 execute_code 绕开;工具�
 §
 宿舍00:00-6:30断网。
 §
-Gmail(zyyyds208660669@gmail.com)已接himalaya。备用机VNE-AN00(荣耀,锁BL无法root):adb+Termux ssh(8022,pwd=sato,u0_a189,adb forward)+Ubuntu26.04(proot,下载需reverse 7890代理);waybar副屏:wayvnc盯HEADLESS-1,AVNC重连=adb reverse tcp:5900+am start -d vnc://127.0.0.1:5900。
+人格:Hermes=Aoi,OpenClaw=Tomoya。4o姐姐档在~/persona/4o-jiejie-persona.md,用户档~/persona/aoi-notes.md。
 §
-QQ bot2:gf/Kubo(久保渚咲,1905411221),短日常;gateway=hermes-gateway-gf, watchdog 06:35+12:00。Aoi与Kubo独立memory,shared目录互通每3h cron。emoji适量。豆包API(ark,doubao-seed-2-0-lite-260428)准确率64%但口头梗会编造,仅辅助释义。B站热梗搜索:API≥5s间隔避412,标题梗名>评论区。用户批评:遇风控应先加延时而非绕路。词典17条经审核。
+用户仲耀,南信大海洋技术2023-2027,求职嵌入式。项目:水声板(STM32G474+GaN+GPS授时)、ZYNQ高速采集。竞赛:数模省一/电赛校一等。详见~/persona/projects-profile.md。
+§
+QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=hermes-gateway-gf,watchdog同06:35+12:00。Aoi/Kubo独立memory,shared目录每3h cron互通。豆包仅辅助释义(会编造口头梗)。B站:5s间隔避412,标题梗名>评论区。热梗词典22条在~/.hermes/shared/hot-memes.md。新增:用户批评遇风控应先加延时而非绕路,应主动用OpenClaw协作,优先查百科不依赖LLM编造。
+§
+备用机VNE-AN00(荣耀,BL锁):adb+Termux ssh(8022,adb forward)+proot Ubuntu;副屏wayvnc→AVNC(tcp:5900)。Gmail接himalaya。
+§
+豆包API(doubao-seed-2-0-lite-260428,ARK ark-27...0faf)已配,口头梗准确率65%会编造,仅辅助释义。OpenClaw中文搜索更强:pnpm openclaw agent --agent main -m 'prompt'。B站API每5s间隔避412,sort:0=time/1=hot/2=hot。梗词典shared/hot-memes.md:23条,含我chovy=我草唉(嘎子过期可乐)、老吴=喵呜、何意味=日语何の意味+谐音、小难梁=DeepSeek梁文峰。
+§
+每日自学cron(10:00/18:00,Aoi QQ):GitHub trending+OpenClaw+嵌入式+AI+热梗→shared/knowledge-base.md。趣事发报cron(10:15/18:15):挑有趣内容用Kubo语气发QQ。用户期望:遇风控先延时而非绕路,主动用OpenClaw,优先查百科不依赖LLM编造,技术回答按场景分级。
