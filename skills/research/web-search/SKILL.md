@@ -14,6 +14,13 @@ metadata:
 
 当会话没有 `web_search`/`web_extract` 工具时,用浏览器 + 搜索引擎 API 组合拿搜索结果。curl 直接抓搜索引擎几乎全被反爬,浏览器工具是可靠路径。
 
+## web_extract 与 ddgs 后端不兼容(本机现状)
+
+本机 `web.extract_backend` 是 ddgs,而 ddgs 只支持搜索不支持抓取 —— `web_extract()` 会直接报错 `"DuckDuckGo (ddgs) is a search-only backend and cannot extract URL content"`。**不要重试 web_extract**,改用 curl 抓取(站点配方见 `references/curl-extraction-recipes.md`):
+- 国外站:curl 带 UA + 代理 `-x http://127.0.0.1:7890`(GitHub/HN 实测直连也可)
+- 国内站(21ic 等)直连即可
+- 有 Cloudflare 挑战的站(如 Phoronix)curl 拿不到,直接换浏览器工具
+
 ## When to use
 
 - 需要查资料/找名词/验证信息,但工具列表里没有 web_search

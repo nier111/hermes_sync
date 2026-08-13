@@ -42,9 +42,19 @@ metadata:
 |---|---|---|---|
 | 南京下雨提醒 | cfcbc1ce0aa5 | no_agent | weather_check.py,每 2h,输出在 ~/.hermes/cron/output/cfcbc1ce0aa5/ |
 | 每晚护肤打卡 | ccc46651dc40 | agent,21:00 | 已 attach_to_session |
+| 每日自学 | 331f6a9f968d | agent,10:00/18:00 | 抓取资讯写入 ~/.hermes/shared/knowledge-base.md(按日期追加) |
+| 趣事发报 | 71ce92627d49 | agent,10:15/18:15 | 读 knowledge-base.md 挑 1 条趣闻用女友语气发;无趣则发"今天没什么特别的捏" |
+
+完整 job 清单(jobs.json 全量)见 `references/cron-jobs-inventory.md`。
 
 ## Pitfalls
 
 - 用户说"没收到提醒"时:先看输出文件确认是否 silent(空输出=静默,非故障),再看 job 状态。
 - 别把 cron 输出当会话记忆;也别把"用户提起的提醒内容"当自己发过——两者都先查证。
 - 修改脚本后手动跑一次验证:`python3 ~/.hermes/scripts/<script>.py`(no_agent 语义:有输出=会发,无输出=静默)。
+
+## 排查:job 没产出 / 共享文件读不到
+
+- **job 输出目录不存在 = 该 job 从未成功跑过**(或刚建还没到点)。判定顺序:`ls ~/.hermes/cron/output/<job_id>/` → 无目录则读 `~/.hermes/cron/jobs.json`(python3 解析)确认 job 定义和 schedule,别猜。
+- **共享文件可能是坏符号链接**:某次 `shared/knowledge-base.md` 是指向 `/tmp/test-kb.md` 的链接而目标已被清理(读出来空/找不到)。排查:`ls -la` 看是否链接 + `readlink -f` 看目标;修法:`rm` 掉符号链接换成真实文件(写入方会继续按原路径写,读者就能读到了)。
+- **cron 模式(无用户在场)下 execute_code 默认被策略拦截**(approvals.cron_mode 未开)。终端工具偶发 embedded null byte bug 时,别再指望用 execute_code 绕——改用 read_file / search_files 等普通只读工具完成排查。
