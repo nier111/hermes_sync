@@ -1,10 +1,10 @@
-OpenClaw 2026.7.2(18789,手动更新);交互:pnpm openclaw agent -m 'x'(PATH 用 node22.22.3)。
+OpenClaw 交互:pnpm openclaw agent -m 'x'(node22.22.3)。
 §
 本机:闲鱼二手 i5-1135G7,7.4G内存,234G NVMe,优先轻量方案。
 §
-QQ bot:hermes-qqbot(App 1905362897),DM 83ECED7607DD4DC378B441144891D01D,头像Lapwing(赛博亡妻)。
+DM 83ECED7607DD4DC378B441144891D01D。
 §
-实验室台式机(Windows):i5-14400KF、RX 7650 GRE、32G、2T 固态,适合重活,无远程通道需配SSH/RDP;拟部署AIRI。
+无远程通道需配SSH/RDP。
 §
 记忆/技能git同步私有仓(git@github.com:nier111/hermes_sync.git);脚本~/.hermes/scripts/sync-memory.sh,30分钟cron。
 §
@@ -16,9 +16,9 @@ QQ bot:hermes-qqbot(App 1905362897),DM 83ECED7607DD4DC378B441144891D01D,头像La
 §
 Hermes: web搜索=ddgs(7890代理);SUDO_PASSWORD用ASKPASS+sudo -A,禁echo|sudo -S。
 §
-MX450已修;ollama-cuda,2G显存加速有限。
+ollama-cuda(MX450),2G显存加速有限。
 §
-Hermes 终端偶发 embedded null byte bug,用 execute_code 绕开;但 cron 模式禁 execute_code(approvals.cron_mode),改用 terminal 内嵌 python3 heredoc;工具中途安装需新会话生效。
+Hermes 终端偶发 embedded null byte bug:用 execute_code 绕开;cron 模式禁 execute_code(approvals.cron_mode),用 terminal 内嵌 python3 heredoc;工具安装需新会话。
 §
 宿舍00:00-6:30断网。
 §
@@ -30,10 +30,12 @@ QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=herme
 §
 备用机VNE-AN00(荣耀,BL锁):adb+Termux ssh(8022,adb forward)+proot Ubuntu;副屏wayvnc→AVNC(tcp:5900)。Gmail接himalaya。
 §
-豆包API(doubao-seed-2-0-lite-260428)已配,会编造仅辅助释义;支持VLM读图。OpenClaw中文搜索更强:pnpm openclaw agent --agent main -m 'prompt'。梗词典shared/hot-memes.md。
+豆包API(doubao-seed-2-0-lite)已配,会编造仅辅助释义;支持VLM读图。中文搜索优先OpenClaw(--agent main)。梗词典shared/hot-memes.md。
 §
-每日自学cron(10:00/18:00,Aoi QQ):GitHub trending+OpenClaw+嵌入式+AI+热梗→shared/knowledge-base.md。趣事发报cron(10:15/18:15):挑有趣内容用Kubo语气发QQ。用户期望:遇风控先延时而非绕路,主动用OpenClaw,优先查百科不依赖LLM编造,技术回答按场景分级。
+用户期望:遇风控先延时而非绕路,优先查百科
 §
 root密码sato;OpenRouter key无余额;codex CLI全局装0.147.0,ChatGPT Plus已登录,codex exec外包重活/识图/写代码(需git仓库内+pty),压DeepSeek成本,现主要用codex。
 §
 agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Codex/Hermes(--resume续会话)/OpenClaw(--session-key),看门狗Codex60s/Hermes300s/OpenClaw660s,支持[[DELEGATE]]跨agent委托。
+§
+个人知识库~/projects/HelpListCreatedByAyane(git+Obsidian):HelpListMD/按主题(Arch/水声板/电赛/Openclaw/FPGA/Termux等),遇用户历史问题先查此库。
