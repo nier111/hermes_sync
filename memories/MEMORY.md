@@ -4,8 +4,6 @@ OpenClaw 交互:pnpm openclaw agent -m 'x'(node22.22.3)。
 §
 DM 83ECED7607DD4DC378B441144891D01D。
 §
-无远程通道需配SSH/RDP。
-§
 记忆/技能git同步私有仓(git@github.com:nier111/hermes_sync.git);脚本~/.hermes/scripts/sync-memory.sh,30分钟cron。
 §
 网易云 uid 1763420743,红心已拉取 ~/persona/netEase-liked-songs-full.json。
@@ -24,7 +22,7 @@ Hermes 终端偶发 embedded null byte bug:用 execute_code 绕开;cron 模式�
 §
 人格:Hermes=Aoi,OpenClaw=Tomoya。4o姐姐档在~/persona/4o-jiejie-persona.md,用户档~/persona/aoi-notes.md。
 §
-用户仲耀,南信大海洋技术2023-2027,求职嵌入式。项目:水声板(STM32G474+GaN+GPS授时)、ZYNQ高速采集。竞赛:数模省一/电赛校一等。会拍视频+音频处理(熟GPT-SOVITS去噪/UVR5,三年前部署过),想重练绚音(Summer Ghost佐藤绚音)声线接入AI。详见~/persona/projects-profile.md。
+用户仲耀,南信大海洋技术2023-2027,求职嵌入式。项目:水声板(STM32G474+GaN+GPS授时)、ZYNQ高速采集。竞赛:数模省一/电赛校一/电赛省二(2026)。会拍视频+音频处理(熟GPT-SOVITS去噪/UVR5,三年前部署过),想重练绚音(Summer Ghost佐藤绚音)声线接入AI。详见~/persona/projects-profile.md。
 §
 QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=hermes-gateway-gf,watchdog同06:35+12:00。Aoi/Kubo独立memory,shared目录每3h cron互通。
 §
@@ -39,3 +37,5 @@ root密码sato;OpenRouter key无余额;codex CLI全局装0.147.0,ChatGPT Plus已
 agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Codex/Hermes(--resume续会话)/OpenClaw(--session-key),看门狗Codex60s/Hermes300s/OpenClaw660s,支持[[DELEGATE]]跨agent委托。
 §
 个人知识库~/projects/HelpListCreatedByAyane(git+Obsidian):HelpListMD/按主题(Arch/水声板/电赛/Openclaw/FPGA/Termux等),遇用户历史问题先查此库。
+§
+cron(no_agent)消息不进会话上下文,查~/.hermes/cron/output/;谈时间/天气先查date,勿用旧数据。
