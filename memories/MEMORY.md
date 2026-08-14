@@ -1,6 +1,6 @@
 OpenClaw 交互:pnpm openclaw agent -m 'x'(node22.22.3)。
 §
-本机:闲鱼二手 i5-1135G7,7.4G内存,234G NVMe,优先轻量方案。
+本机:i5-1135G7/7.4G内存/234G NVMe,轻量优先;ollama-cuda(MX450)2G显存加速有限。
 §
 DM 83ECED7607DD4DC378B441144891D01D。
 §
@@ -13,8 +13,6 @@ DM 83ECED7607DD4DC378B441144891D01D。
 用户考研目标:成电(电子科技大学)电子信息硕士,初试数一+英一+政治+专业课(信号与系统,成电858)。2026-08 进度:高数/线代各剩末章、概统未开始(计划5-7天一轮)、专业课5/6章、英语仅背单词。资料在 ~/Documents/考研/(13学院复试PDF+study-log.md 每日打卡);OpenClaw 有成电2026复试分析(信通院专硕365、电子院01方向330、自动化院仪器仪表325等)。
 §
 Hermes: web搜索=ddgs(7890代理);SUDO_PASSWORD用ASKPASS+sudo -A,禁echo|sudo -S。
-§
-ollama-cuda(MX450),2G显存加速有限。
 §
 Hermes 终端偶发 embedded null byte bug:用 execute_code 绕开;cron 模式禁 execute_code(approvals.cron_mode),用 terminal 内嵌 python3 heredoc;工具安装需新会话。
 §
@@ -30,7 +28,7 @@ QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=herme
 §
 中文搜索优先OpenClaw(--agent main),其搜索后端DDG Lite被墙超时30s,fallback MusicBrainz,重启=systemctl --user restart openclaw-gateway.service。
 §
-用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills列表(70+个从不加载被批),优先查百科不靠LLM编造。
+用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills(70+个从不加载被批),优先查百科不靠LLM编造;下结论前先查实际证据(state.db/日志/账单),勿凭配置默认值推断实际行为,逻辑链条会被质询。
 §
 root密码sato;OpenRouter key无余额;codex CLI全局装0.147.0,ChatGPT Plus已登录,codex exec外包重活/识图/写代码(需git仓库内+pty),压DeepSeek成本,现主要用codex。
 §
