@@ -147,12 +147,12 @@
     "created_at": "2026-08-12T22:20:41.806390+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-08-13T10:00:09.462212+00:00",
+    "last_used_at": "2026-08-14T02:00:45.507636+00:00",
     "last_viewed_at": "2026-08-13T02:37:11.128272+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 4,
+    "use_count": 5,
     "view_count": 2
   },
   "blogwatcher": {
@@ -303,12 +303,12 @@
     "created_at": "2026-08-12T12:46:10.898470+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-08-14T00:49:44.129679+00:00",
+    "last_used_at": "2026-08-14T02:00:45.570302+00:00",
     "last_viewed_at": "2026-08-12T13:32:39.134637+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 16,
+    "use_count": 17,
     "view_count": 2
   },
   "daily-knowledge-digest": {
@@ -316,13 +316,13 @@
     "created_at": "2026-08-13T10:18:54.379153+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-13T10:19:04.290292+00:00",
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-08-14T02:03:51.185270+00:00",
+    "last_viewed_at": "2026-08-14T02:03:51.181793+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "ddgs-search": {
     "archived_at": null,
