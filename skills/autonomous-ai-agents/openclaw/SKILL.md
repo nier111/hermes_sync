@@ -62,6 +62,10 @@ Known endpoints (found in bundle):
 OpenClaw's browser/search is stronger against Chinese anti-scraping than Hermes's. When you need authoritative Chinese sources (百度百科/知乎/贴吧) or hit repeated captchas/412s, delegate the search to OpenClaw instead of flailing across sites. It found 百度百科/知乎 sources for meme lookups (e.g. 老吴、耄耋、打窝仙人) that direct curl/browser attempts couldn't reach, and it flags uncertainty with `(?)` instead of hallucinating. Call: `pnpm openclaw agent --agent main -m "search <topic> on 百度百科/知乎, cite sources"`.
 
 ## Pitfalls
+0. **联网搜索卡住/超时（症状：CLI `timeout` exit 143，或长时间无输出）**：根因通常是
+   搜索后端 DuckDuckGo Lite 被墙/超时，**不是 gateway 挂了**。先看日志定位子系统，
+   再 `systemctl --user restart openclaw-gateway.service` 恢复，别只诊断不修复。
+   完整诊断表、重启细节、fallback 机制见 `references/search-hang-diagnosis.md`。
 1. **Update/restart mixed state.** `openclaw update --yes` unpacks new dist files while the OLD gateway keeps running. In that window, the on-disk bundle advertises routes the running process 404s on — the API looks broken but isn't. Diagnose: compare `stat -c %y dist/index.js` (new) against the gateway process start time (old); check for a running `openclaw-update` process. Don't call the API mid-update; wait for the restart (a `gateway-supervisor-restart-handoff.json` in `~/.openclaw` signals the handoff).
 2. **Secrets.** Config may hold provider keys without a plain `apiKey` field. Never dump the config raw — redact with sed when grepping.
 3. Don't run CLI commands while an update holds the pnpm store lock.

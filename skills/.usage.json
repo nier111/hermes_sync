@@ -822,14 +822,14 @@
     "archived_at": null,
     "created_at": "2026-08-14T19:19:39.102434+00:00",
     "created_by": "agent",
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
+    "last_patched_at": "2026-08-14T19:56:27.073027+00:00",
+    "last_used_at": "2026-08-14T19:56:19.534858+00:00",
+    "last_viewed_at": "2026-08-14T19:56:19.519542+00:00",
+    "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 2,
+    "view_count": 2
   },
   "nano-pdf": {
     "archived_at": null,
@@ -913,14 +913,14 @@
     "archived_at": null,
     "created_at": "2026-08-05T13:55:03.121543+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-14T19:33:36.314848+00:00",
-    "last_used_at": "2026-08-14T19:31:32.519427+00:00",
-    "last_viewed_at": "2026-08-14T19:31:32.510799+00:00",
-    "patch_count": 7,
+    "last_patched_at": "2026-08-14T19:56:48.690117+00:00",
+    "last_used_at": "2026-08-14T19:56:39.418853+00:00",
+    "last_viewed_at": "2026-08-14T19:56:39.404214+00:00",
+    "patch_count": 8,
     "pinned": false,
     "state": "active",
-    "use_count": 13,
-    "view_count": 13
+    "use_count": 16,
+    "view_count": 16
   },
   "openclaw-interop": {
     "archived_at": null,

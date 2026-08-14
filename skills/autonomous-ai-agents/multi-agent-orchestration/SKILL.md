@@ -34,6 +34,10 @@ version: 1.0.0
 - 上下文占用百分比 = `input_tokens / context_window`。Hermes 自己的 CLI 里
   `/context` 看分类 breakdown，`/usage` 看累计 token 消耗 + rate limit，
   `hermes prompt-size` 看 system prompt / 工具定义的字节开销。
+- **DeepSeek 的 context window 是 1M（1,000,000 token），不是 128K**。算
+  百分比时分母必须用 1M，否则百分比会错（实测踩坑：拿 128K 除，1.8% 被
+  显示成 16%）。核验：`grep context/hermes_tokens ~/.hermes/config.yaml`
+  及 Hermes `model_metadata.py` 里的窗口声明，别拍脑袋用 128K。
 
 ### 各 agent 的会话保持
 

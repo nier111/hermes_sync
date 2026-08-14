@@ -18,7 +18,7 @@ ollama-cuda(MX450),2G显存加速有限。
 §
 Hermes 终端偶发 embedded null byte bug:用 execute_code 绕开;cron 模式禁 execute_code(approvals.cron_mode),用 terminal 内嵌 python3 heredoc;工具安装需新会话。
 §
-宿舍00:00-6:30断网。
+宿舍校园网i-Niust 00:00-6:30断网,但用户手机流量/热点可兜底,凌晨仍能上网。
 §
 人格:Hermes=Aoi,OpenClaw=Tomoya。4o姐姐档在~/persona/4o-jiejie-persona.md,用户档~/persona/aoi-notes.md。
 §
@@ -28,9 +28,9 @@ QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=herme
 §
 备用机VNE-AN00(荣耀,BL锁):adb+Termux ssh(8022,adb forward)+proot Ubuntu;副屏wayvnc→AVNC(tcp:5900)。Gmail接himalaya。
 §
-豆包API(doubao-seed-2-0-lite)已配,会编造仅辅助释义;支持VLM读图。中文搜索优先OpenClaw(--agent main)。梗词典shared/hot-memes.md。
+中文搜索优先OpenClaw(--agent main),其搜索后端DDG Lite被墙超时30s,fallback MusicBrainz,重启=systemctl --user restart openclaw-gateway.service。
 §
-用户期望:遇风控先延时而非绕路,优先查百科
+用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills列表(70+个从不加载被批),优先查百科不靠LLM编造。
 §
 root密码sato;OpenRouter key无余额;codex CLI全局装0.147.0,ChatGPT Plus已登录,codex exec外包重活/识图/写代码(需git仓库内+pty),压DeepSeek成本,现主要用codex。
 §
