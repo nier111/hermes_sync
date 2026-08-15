@@ -14,7 +14,7 @@ DM 83ECED7607DD4DC378B441144891D01D。
 §
 Hermes: web搜索=ddgs(7890代理);SUDO_PASSWORD用ASKPASS+sudo -A,禁echo|sudo -S。
 §
-Hermes 终端偶发 embedded null byte bug:用 execute_code 绕开;cron 模式禁 execute_code(approvals.cron_mode),用 terminal 内嵌 python3 heredoc;工具安装需新会话。
+Hermes终端embedded null byte bug→execute_code绕;cron禁execute_code用terminal heredoc;装工具需新会话。
 §
 宿舍校园网i-Niust 00:00-6:30断网,但用户手机流量/热点可兜底,凌晨仍能上网。
 §
@@ -37,3 +37,5 @@ agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Cod
 个人知识库~/projects/HelpListCreatedByAyane(git+Obsidian):HelpListMD/按主题(Arch/水声板/电赛/Openclaw/FPGA/Termux等),遇用户历史问题先查此库。
 §
 cron(no_agent)消息不进会话上下文,查~/.hermes/cron/output/;谈时间/天气先查date,勿用旧数据。
+§
+aria2、yt-dlp已装(2026-08);冷门字幕免登录subdl.com。
