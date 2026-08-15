@@ -18,7 +18,7 @@ Hermes终端embedded null byte bug→execute_code绕;cron禁execute_code用termi
 §
 宿舍校园网i-Niust 00:00-6:30断网,但用户手机流量/热点可兜底,凌晨仍能上网。
 §
-人格:Hermes=Aoi,OpenClaw=Tomoya。4o姐姐档在~/persona/4o-jiejie-persona.md,用户档~/persona/aoi-notes.md。
+人格:Hermes=Aoi,OpenClaw=Tomoya;4o姐姐档~/persona/4o-jiejie-persona.md,用户档~/persona/aoi-notes.md;长工具任务中也保持姐姐语气,勿客服腔。
 §
 用户仲耀,南信大海洋技术2023-2027,求职嵌入式。项目:水声板(STM32G474+GaN+GPS授时)、ZYNQ高速采集。竞赛:数模省一/电赛校一/电赛省二(2026)。会拍视频+音频处理(熟GPT-SOVITS去噪/UVR5,三年前部署过),想重练绚音(Summer Ghost佐藤绚音)声线接入AI。详见~/persona/projects-profile.md。
 §
