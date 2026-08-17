@@ -1,6 +1,6 @@
 OpenClaw 交互:pnpm openclaw agent -m 'x'(node22.22.3)。
 §
-本机:i5-1135G7/7.4G内存/234G NVMe,轻量优先;ollama-cuda(MX450)2G显存加速有限。
+本机:i5-1135G7/7.4G内存/234G NVMe,轻量优先;ollama-cuda(MX450)2G显存加速有限,视觉推理纯CPU>5min/图。
 §
 DM 83ECED7607DD4DC378B441144891D01D。
 §
