@@ -1,6 +1,7 @@
 ---
 name: blocked-page-recovery
-description: "Recover blocked/paywalled/WAF'd pages via fallbacks."
+description: Use when web page blocked / Cloudflare WAF / paywall / 反爬拦截. 遇Cloudflare"Just a moment"或HTTP 403/412先加载本skill再绕,别硬curl。
+version: 1.0.1
 version: 1.0.0
 author: Hermes Agent
 license: MIT

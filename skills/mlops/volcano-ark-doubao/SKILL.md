@@ -1,7 +1,7 @@
 ---
 name: volcano-ark-doubao
-description: "Use Doubao Volcano Ark API for text and VLM image analysis."
-version: 1.0.0
+description: "Use when user sends images / needs VLM analysis (screenshots, schematics, memes, OCR) — DOUBAO VLM FIRST, faster than local ollama. 用户发图识图优先调用本skill,勿用本地CPU模型。"
+version: 1.0.1
 author: Hermes Agent
 license: MIT
 ---

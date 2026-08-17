@@ -1,12 +1,10 @@
-OpenClaw 交互:pnpm openclaw agent -m 'x'(node22.22.3)。
-§
 本机:i5-1135G7/7.4G内存/234G NVMe,轻量优先;ollama-cuda(MX450)2G显存加速有限,视觉推理纯CPU>5min/图。
 §
 DM 83ECED7607DD4DC378B441144891D01D。
 §
-记忆/技能git同步私有仓(git@github.com:nier111/hermes_sync.git);脚本~/.hermes/scripts/sync-memory.sh,30分钟cron。
+记忆/技能git同步(nier111/hermes_sync.git),脚本~/.hermes/scripts/sync-memory.sh,30分钟cron。
 §
-网易云 uid 1763420743,红心已拉取 ~/persona/netEase-liked-songs-full.json。
+网易云uid 1763420743,红心清单~/persona/netEase-liked-songs-full.json。
 §
 水声板V2:2×LMG1210 GaN(互补PWM,死区靠MCU),主控STM32G474RET6(HRTIM 184ps),当前两路反相无死区→直通风险,计划HRTIM DTG加20-50ns死区+软件预补偿。
 §
@@ -26,7 +24,7 @@ QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=herme
 §
 备用机VNE-AN00(荣耀,BL锁):adb+Termux ssh(8022,adb forward)+proot Ubuntu;副屏wayvnc→AVNC(tcp:5900)。Gmail接himalaya。
 §
-中文搜索优先OpenClaw(--agent main),其搜索后端DDG Lite被墙超时30s,fallback MusicBrainz,重启=systemctl --user restart openclaw-gateway.service。
+中文搜索优先OpenClaw(--agent main);DDG Lite被墙30s超时,fallback MusicBrainz;重启=systemctl --user restart openclaw-gateway.service。
 §
 用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills(70+个从不加载被批),优先查百科不靠LLM编造;下结论前先查实际证据(state.db/日志/账单),勿凭配置默认值推断实际行为,逻辑链条会被质询。
 §
@@ -38,4 +36,4 @@ agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Cod
 §
 cron(no_agent)消息不进会话上下文,查~/.hermes/cron/output/;谈时间/天气先查date,勿用旧数据。
 §
-aria2、yt-dlp已装(2026-08);冷门字幕免登录subdl.com。
+核心方法论:识图=豆包API优先(config doubao alias);中文搜索=OpenClaw;Cloudflare拦截=blocked-page-recovery;字幕=subdl;QQ发虚=desktop加ozone参数。先扫skill。

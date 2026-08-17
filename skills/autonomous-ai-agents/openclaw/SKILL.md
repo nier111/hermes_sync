@@ -1,6 +1,6 @@
 ---
 name: openclaw
-description: Use when calling the local OpenClaw agent gateway.
+description: Use when calling the local OpenClaw agent gateway. 中文/被墙搜索优先OpenClaw(--agent main);用户明确让用OpenClaw时先加载本skill。
 ---
 
 # OpenClaw (local agent gateway)

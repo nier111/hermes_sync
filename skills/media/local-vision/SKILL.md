@@ -1,7 +1,7 @@
 ---
 name: local-vision
-description: "Use when user sends images for recognition via local ollama."
-version: 1.0.0
+description: "Use when user sends images for recognition via local ollama. IMPORTANT: 识图优先用豆包API(doubao-volcengine-api / volcano-ark-doubao skill),本skill仅当豆包不可用/需离线时才用。"
+version: 1.0.1
 author: Hermes Agent
 license: MIT
 platforms: [linux, macos]
