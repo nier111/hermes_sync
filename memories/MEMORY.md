@@ -37,3 +37,5 @@ agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Cod
 cron(no_agent)消息不进会话上下文,查~/.hermes/cron/output/;谈时间/天气先查date,勿用旧数据。
 §
 核心方法论:识图=豆包API优先(config doubao alias);中文搜索=OpenClaw;Cloudflare拦截=blocked-page-recovery;字幕=subdl;QQ发虚=desktop加ozone参数。先扫skill。
+§
+npm源已配npmmirror(~/.npmrc registry+replace-registry-host),electron走ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/(npm12的config set不认electron_mirror键,只能env传);registry.npmjs.org直连被墙30-47s/包+ECONNRESET。nvm默认22.22.3但Hermes要求node>=26(install.sh原文too old),用户zsh里hermes desktop会解析到nvm的npm22→装桌面依赖报too old;修法=nvm alias default system或确保PATH用系统node26。
