@@ -385,14 +385,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-14T22:44:25.600349+00:00",
-    "last_viewed_at": "2026-08-14T22:44:25.587454+00:00",
+    "last_used_at": "2026-08-17T21:52:47.202732+00:00",
+    "last_viewed_at": "2026-08-17T21:52:47.199754+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 6,
-    "view_count": 6
+    "use_count": 7,
+    "view_count": 7
   },
   "design-md": {
     "archived_at": null,
@@ -439,14 +439,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-17T03:39:16.227426+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-08-17T03:39:22.727326+00:00",
-    "last_viewed_at": "2026-08-17T03:39:22.721166+00:00",
+    "last_used_at": "2026-08-17T21:59:51.440186+00:00",
+    "last_viewed_at": "2026-08-17T21:59:51.437286+00:00",
     "patch_count": 2,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "evaluating-llms-harness": {
     "archived_at": null,
@@ -1042,13 +1042,15 @@
     "created_at": "2026-08-05T14:31:32.886252+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-09T10:07:01.014078+00:00",
-    "last_used_at": "2026-08-14T19:31:32.523533+00:00",
-    "last_viewed_at": "2026-08-14T19:31:32.515764+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-08-17T21:53:53.476100+00:00",
+    "last_viewed_at": "2026-08-17T21:53:53.473418+00:00",
     "patch_count": 7,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 21,
-    "view_count": 21
+    "use_count": 22,
+    "view_count": 22
   },
   "opencode": {
     "archived_at": null,
