@@ -165,13 +165,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-17T10:00:50.209428+00:00",
+    "last_used_at": "2026-08-18T02:00:30.498438+00:00",
     "last_viewed_at": "2026-08-13T02:37:11.128272+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 12,
+    "use_count": 13,
     "view_count": 2
   },
   "blocked-page-recovery": {
@@ -355,13 +355,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-17T22:54:25.572593+00:00",
+    "last_used_at": "2026-08-18T02:00:30.518895+00:00",
     "last_viewed_at": "2026-08-12T13:32:39.134637+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 55,
+    "use_count": 57,
     "view_count": 2
   },
   "daily-knowledge-digest": {
@@ -370,14 +370,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-13T10:19:04.290292+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-17T10:09:13.599742+00:00",
-    "last_viewed_at": "2026-08-17T10:09:13.597114+00:00",
+    "last_used_at": "2026-08-18T02:11:58.575330+00:00",
+    "last_viewed_at": "2026-08-18T02:11:58.572467+00:00",
     "patch_count": 1,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 16,
-    "view_count": 16
+    "use_count": 18,
+    "view_count": 18
   },
   "ddgs-search": {
     "archived_at": null,
@@ -508,13 +508,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-17T10:15:50.425014+00:00",
+    "last_used_at": "2026-08-18T02:15:30.666610+00:00",
     "last_viewed_at": "2026-08-13T13:02:50.032189+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 11,
+    "use_count": 12,
     "view_count": 1
   },
   "gf-stickers": {
@@ -523,13 +523,13 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-12T14:07:45.820264+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-17T10:15:50.445647+00:00",
+    "last_used_at": "2026-08-18T02:15:30.687306+00:00",
     "last_viewed_at": "2026-08-12T14:07:31.518974+00:00",
     "patch_count": 11,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 20,
+    "use_count": 21,
     "view_count": 9
   },
   "gif-search": {
