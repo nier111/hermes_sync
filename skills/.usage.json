@@ -202,6 +202,21 @@
     "use_count": 0,
     "view_count": 0
   },
+  "box": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.691945+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "chat-stickers": {
     "archived_at": null,
     "created_at": "2026-08-05T18:03:35.244993+00:00",
@@ -323,6 +338,21 @@
     "use_count": 5,
     "view_count": 5
   },
+  "competitor-news-monitor": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.722431+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "computer-use": {
     "archived_at": null,
     "created_at": "2026-08-12T13:59:01.358938+00:00",
@@ -355,13 +385,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-19T11:21:01.241618+00:00",
+    "last_used_at": "2026-08-19T14:22:04.471420+00:00",
     "last_viewed_at": "2026-08-12T13:32:39.134637+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 71,
+    "use_count": 72,
     "view_count": 2
   },
   "daily-knowledge-digest": {
@@ -407,6 +437,21 @@
     "use_count": 0,
     "view_count": 0
   },
+  "document-to-action-items": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.746696+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "docx": {
     "archived_at": null,
     "created_at": "2026-08-12T13:59:01.367416+00:00",
@@ -447,6 +492,21 @@
     "state": "active",
     "use_count": 6,
     "view_count": 6
+  },
+  "email-inbox-triage": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.768473+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
   },
   "evaluating-llms-harness": {
     "archived_at": null,
@@ -579,6 +639,21 @@
     "last_used_at": null,
     "last_viewed_at": null,
     "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
+  "github-issue-to-pr": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.788115+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
     "use_count": 0,
@@ -917,6 +992,36 @@
     "use_count": 0,
     "view_count": 0
   },
+  "meeting-action-items": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.809550+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
+  "merge-reconciler": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.832098+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "multi-agent-orchestration": {
     "archived_at": null,
     "created_at": "2026-08-14T19:19:39.102434+00:00",
@@ -1182,6 +1287,21 @@
     "use_count": 0,
     "view_count": 0
   },
+  "product-price-monitor": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.859768+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "python-debugpy": {
     "archived_at": null,
     "created_at": "2026-08-12T13:59:01.519861+00:00",
@@ -1266,6 +1386,21 @@
     "use_count": 1,
     "view_count": 1
   },
+  "sdlc-review": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.881195+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "serving-llms-vllm": {
     "archived_at": null,
     "created_at": "2026-08-12T13:59:01.540995+00:00",
@@ -1274,6 +1409,21 @@
     "last_used_at": null,
     "last_viewed_at": null,
     "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
+  "session-librarian": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.900176+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
     "use_count": 0,
@@ -1488,6 +1638,21 @@
     "state": "active",
     "use_count": 2,
     "view_count": 2
+  },
+  "weekly-review-planning": {
+    "archived_at": null,
+    "created_at": "2026-08-19T14:00:40.921138+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "patch_generation": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
   },
   "weights-and-biases": {
     "archived_at": null,
