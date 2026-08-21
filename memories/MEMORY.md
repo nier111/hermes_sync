@@ -28,7 +28,7 @@ QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=herme
 §
 用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills(70+个从不加载被批),优先查百科不靠LLM编造;下结论前先查实际证据(state.db/日志/账单),勿凭配置默认值推断实际行为,逻辑链条会被质询。
 §
-root密码sato;OpenRouter key无余额;codex CLI全局装0.147.0,ChatGPT Plus已登录,codex exec外包重活/识图/写代码(需git仓库内+pty),压DeepSeek成本,现主要用codex。
+模型:Hermes主模型=openai-codex/gpt-5.6-sol(ChatGPT Plus订阅额度,OAuth已加~/.hermes/auth.json),fallback=deepseek-v4-flash;6个LLM cron(arch简报/护肤/热梗/跨Profile/自学/趣事发报)pin在deepseek;codex CLI(0.147.0)登录ChatGPT,~/codex auth独立于hermes。OpenRouter无余额。
 §
 agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Codex/Hermes(--resume续会话)/OpenClaw(--session-key),看门狗Codex60s/Hermes300s/OpenClaw660s,支持[[DELEGATE]]跨agent委托。
 §
