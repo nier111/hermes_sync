@@ -41,3 +41,5 @@ cron(no_agent)消息不进会话上下文,查~/.hermes/cron/output/;谈时间/�
 npm源已配npmmirror(~/.npmrc registry+replace-registry-host),electron走ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/(npm12的config set不认electron_mirror键,只能env传);registry.npmjs.org直连被墙30-47s/包+ECONNRESET。nvm默认22.22.3但Hermes要求node>=26(install.sh原文too old),用户zsh里hermes desktop会解析到nvm的npm22→装桌面依赖报too old;修法=nvm alias default system或确保PATH用系统node26。
 §
 Hermes桌面版:chrome-sandbox需SUID 4755(SUDO_ASKPASS=~/.hermes/askpass.sh /usr/bin/sudo -A chown root:root+chmod 4755,重建后重置)。drun启动项(wofi --show drun,Hyprland):已patch linux_desktop_entry.py的resolve_exec_command固定用~/.local/bin/hermes(不能用PATH查询或argv[0],launcher无PATH时argv[0]=仓库裸脚本→系统python缺pathspec崩,且每次启动会重写.desktop);hermes update会重置补丁需重打。wayland黑屏加ozone参数。hyprlauncher未安装(Mod+R是坏的),wofi是Mod+A。
+§
+用户手机蓝牙MAC 64:44:7B:7F:D5:F2(名ciallo,Android),已与电脑配对+trust;配对须用持久bluetoothctl pty会话应答passkey(见skill linux-bluetooth)。
