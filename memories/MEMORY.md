@@ -43,3 +43,5 @@ npm源已配npmmirror(~/.npmrc registry+replace-registry-host),electron走ELECTR
 Hermes桌面版:chrome-sandbox需SUID 4755(SUDO_ASKPASS=~/.hermes/askpass.sh /usr/bin/sudo -A chown root:root+chmod 4755,重建后重置)。drun启动项(wofi --show drun,Hyprland):已patch linux_desktop_entry.py的resolve_exec_command固定用~/.local/bin/hermes(不能用PATH查询或argv[0],launcher无PATH时argv[0]=仓库裸脚本→系统python缺pathspec崩,且每次启动会重写.desktop);hermes update会重置补丁需重打。wayland黑屏加ozone参数。hyprlauncher未安装(Mod+R是坏的),wofi是Mod+A。
 §
 用户手机蓝牙MAC 64:44:7B:7F:D5:F2(名ciallo,Android),已与电脑配对+trust;配对须用持久bluetoothctl pty会话应答passkey(见skill linux-bluetooth)。
+§
+手机(名ciallo)蓝牙地址64:44:7B:7F:D5:F2,已与电脑配对+trust,自动重连;电脑蓝牙由blueman管理(manager+applet+tray),配对新设备注意default agent冲突。
