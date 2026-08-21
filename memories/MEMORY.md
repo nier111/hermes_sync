@@ -36,12 +36,10 @@ agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Cod
 §
 cron(no_agent)消息不进会话上下文,查~/.hermes/cron/output/;谈时间/天气先查date,勿用旧数据。
 §
-核心方法论:识图=豆包API优先(config doubao alias);中文搜索=OpenClaw;Cloudflare拦截=blocked-page-recovery;字幕=subdl;QQ发虚=desktop加ozone参数。先扫skill。
+QQ发虚=desktop加ozone参数;老Electron(yesplaymusic0.4.10=Electron13.6.9)wayland参数无效,发虚解法=--force-device-scale-factor=1.2+Hyprland xwayland force_zero_scaling(已true);先扫skill。
 §
 npm源已配npmmirror(~/.npmrc registry+replace-registry-host),electron走ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/(npm12的config set不认electron_mirror键,只能env传);registry.npmjs.org直连被墙30-47s/包+ECONNRESET。nvm默认22.22.3但Hermes要求node>=26(install.sh原文too old),用户zsh里hermes desktop会解析到nvm的npm22→装桌面依赖报too old;修法=nvm alias default system或确保PATH用系统node26。
 §
 Hermes桌面版:chrome-sandbox需SUID 4755(SUDO_ASKPASS=~/.hermes/askpass.sh /usr/bin/sudo -A chown root:root+chmod 4755,重建后重置)。drun启动项(wofi --show drun,Hyprland):已patch linux_desktop_entry.py的resolve_exec_command固定用~/.local/bin/hermes(不能用PATH查询或argv[0],launcher无PATH时argv[0]=仓库裸脚本→系统python缺pathspec崩,且每次启动会重写.desktop);hermes update会重置补丁需重打。wayland黑屏加ozone参数。hyprlauncher未安装(Mod+R是坏的),wofi是Mod+A。
 §
-用户手机蓝牙MAC 64:44:7B:7F:D5:F2(名ciallo,Android),已与电脑配对+trust;配对须用持久bluetoothctl pty会话应答passkey(见skill linux-bluetooth)。
-§
-手机(名ciallo)蓝牙地址64:44:7B:7F:D5:F2,已与电脑配对+trust,自动重连;电脑蓝牙由blueman管理(manager+applet+tray),配对新设备注意default agent冲突。
+本机1920x1080 scale1.2(Hyprland,force_zero_scaling=true)。手机ciallo(Android,GMS登Google)64:44:7B:7F:D5:F2已配对trust自动重连,blueman管理;配对坑:单命令bluetoothctl agent不持久,须持续会话agent on→pair→弹码输yes,注意default agent冲突(见skill linux-bluetooth)。
