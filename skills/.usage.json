@@ -167,13 +167,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-22T02:00:59.977115+00:00",
+    "last_used_at": "2026-08-22T10:00:57.128814+00:00",
     "last_viewed_at": "2026-08-13T02:37:11.128272+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 21,
+    "use_count": 22,
     "view_count": 2
   },
   "blocked-page-recovery": {
@@ -391,13 +391,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-22T08:47:56.125780+00:00",
+    "last_used_at": "2026-08-22T10:00:57.151213+00:00",
     "last_viewed_at": "2026-08-12T13:32:39.134637+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 99,
+    "use_count": 100,
     "view_count": 2
   },
   "daily-knowledge-digest": {
@@ -406,14 +406,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-13T10:19:04.290292+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-22T02:10:38.706010+00:00",
-    "last_viewed_at": "2026-08-22T02:10:38.702635+00:00",
+    "last_used_at": "2026-08-22T10:10:39.112419+00:00",
+    "last_viewed_at": "2026-08-22T10:10:39.109365+00:00",
     "patch_count": 1,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 22,
-    "view_count": 22
+    "use_count": 24,
+    "view_count": 24
   },
   "ddgs-search": {
     "archived_at": null,
@@ -574,13 +574,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-22T02:15:00.160186+00:00",
+    "last_used_at": "2026-08-22T10:15:57.337694+00:00",
     "last_viewed_at": "2026-08-13T13:02:50.032189+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 20,
+    "use_count": 21,
     "view_count": 1
   },
   "gf-stickers": {
@@ -589,13 +589,13 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-12T14:07:45.820264+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-22T02:15:00.187700+00:00",
+    "last_used_at": "2026-08-22T10:15:57.358672+00:00",
     "last_viewed_at": "2026-08-12T14:07:31.518974+00:00",
     "patch_count": 11,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 29,
+    "use_count": 30,
     "view_count": 9
   },
   "gif-search": {
@@ -1672,14 +1672,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-13T02:43:17.776939+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-21T12:55:57.955813+00:00",
-    "last_viewed_at": "2026-08-21T12:55:57.951320+00:00",
+    "last_used_at": "2026-08-22T10:08:07.278278+00:00",
+    "last_viewed_at": "2026-08-22T10:08:07.272946+00:00",
     "patch_count": 2,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "weekly-review-planning": {
     "archived_at": null,
