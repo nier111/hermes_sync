@@ -43,3 +43,5 @@ npm源已配npmmirror(~/.npmrc registry+replace-registry-host),electron走ELECTR
 Hermes桌面版:chrome-sandbox需SUID 4755(SUDO_ASKPASS=~/.hermes/askpass.sh /usr/bin/sudo -A chown root:root+chmod 4755,重建后重置)。drun启动项(wofi --show drun,Hyprland):已patch linux_desktop_entry.py的resolve_exec_command固定用~/.local/bin/hermes(不能用PATH查询或argv[0],launcher无PATH时argv[0]=仓库裸脚本→系统python缺pathspec崩,且每次启动会重写.desktop);hermes update会重置补丁需重打。wayland黑屏加ozone参数。hyprlauncher未安装(Mod+R是坏的),wofi是Mod+A。
 §
 本机1920x1080 scale1.2(Hyprland,force_zero_scaling=true)。手机ciallo(Android,GMS登Google)64:44:7B:7F:D5:F2已配对trust自动重连,blueman管理;配对坑:单命令bluetoothctl agent不持久,须持续会话agent on→pair→弹码输yes,注意default agent冲突(见skill linux-bluetooth)。
+§
+Hermes 浏览器已与日常 Chromium 隔离：systemd 用户服务 hermes-browser.service 启动独立 profile ~/.hermes/browser-profiles/automation，CDP 127.0.0.1:9222；窗口 class=hermes-browser，Hyprland 规则固定到工作区9。每日自学 cron 可用 browser_exec，但固定 session=daily-self-study。
