@@ -17,7 +17,8 @@ metadata:
 ## 前置(已完成,无需重复)
 
 - `ddgs` 包已装入 hermes venv:`uv pip install --python ~/.hermes/hermes-agent/venv/bin/python ddgs`
-- config 已设:`hermes config set web.backend ddgs` + `web.search_backend ddgs`
+- config 只设搜索后端:`hermes config set web.search_backend ddgs`
+- **禁止设置 `web.backend=ddgs`**:ddgs 只支持搜索,共享 backend 会把 `web_extract` 也错误路由到 ddgs。提取后端使用 `web.extract_backend=local-extract`。
 - 代理在 `~/.hermes/.env`:`HTTPS_PROXY/HTTP_PROXY/ALL_PROXY=http://127.0.0.1:7890`
 
 ## 搜索命令(必须带代理环境变量,DuckDuckGo 国内被墙)
