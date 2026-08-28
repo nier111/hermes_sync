@@ -324,14 +324,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-14T21:04:45.243969+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-25T03:01:01.110009+00:00",
-    "last_viewed_at": "2026-08-25T03:01:01.098582+00:00",
+    "last_used_at": "2026-08-28T07:02:21.866242+00:00",
+    "last_viewed_at": "2026-08-28T07:02:21.863206+00:00",
     "patch_count": 6,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 12,
-    "view_count": 12
+    "use_count": 13,
+    "view_count": 13
   },
   "companion-persona": {
     "archived_at": null,
