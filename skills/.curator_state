@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/sato/.hermes/logs/curator/20260826-140045",
-  "last_run_at": "2026-08-26T14:00:45.921627+00:00",
-  "last_run_duration_seconds": 0.676964,
-  "last_run_summary": "auto: no changes; llm: skipped (consolidation off)",
+  "last_report_path": "/home/sato/.hermes/logs/curator/20260909-150028",
+  "last_run_at": "2026-09-09T15:00:28.185592+00:00",
+  "last_run_duration_seconds": 0.792006,
+  "last_run_summary": "auto: 8 marked stale; llm: skipped (consolidation off)",
   "last_run_summary_shown_at": "2026-08-12T13:59:00.183028+00:00",
   "paused": false,
-  "run_count": 3
+  "run_count": 5
 }

@@ -85,6 +85,7 @@ PC-hosted service (wayvnc, clash proxy) → `reverse`; phone-hosted service (Ter
 
 ## Pitfalls
 
+- **systemd user services may not inherit the interactive shell PATH**: on Arch, `adb` may be `/opt/android-sdk/platform-tools/adb` while the service only sees `/usr/local/bin:/usr/bin`. A loop that suppresses `adb` stderr can then remain `active (running)` while doing nothing. In persistent scripts, resolve and validate an absolute ADB path (or set `Environment=PATH=...`), then verify the remote file/event actually updates after restarting the service.
 - **Locked screen blocks everything**: authorization dialogs, input, even screencap may return a black/lockscreen image. Ask the user to unlock before remote work.
 - **`dumpsys battery` `level: 0` can be a stale cache** even when the phone is on and charging — cross-check with `dumpsys power` wakefulness or the UI before alarming the user.
 - **USB connection does NOT depend on WiFi** — works through dorm network cuts (00:00–06:30) as long as the cable is in.

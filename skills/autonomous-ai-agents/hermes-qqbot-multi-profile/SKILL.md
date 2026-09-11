@@ -76,11 +76,27 @@ QQ WebSocket sessions time out every ~30 minutes. After extended network outages
 
 See `references/watchdog-setup.md` for script and unit file templates.
 
+## Media and files
+
+The live QQBot adapter supports native images, voice, video, and documents through
+`send_image_file`, `send_voice`, `send_video`, and `send_document`. Local files use
+QQ's chunked upload path (roughly 100 MB per-file ceiling, still subject to QQ's
+daily quota and account permissions). Normal gateway responses containing an
+explicit `MEDIA:/absolute/path` are dispatched through these adapter methods.
+
+**Important path difference:** the standalone `hermes send --to qqbot` sender is
+currently text-only and warns that MEDIA attachments were omitted. Do not report
+success just because its text message returned a message ID. For a proactive file,
+use the live adapter's `send_document` path (or have the agent attach it in a normal
+QQ turn) and require a successful upload/send result with a media message ID.
+
 ## Pitfalls
 
 - **Two gateways ≈ 240–260 MB RAM**. On machines with <4 GB free, three+ profiles gets tight.
 - **Profile isolation is total** — install `companion-persona` per-profile as needed.
 - **`.env` per-profile** — gateway reads `QQ_APP_ID` from the profile's `.env`.
+- **QQ credentials imply auto-enable** in some startup paths: removing or disabling only the config flag may still leave a retrying adapter while `QQ_APP_ID` and `QQ_CLIENT_SECRET` remain active.
+- **`systemctl enable --now` does not restart an already active gateway**. After changing credentials, perform a real profile gateway restart and verify a new PID plus `Ready` in that profile's log.
 - **QQ 30-min session timeout** — auto-reconnect works in seconds normally, but post-outage may need the watchdog restart.
 
 ## Related skills
