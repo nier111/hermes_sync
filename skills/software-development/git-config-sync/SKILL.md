@@ -43,6 +43,42 @@ Proven pattern for syncing chosen subdirs of a secret-heavy home/config dir (e.g
    - (c) Append to a tracked file → run → exit 0, commit+push, remote HEAD advances. Capture `HEAD_BEFORE` BEFORE running the script (capturing after the run compares new-vs-new and falsely fails).
    - (d) Break the remote URL → exit 1 + error on stderr.
 
+## Crash / partial-write corruption recovery (real incident, 2026-08-28 → 09-11)
+Symptom: the 30m `no_agent` sync cron silently fails for weeks — every output file in
+`~/.hermes/cron/output/<job_id>/` is identical and short, showing
+`[sync] pull 失败(远端未配置或冲突)` with `exit 1`. The error text is misleading: the
+remote is fine, the LOCAL repo is corrupt. Direct symptoms:
+- `git status` → `error: object file .git/objects/xx/yyy is empty` + `fatal: bad object HEAD`
+- `git fsck` → `invalid sha1 pointer <sha>` for `refs/heads/main`, `refs/remotes/origin/main`, `HEAD`
+- `find .git/objects -type f -size 0` → N zero-length loose objects
+- `tail .git/logs/HEAD` → last valid reflog line, then a NUL-padded tail (compare `cat -v`)
+- mtimes of `.git/index`, `.git/refs/remotes/origin/main`, `.git/logs/*` all cluster at the same
+  minute → write interruption (power loss / hard reset) rather than a git bug. Disk/inodes fine, so
+  don't chase space.
+
+Key check before repairing: `git ls-remote origin main` from a scratch dir. If the REMOTE tip equals
+the sha your broken local ref points at, the lost objects are recoverable by re-fetch and nothing is
+lost.
+
+Repair (non-destructive, no `reset --hard` — the working tree is the live truth):
+1. Back up metadata only: `cp -a .git/logs .git/refs .git/index .git/HEAD /home/$USER/git-repair-backup-$(date +%F)/`
+   (don't copy the multi-GB pack; it's intact).
+2. Read the last valid commit out of the reflog (`tail .git/logs/HEAD`) and confirm it is readable:
+   `git cat-file -t <sha>` → `commit`, `git cat-file -p <sha>` → valid tree.
+3. Delete the zero-length loose objects (`find .git/objects -type f -size 0 -delete`).
+4. Truncate each reflog to the last newline BEFORE the first NUL byte (Python: `data[:data.rfind(b'\n',0,data.find(b'\x00'))+1]`),
+   otherwise appends land after the NUL junk.
+5. `rm -f .git/refs/remotes/origin/main` (broken pointer; fetch recreates it), then
+   `git fetch origin main` → re-downloads the missing commit/tree/blobs.
+6. Verify: `git fsck --no-progress` (silent), `git log --oneline -3`, `git rev-parse --short HEAD origin/main`
+   (equal), `git status --short` (shows the real accumulated diffs).
+7. Prove the pipeline end-to-end: run `bash ~/.hermes/scripts/sync-memory.sh` once — expect
+   `[sync] 已提交 <sha> (N 个文件)` + `[sync] 已推送`, then confirm `git ls-remote origin main` matches
+   local HEAD and `git status --short` is empty.
+
+Notes: SSH (`git@github.com:...`) worked with no proxy even when HTTP(S) tooling needed 127.0.0.1:7890.
+After repair, mention to the user the clustered mtime so they can check for a power event on that date.
+
 ## Pitfalls
 - Only ever `git add -A` with the whitelist in place. Audit pushed tree: `git ls-tree -r --name-only HEAD | grep -E '\.env|auth\.json|state\.db|\.ssh'` must be empty.
 - Fresh bare remote → first script run fails on pull; seed with an initial push.
