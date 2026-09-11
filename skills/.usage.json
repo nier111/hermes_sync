@@ -241,15 +241,15 @@
     "created_at": "2026-09-09T02:08:46.473970+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-09-09T13:00:33.528165+00:00",
-    "last_reused_patch_generation": 1,
-    "last_used_at": "2026-09-09T12:51:21.346096+00:00",
-    "last_viewed_at": "2026-09-09T12:51:21.339294+00:00",
+    "last_reused_patch_generation": 2,
+    "last_used_at": "2026-09-11T12:33:13.701993+00:00",
+    "last_viewed_at": "2026-09-11T12:33:13.692544+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 5,
+    "view_count": 5
   },
   "claude-code": {
     "archived_at": null,
@@ -1659,14 +1659,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-06T14:07:20.437169+00:00",
-    "last_viewed_at": "2026-09-06T14:07:20.433836+00:00",
+    "last_used_at": "2026-09-11T12:19:27.875008+00:00",
+    "last_viewed_at": "2026-09-11T12:19:27.871996+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 8,
-    "view_count": 8
+    "use_count": 9,
+    "view_count": 9
   },
   "teams-meeting-pipeline": {
     "archived_at": null,
