@@ -242,14 +242,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-09T13:00:33.528165+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-09-11T12:33:13.701993+00:00",
-    "last_viewed_at": "2026-09-11T12:33:13.692544+00:00",
+    "last_used_at": "2026-09-12T09:04:07.918701+00:00",
+    "last_viewed_at": "2026-09-12T09:04:07.915818+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 5,
-    "view_count": 5
+    "use_count": 6,
+    "view_count": 6
   },
   "claude-code": {
     "archived_at": null,
@@ -429,13 +429,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-12T05:52:17.482436+00:00",
+    "last_used_at": "2026-09-12T08:53:30.727468+00:00",
     "last_viewed_at": "2026-09-10T03:34:51.511125+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 301,
+    "use_count": 302,
     "view_count": 4
   },
   "daily-knowledge-digest": {
