@@ -1,0 +1,34 @@
+{
+  "document_title": "Subject · Active Recall",
+  "subtitle": "Derived from the learner's notes; prompts omit answers.",
+  "subject_label": "Course / exam",
+  "source_order_note": "Archive order: capture time; recall order: conceptual sequence.",
+  "sections": [
+    {
+      "title": "Chapter or topic",
+      "items": [
+        {
+          "prompt": "State the definition, conditions, derivation outline, and one common mistake.",
+          "source_pages": [1],
+          "lines": 6
+        },
+        {
+          "prompt": "Write the transform pair and explain each scale or phase factor.",
+          "source_pages": [1, 2],
+          "lines": 7
+        }
+      ]
+    }
+  ],
+  "self_rating": [
+    "independently recalled",
+    "recalled with hint",
+    "understood only after answer"
+  ],
+  "outputs": {
+    "compact_checklist": true,
+    "recall_workbook": true,
+    "source_archive": true,
+    "paper": "A4"
+  }
+}
