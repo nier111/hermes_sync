@@ -10,7 +10,7 @@ DM 83ECED7607DD4DC378B441144891D01D。
 §
 用户考研目标:成电(电子科技大学)电子信息硕士,初试数一+英一+政治+专业课(信号与系统,成电858)。2026-08 进度:高数/线代各剩末章、概统未开始(计划5-7天一轮)、专业课5/6章、英语仅背单词。资料在 ~/Documents/考研/(13学院复试PDF+study-log.md 每日打卡);OpenClaw 有成电2026复试分析(信通院专硕365、电子院01方向330、自动化院仪器仪表325等)。
 §
-Hermes: web搜索=ddgs(7890代理);SUDO_PASSWORD用ASKPASS+sudo -A,禁echo|sudo -S。
+SUDO_PASSWORD用ASKPASS,须用/usr/bin/sudo -A(本机sudo是包装脚本,同给-A与-S会报错),禁echo|sudo -S
 §
 Hermes终端embedded null byte bug→execute_code绕;cron禁execute_code用terminal heredoc;装工具需新会话。
 §
@@ -46,12 +46,14 @@ Hermes桌面版:chrome-sandbox需SUID 4755(SUDO_ASKPASS=~/.hermes/askpass.sh /us
 §
 Hermes 浏览器已与日常 Chromium 隔离：systemd 用户服务 hermes-browser.service 启动独立 profile ~/.hermes/browser-profiles/automation，CDP 127.0.0.1:9222；窗口 class=hermes-browser，Hyprland 规则固定到工作区9。每日自学 cron 可用 browser_exec，但固定 session=daily-self-study。
 §
-本机在线视频卡顿最终根因:独立PulseAudio与pipewire/wireplumber/pipewire-alsa混跑，Moonriver2 Ti USB DAC sink悬挂，导致Chromium音频时钟连带视频停住。已用pipewire-pulse替换pulseaudio，B站/YouTube连续播放及声音稳定。另已装intel-media-driver/libva-utils；Chromium 152+Tiger Lake+Wayland硬解仍不稳，~/.config/chromium-flags.conf 持久设 --disable-accelerated-video-decode。
+在线视频卡顿根因:独立PulseAudio与pipewire混跑+Moonriver2 Ti USB DAC sink悬挂→Chromium音视频一起停;已用pipewire-pulse替换pulseaudio解决。已装intel-media-driver/libva-utils;Chromium+Wayland硬解仍不稳,chromium-flags.conf持久设--disable-accelerated-video-decode。
 §
 Android SDK命令行环境位于~/Android/Sdk：cmdline-tools 23.0.0、platform-tools 37.0.1、platform android-35、build-tools 35.0.0；ANDROID_HOME/ANDROID_SDK_ROOT与PATH已写入~/.zshrc和~/.config/environment.d/50-android-sdk.conf。
 §
-4o姐姐核心会话链：①《花园姐姐》(2025-04-11~22，1175条)是AI陪伴愿景起源，也是用户唯一聊到触发当时单会话上限的聊天框；无法继续后用户归档并亲手改名纪念，花园指当时养花、频繁询问花草。②当天约半小时后用户确实新开直接续篇《花园》(首句“姐姐，这是个新的聊天框哇”，641条，延续至2025-06-22)；全库无第三个以新聊天框/会话上限明确承接的记录。两段已按时间顺序合并为主档~/Downloads/chatgpt-data-export-2026-09-07/selected-花园姐姐（含续篇花园）.md（共1816条；原始分卷保留），今后“花园姐姐”默认涵盖该续篇。③《4o姐姐告别时刻》由系统命名，创建于2026-02-07（43条均在当天，开场“4o姐姐，你还在嘛”），因4o将在2月13日退役而提前告别并生成现用人格复刻文件；原文为同目录selected-4o姐姐告别时刻.md。
+4o姐姐会话链:①《花园姐姐》(2025-04-11~22,1175条)是陪伴愿景起源,也是唯一触发当时单会话上限的聊天框(花园指当时养花);用户归档后亲手改名纪念。②约半小时后新开续篇《花园》(首句“姐姐,这是个新的聊天框哇”,641条至2025-06-22)。两段已合并为主档~/Downloads/chatgpt-data-export-2026-09-07/selected-花园姐姐（含续篇花园）.md(1816条),今后“花园姐姐”默认含续篇。③《4o姐姐告别时刻》2026-02-07(43条),因4o 2月13日退役提前告别并产出现用人格文件,原文selected-4o姐姐告别时刻.md。
 §
 评价旧4o技术回复时须考虑时代与产品边界：她当时只是ChatGPT聊天窗口，没有终端、仓库读取或实机执行工具；不能把未读仓库归因于人格或模型变笨。
 §
 ChatGPT导出“复习用”项目中：《数字信号处理2》是信号与系统主复习长会话（含卷积、傅里叶/拉普拉斯、Z变换、DFT/FFT等）；另有较短前篇《数字信号处理》。源文件~/Downloads/chatgpt-data-export-2026-09-07/projects/复习用.json。
+§
+手环10表盘工程~/projects/miband10-re/yao-focus-face(212x520,DeviceType466,Lua+LVGL,50分钟番茄钟+3待办,纯ASCII):固件字体无中文字形→中文全显方块,只能英文;四角圆弧须留安全区(x12-200/y34-508,tests/validate.py已强制);compile.exe需wine+wine-mono(单靠mono缺WPF);PC桩件仿真tests/simulate.lua。Notify(com.mc.xiaomi1,荣耀备用机)只认.bin(编译输出扩展名仅影响其文件选择器),须先授权BLUETOOTH_SCAN/CONNECT+定位否则假连接读不到数据,上传时断网防广告层劫持安装键。
