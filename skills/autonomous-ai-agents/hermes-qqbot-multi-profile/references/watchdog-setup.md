@@ -95,6 +95,24 @@ WantedBy=timers.target
 
 `Persistent=true` ensures it fires immediately if the machine was off during the scheduled time.
 
+## Provider quota errors are not gateway crashes
+
+An LLM/provider `HTTP 429 usage_limit_reached` does **not** mean the QQ WebSocket or gateway process died. Do not restart the gateway merely because a model call or post-turn background review hit quota: restarting cannot restore quota and can create a restart loop.
+
+Diagnose the layers separately:
+
+1. `systemctl --user show hermes-gateway.service -p ActiveState -p MainPID` — process liveness.
+2. `gateway.log` ending in `Ready` / `Session resumed` — QQ transport liveness.
+3. `errors.log` containing `usage_limit_reached` — model/provider failure.
+
+For provider quota failures, configure a real fallback with `fallback_model` / `fallback_providers`. If automatic post-turn review is consuming the primary subscription, pin `auxiliary.background_review.provider` and `.model` to a cheaper provider. Restart/reload the gateway only to apply the changed configuration, not as the quota recovery mechanism.
+
+## Pitfalls
+
+- The sample timer below is a **scheduled post-outage check** (06:35 and 12:00), not a continuous process supervisor. Actual gateway process exits are handled by the gateway unit's `Restart=` policy.
+- Do not simply change the timer to every 5 minutes while retaining the sample script's 10-minute stale threshold: a healthy QQ connection may only emit `Session resumed` about every 30 minutes, so that combination repeatedly restarts healthy gateways.
+- A continuous transport watchdog must compare the latest healthy marker (`Ready`, `Connected`, `Reconnected`, `Session resumed`) against terminal failure markers (`Max reconnect attempts reached`, persistent `Not connected`) and include a restart cooldown.
+
 ## Enable
 
 ```bash
