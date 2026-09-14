@@ -35,6 +35,31 @@ sleep 5 && curl -s -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/5
 - 412 出现立即停止，增加延时后再试
 - 视频标题是最高的梗名来源（合集视频标题直接列梗），评论区辅助
 
+### 2026-09-14 实测补充（v3）
+
+**接口层面的坑与正解**：
+
+- `ranking/v2`（B站热榜）**裸 curl 首抓必被 `-352` 风控**，只带 UA 不够。
+  正解：先 `curl -c cookie.txt https://www.bilibili.com/` 拿 cookie，之后所有 API 都带
+  `-b cookie.txt -c cookie.txt` + `Referer: https://www.bilibili.com/`，每步 sleep 5~6s → 直接成功。
+- **实时热搜词接口**（比热榜更贴"此刻在火什么"，一次 30 条）：
+  `https://s.search.bilibili.com/main/hotword?limit=30`
+- 搜索接口可直接用，`order=click`（按播放）和 `order=pubdate`（按最新）都好用：
+  `https://api.bilibili.com/x/web-interface/search/type?search_type=video&order=pubdate&keyword=<urlencode>`
+  → **`order=pubdate` + 关键词 "是什么梗" / "梗百科" / "盘点近期网络热梗" 是发现新梗的最快路径**，
+  这类合集的标题直接把梗名写出来（如"盘点近期网络热梗：我从海底出击、高考固定NPC、雷霆动物集体蹦迪"）。
+
+**评论区和简介基本没用**：合集视频的简介多为空，热评是"别打开""点赞的都是爷们"这类刷屏，
+不要指望从评论区拿到释义，**直接跳到下一步交叉验证**。
+
+**交叉验证源（比豆包强得多，优先用）**：
+
+- `web_search` 工具在中文梗查询上**可用**（部分查询 30s 超时属正常，换措辞重试）。
+- 高产的聚合榜单：数英《2026上半年网络热词TOP30》、hsk.cn-trending 2026梗词表、
+  新浪/游侠/ali213 单梗解析、10100《22 Chinese Internet Slang Terms 2026》、gengbk.cn（梗捕快）。
+- 判据：一个梗若同时出现在 **B站近两周合集标题 + 任一聚合榜单/媒体解析**，即可信度足够入词。
+- 出处有分歧时（如"我要验牌"），采信媒体考据版并标注存疑，不要自己编。
+
 ### 豆包 API（仅润色，不发现）
 
 doubao-seed-2-0-lite-260428，¥3/百万输入 token。
