@@ -599,6 +599,21 @@
     "use_count": 0,
     "view_count": 0
   },
+  "exam-drill-strategy": {
+    "archived_at": null,
+    "created_at": "2026-09-15T19:09:32.785220+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-09-15T19:09:47.438437+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-15T19:09:50.342849+00:00",
+    "last_viewed_at": "2026-09-15T19:09:50.336923+00:00",
+    "patch_count": 1,
+    "patch_generation": 1,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "excalidraw": {
     "archived_at": null,
     "created_at": "2026-08-12T13:59:01.381046+00:00",
@@ -797,14 +812,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-13T21:24:55.496278+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-09-13T21:41:28.103759+00:00",
-    "last_viewed_at": "2026-09-13T21:41:28.100332+00:00",
+    "last_used_at": "2026-09-15T19:08:56.385585+00:00",
+    "last_viewed_at": "2026-09-15T19:08:56.379614+00:00",
     "patch_count": 1,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 4,
-    "view_count": 4
+    "use_count": 6,
+    "view_count": 6
   },
   "grounded-citations": {
     "archived_at": null,
@@ -1727,14 +1742,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-12T10:15:10.462577+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-09-15T07:44:01.456245+00:00",
-    "last_viewed_at": "2026-09-15T07:44:01.450055+00:00",
+    "last_used_at": "2026-09-15T19:08:52.184686+00:00",
+    "last_viewed_at": "2026-09-15T19:08:52.178097+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 3,
+    "view_count": 3
   },
   "systematic-debugging": {
     "archived_at": null,
@@ -1770,14 +1785,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-12T09:44:09.247002+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-09-15T16:57:37.805961+00:00",
-    "last_viewed_at": "2026-09-15T16:57:37.802838+00:00",
+    "last_used_at": "2026-09-15T19:08:56.382420+00:00",
+    "last_viewed_at": "2026-09-15T19:08:56.368556+00:00",
     "patch_count": 1,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 3,
+    "view_count": 3
   },
   "test-driven-development": {
     "archived_at": null,
