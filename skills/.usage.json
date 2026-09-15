@@ -339,14 +339,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-14T21:04:45.243969+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-15T05:19:23.300219+00:00",
-    "last_viewed_at": "2026-09-15T05:19:23.297475+00:00",
+    "last_used_at": "2026-09-15T13:24:12.971386+00:00",
+    "last_viewed_at": "2026-09-15T13:24:12.967834+00:00",
     "patch_count": 6,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 26,
-    "view_count": 26
+    "use_count": 27,
+    "view_count": 27
   },
   "companion-persona": {
     "archived_at": null,
@@ -392,6 +392,21 @@
     "state": "active",
     "use_count": 8,
     "view_count": 8
+  },
+  "consumer-health-guidance": {
+    "archived_at": null,
+    "created_at": "2026-09-15T13:12:17.465946+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-09-15T13:12:33.671200+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-15T13:12:37.547781+00:00",
+    "last_viewed_at": "2026-09-15T13:12:37.541453+00:00",
+    "patch_count": 2,
+    "patch_generation": 2,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   },
   "coursework-essay-writing": {
     "archived_at": null,

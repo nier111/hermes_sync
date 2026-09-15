@@ -59,3 +59,5 @@ ChatGPT导出“复习用”项目中：《数字信号处理2》是信号与系
 手环10表盘工程~/projects/miband10-re/yao-focus-face(212x520,DeviceType466,Lua+LVGL,50分钟番茄钟+3待办,纯ASCII):固件字体无中文字形→中文全显方块,只能英文;四角圆弧须留安全区(x12-200/y34-508,tests/validate.py已强制);compile.exe需wine+wine-mono(单靠mono缺WPF);PC桩件仿真tests/simulate.lua。Notify(com.mc.xiaomi1,荣耀备用机)只认.bin(编译输出扩展名仅影响其文件选择器),须先授权BLUETOOTH_SCAN/CONNECT+定位否则假连接读不到数据,上传时断网防广告层劫持安装键。
 §
 背单词:自建~/projects/yao-vocab-sieve(本地网页+Wofi搜“词筛”,红宝书6547词);设计=先全量普查→认识毕业/模糊认2次/不认识认3次,拒绝统一强度(嫌不背单词太慢);实现套路见skill local-web-tools。
+§
+作息属睡眠时相延迟型(曾06:00困/15:00醒,白天复习被压),2026-09起用褪黑素1mg(LifeExtension #00329)逐档前移+晨光;健康/补剂咨询流程见skill consumer-health-guidance。
