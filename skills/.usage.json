@@ -384,14 +384,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-06T12:07:23.701005+00:00",
-    "last_viewed_at": "2026-09-06T12:07:23.697074+00:00",
+    "last_used_at": "2026-09-15T07:33:52.970533+00:00",
+    "last_viewed_at": "2026-09-15T07:33:52.967551+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 6,
-    "view_count": 6
+    "use_count": 7,
+    "view_count": 7
   },
   "coursework-essay-writing": {
     "archived_at": null,
@@ -1081,14 +1081,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-09T01:21:50.477082+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-09-09T01:22:10.694545+00:00",
-    "last_viewed_at": "2026-09-09T01:22:10.691430+00:00",
+    "last_used_at": "2026-09-15T07:34:01.160904+00:00",
+    "last_viewed_at": "2026-09-15T07:34:01.157855+00:00",
     "patch_count": 3,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 4,
-    "view_count": 4
+    "use_count": 5,
+    "view_count": 5
   },
   "local-vision": {
     "archived_at": null,
@@ -1109,16 +1109,16 @@
     "archived_at": null,
     "created_at": "2026-09-15T06:08:25.274975+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-09-15T06:08:38.222819+00:00",
-    "last_reused_patch_generation": 0,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 4,
-    "patch_generation": 4,
+    "last_patched_at": "2026-09-15T07:43:27.830910+00:00",
+    "last_reused_patch_generation": 4,
+    "last_used_at": "2026-09-15T07:43:12.377682+00:00",
+    "last_viewed_at": "2026-09-15T07:43:12.371736+00:00",
+    "patch_count": 5,
+    "patch_generation": 5,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 4,
+    "view_count": 4
   },
   "manim-video": {
     "archived_at": null,
@@ -1694,15 +1694,15 @@
     "created_at": "2026-09-12T10:14:31.272428+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-09-12T10:15:10.462577+00:00",
-    "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-15T06:07:55.101781+00:00",
-    "last_viewed_at": "2026-09-15T06:07:55.094818+00:00",
+    "last_reused_patch_generation": 2,
+    "last_used_at": "2026-09-15T07:44:01.456245+00:00",
+    "last_viewed_at": "2026-09-15T07:44:01.450055+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "systematic-debugging": {
     "archived_at": null,
