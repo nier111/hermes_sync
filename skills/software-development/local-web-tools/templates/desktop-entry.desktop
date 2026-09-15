@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=词筛
+GenericName=红宝书快速筛词
+Comment=全量普查并逐轮缩小考研英语词库
+# Absolute path required: desktop launchers start with no useful cwd or PATH.
+Exec=/home/sato/projects/yao-vocab-sieve/run.sh
+Icon=/home/sato/projects/yao-vocab-sieve/icon.svg
+Terminal=false
+Categories=Education;Languages;
+# Chinese keywords so the Wofi (Mod+A) search matches what the user types.
+Keywords=英语;单词;考研;红宝书;vocabulary;
+StartupNotify=true

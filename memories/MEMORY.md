@@ -38,7 +38,7 @@ cron(no_agent)消息不进会话上下文,查~/.hermes/cron/output/;谈时间/�
 §
 QQ发虚=desktop加ozone参数;老Electron(yesplaymusic0.4.10=Electron13.6.9)wayland参数无效,发虚解法=--force-device-scale-factor=1.2+Hyprland xwayland force_zero_scaling(已true);先扫skill。
 §
-npm源已配npmmirror(~/.npmrc registry+replace-registry-host),electron走ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/(npm12的config set不认electron_mirror键,只能env传);registry.npmjs.org直连被墙30-47s/包+ECONNRESET。nvm默认22.22.3但Hermes要求node>=26(install.sh原文too old),用户zsh里hermes desktop会解析到nvm的npm22→装桌面依赖报too old;修法=nvm alias default system或确保PATH用系统node26。
+npm/electron镜像已配好(npmmirror registry+replace-registry-host,electron只能env传ELECTRON_MIRROR;详见skill cn-npm-mirror-setup);Hermes要node>=26,勿让nvm的npm22抢先→nvm alias default system。
 §
 Hermes桌面版:chrome-sandbox需SUID 4755(SUDO_ASKPASS=~/.hermes/askpass.sh /usr/bin/sudo -A chown root:root+chmod 4755,重建后重置)。drun启动项(wofi --show drun,Hyprland):已patch linux_desktop_entry.py的resolve_exec_command固定用~/.local/bin/hermes(不能用PATH查询或argv[0],launcher无PATH时argv[0]=仓库裸脚本→系统python缺pathspec崩,且每次启动会重写.desktop);hermes update会重置补丁需重打。wayland黑屏加ozone参数。hyprlauncher未安装(Mod+R是坏的),wofi是Mod+A。
 §
@@ -57,3 +57,5 @@ Android SDK命令行环境位于~/Android/Sdk：cmdline-tools 23.0.0、platform-
 ChatGPT导出“复习用”项目中：《数字信号处理2》是信号与系统主复习长会话（含卷积、傅里叶/拉普拉斯、Z变换、DFT/FFT等）；另有较短前篇《数字信号处理》。源文件~/Downloads/chatgpt-data-export-2026-09-07/projects/复习用.json。
 §
 手环10表盘工程~/projects/miband10-re/yao-focus-face(212x520,DeviceType466,Lua+LVGL,50分钟番茄钟+3待办,纯ASCII):固件字体无中文字形→中文全显方块,只能英文;四角圆弧须留安全区(x12-200/y34-508,tests/validate.py已强制);compile.exe需wine+wine-mono(单靠mono缺WPF);PC桩件仿真tests/simulate.lua。Notify(com.mc.xiaomi1,荣耀备用机)只认.bin(编译输出扩展名仅影响其文件选择器),须先授权BLUETOOTH_SCAN/CONNECT+定位否则假连接读不到数据,上传时断网防广告层劫持安装键。
+§
+背单词:自建~/projects/yao-vocab-sieve(本地网页+Wofi搜“词筛”,红宝书6547词);设计=先全量普查→认识毕业/模糊认2次/不认识认3次,拒绝统一强度(嫌不背单词太慢);实现套路见skill local-web-tools。

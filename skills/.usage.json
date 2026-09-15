@@ -514,13 +514,15 @@
     "created_at": "2026-08-12T13:59:01.371647+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-09-15T06:07:55.105183+00:00",
+    "last_viewed_at": "2026-09-15T06:07:55.098769+00:00",
     "patch_count": 0,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "doubao-volcengine-api": {
     "archived_at": null,
@@ -1103,6 +1105,21 @@
     "use_count": 4,
     "view_count": 4
   },
+  "local-web-tools": {
+    "archived_at": null,
+    "created_at": "2026-09-15T06:08:25.274975+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-09-15T06:08:38.222819+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 4,
+    "patch_generation": 4,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "manim-video": {
     "archived_at": null,
     "created_at": "2026-08-12T13:59:01.445166+00:00",
@@ -1678,14 +1695,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-12T10:15:10.462577+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-09-15T06:07:55.101781+00:00",
+    "last_viewed_at": "2026-09-15T06:07:55.094818+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "systematic-debugging": {
     "archived_at": null,
@@ -1736,14 +1753,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-07T11:31:10.083292+00:00",
-    "last_viewed_at": "2026-09-07T11:31:10.080425+00:00",
+    "last_used_at": "2026-09-15T05:51:44.871456+00:00",
+    "last_viewed_at": "2026-09-15T05:51:44.868411+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "touchdesigner-mcp": {
     "archived_at": null,
