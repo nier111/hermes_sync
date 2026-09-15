@@ -444,13 +444,13 @@
     "created_by": null,
     "last_patched_at": "2026-09-15T12:44:45.392140+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-09-15T15:45:23.189438+00:00",
+    "last_used_at": "2026-09-15T18:46:27.710354+00:00",
     "last_viewed_at": "2026-09-15T12:44:39.473136+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 336,
+    "use_count": 337,
     "view_count": 5
   },
   "daily-knowledge-digest": {
@@ -1910,14 +1910,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-13T02:43:17.776939+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-13T21:05:17.213370+00:00",
-    "last_viewed_at": "2026-09-13T21:05:17.207449+00:00",
+    "last_used_at": "2026-09-15T19:05:55.445022+00:00",
+    "last_viewed_at": "2026-09-15T19:05:55.441161+00:00",
     "patch_count": 2,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 7,
-    "view_count": 7
+    "use_count": 8,
+    "view_count": 8
   },
   "weekly-review-planning": {
     "archived_at": null,
