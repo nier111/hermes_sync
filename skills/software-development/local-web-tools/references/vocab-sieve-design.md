@@ -24,18 +24,18 @@ So: do not schedule "N new words per day". Sweep the entire list once, fast, the
 
 Thresholds 2/3 are deliberately arbitrary and presented to the user as adjustable, not optimal. The correct loop is: he rates a few dozen, then the numbers move.
 
-## Keyboard map (keyboard-first, no mouse needed)
+## Batch-first interaction (current implementation)
 
-```
-space / Enter   reveal the definition
-1               认识
-2               模糊
-3               不认识
-u               undo previous rating
-s               speak the current word
-```
+The survey must reduce user actions, not merely place several independent single-word cards on one screen:
 
-Sidebar (optional, mouse): shuffle toggle, export/import progress JSON, reset. Progress persists in `localStorage` on every keystroke — a session can end mid-word.
+- Default page size: **8 words**, adjustable to 4 / 8 / 12.
+- Every unmarked word is treated as `认识` when the page is submitted.
+- The user only marks the exceptions (`模糊` / `不认识`), then submits the whole page once.
+- Clicking a word toggles its definition; each card has its own pronunciation button.
+- `Enter` submits the page; `U` undoes the entire previous page, including after focus remains on the submit button.
+- A batch is persisted to SQLite transactionally. Undo restores every affected word and deletes only that batch's attempt rows; it must not replace or truncate older attempt history.
+
+This is materially faster than showing 4–8 cards while still requiring one rating action per word.
 
 ## Dataset provenance
 
@@ -55,7 +55,9 @@ Saved state is versioned (`{version: 1, cursor, ratings: {wordId: {state, streak
 
 ## Verification that mattered
 
-- 10 `node --test` cases: every bucket, graduation at 2 and 3, streak reset, undo restoring state+cursor, stats split between survey progress and learning buckets, round shrinking, plus artifact-contract tests for `run.sh`/README/`index.html`/count.
-- Real Chromium over CDP: title, rendered word, `space` reveals the gloss, `1/2/3` move the counters, `localStorage` matches the DOM after each keystroke, `u` returns to the previous word, zero console errors.
-- Screenshot inspected at ~800x600: no overlap or horizontal overflow; the sidebar correctly reflows below the drill area at that width.
-- Launcher run twice: second run reused the active `systemd-run` unit instead of starting a second server.
+- Pure-logic and artifact tests cover all rating buckets, 2/3-streak graduation, streak reset, batch submission, whole-page undo, local launcher and UI contract.
+- SQLite tests cover atomic batch writes and atomic page undo without deleting older history.
+- Real Chromium over CDP: eight cards render, clicking a word reveals its gloss, two exception marks plus one submit move progress by eight, SQLite counters match, `U` returns all counters and rows to the exact pre-test state, and console errors remain zero.
+- Compare the live database against a pre-test SQLite backup after undo (`word_progress`, `attempts`, queue/cursor/round/phase): zero row differences.
+- Screenshot at desktop viewport: inspect all eight cards, exception highlighting, controls, horizontal overflow and clipping.
+- Launcher run twice: second run reuses the active `systemd-run` unit instead of starting a second server.
