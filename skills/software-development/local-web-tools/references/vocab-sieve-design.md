@@ -28,11 +28,13 @@ Thresholds 2/3 are deliberately arbitrary and presented to the user as adjustabl
 
 The survey must reduce user actions, not merely place several independent single-word cards on one screen:
 
-- Default page size: **8 words**, adjustable to 4 / 8 / 12.
-- Every unmarked word is treated as `认识` when the page is submitted.
-- The user only marks the exceptions (`模糊` / `不认识`), then submits the whole page once.
+- Default page size: **6 words**, adjustable to 4 / 6 / 8 / 12.
+- Number keys `1`–`6` select the corresponding card; the selected outline must remain visually distinct from green/amber/red rating colors.
+- `R` toggles the definition for the currently selected card without changing its rating.
+- `Q` / `W` / `E` mark the selected card as `认识` / `模糊` / `不认识`.
+- Every unmarked word is treated as `认识` when `Space` submits the page.
 - Clicking a word toggles its definition; each card has its own pronunciation button.
-- `Enter` submits the page; `U` undoes the entire previous page, including after focus remains on the submit button.
+- `Enter` remains an alternate submit key; `U` undoes the entire previous page, including after focus remains on a button.
 - A batch is persisted to SQLite transactionally. Undo restores every affected word and deletes only that batch's attempt rows; it must not replace or truncate older attempt history.
 
 This is materially faster than showing 4–8 cards while still requiring one rating action per word.
