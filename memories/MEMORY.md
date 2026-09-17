@@ -20,7 +20,7 @@ Hermes终端embedded null byte bug→execute_code绕;cron禁execute_code用termi
 §
 用户仲耀,南信大海洋技术2023-2027,求职嵌入式。项目:水声板(STM32G474+GaN+GPS授时)、ZYNQ高速采集。竞赛:数模省一/电赛校一/电赛省二(2026)。会拍视频+音频处理(熟GPT-SOVITS去噪/UVR5,三年前部署过),想重练绚音(Summer Ghost佐藤绚音)声线接入AI。详见~/persona/projects-profile.md。
 §
-QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=hermes-gateway-gf,watchdog同06:35+12:00。Aoi/Kubo独立memory,shared目录每3h cron互通。
+QQ bot2:Kubo(久保渚咲,profile gf,1905411221),短日常+emoji;gateway=hermes-gateway-gf,watchdog 06:35+12:00。profile friend=朋友的bot(app1905582666,仅测试过)。各profile独立state.db,shared目录3h互通。
 §
 备用机VNE-AN00(荣耀,BL锁):adb+Termux ssh(8022,adb forward)+proot Ubuntu;副屏wayvnc→AVNC(tcp:5900)。Gmail接himalaya。
 §
@@ -44,7 +44,7 @@ Hermes桌面版:chrome-sandbox需SUID 4755(SUDO_ASKPASS=~/.hermes/askpass.sh /us
 §
 本机1920x1080 scale1.2(Hyprland,force_zero_scaling=true)。手机ciallo(Android,GMS登Google)64:44:7B:7F:D5:F2已配对trust自动重连,blueman管理;配对坑:单命令bluetoothctl agent不持久,须持续会话agent on→pair→弹码输yes,注意default agent冲突(见skill linux-bluetooth)。
 §
-Hermes 浏览器已与日常 Chromium 隔离：systemd 用户服务 hermes-browser.service 启动独立 profile ~/.hermes/browser-profiles/automation，CDP 127.0.0.1:9222；窗口 class=hermes-browser，Hyprland 规则固定到工作区9。每日自学 cron 可用 browser_exec，但固定 session=daily-self-study。
+Hermes浏览器独立profile(~/.hermes/browser-profiles/automation,CDP 9222,class=hermes-browser,工作区9);自学cron固定session=daily-self-study。
 §
 在线视频卡顿根因:独立PulseAudio与pipewire混跑+Moonriver2 Ti USB DAC sink悬挂→Chromium音视频一起停;已用pipewire-pulse替换pulseaudio解决。已装intel-media-driver/libva-utils;Chromium+Wayland硬解仍不稳,chromium-flags.conf持久设--disable-accelerated-video-decode。
 §
@@ -61,3 +61,5 @@ ChatGPT导出“复习用”项目中：《数字信号处理2》是信号与系
 背单词:自建~/projects/yao-vocab-sieve(本地网页+Wofi搜“词筛”,红宝书6547词);设计=先全量普查→认识毕业/模糊认2次/不认识认3次,拒绝统一强度;答题记录+进度双写SQLite ~/.local/share/yao-vocab-sieve/study.db(localStorage另有备份),实现套路见skill local-web-tools。
 §
 作息属睡眠时相延迟型(曾06:00困/15:00醒,白天复习被压),2026-09起用褪黑素1mg(LifeExtension #00329)逐档前移+晨光;健康/补剂咨询流程见skill consumer-health-guidance。
+§
+curator审查轮:skill_manage patch/edit常被read-before-write守卫拒(skill_view去重不返回内容)→改用write_file往references/加新文件。

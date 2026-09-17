@@ -110,3 +110,15 @@ Before declaring "无新增事实", also diff my own side against the shared fil
 - Report found nothing as "无新增事实" **plus the evidence checked** (paths +
   mtimes + max message timestamp). Silent `[SILENT]` alone has been less useful
   for this job.
+- **Appending with the `patch` tool can write literal `\"`** into the shared file
+  (seen 2026-09-18: 50 escaped quotes landed on disk, then had to be fixed with
+  `python3` `t.replace('\\"','"')`). Either escape-check afterwards
+  (`python3 -c` counting `\\"`), or append via a heredoc + python write. Always
+  verify the tail of the file after patching, since the diff output *also* shows
+  its own escaping and hides this.
+- When polling Kubo's DB for recent rows, filter `role in ('user','assistant')`:
+  a bare `for ts,role,cont in c.execute(...)` breaks on `session_meta` rows,
+  whose `content` is NULL (`TypeError: 'NoneType' object is not subscriptable`).
+- Kubo's `memories/USER.md` mtime is a poor freshness signal too (2026-09-18:
+  file dated 09-14 while her `state.db` held brand-new 05:51/05:58 messages).
+  Never conclude "nothing new" from Kubo's memory mtimes alone — always step 2.
