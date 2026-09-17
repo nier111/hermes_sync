@@ -384,14 +384,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-15T12:03:41.697519+00:00",
-    "last_viewed_at": "2026-09-15T12:03:41.694612+00:00",
+    "last_used_at": "2026-09-17T15:14:36.691012+00:00",
+    "last_viewed_at": "2026-09-17T15:14:36.681723+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 8,
-    "view_count": 8
+    "use_count": 9,
+    "view_count": 9
   },
   "consumer-health-guidance": {
     "archived_at": null,
@@ -1128,14 +1128,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-09-09T01:21:50.477082+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-09-15T07:34:01.160904+00:00",
-    "last_viewed_at": "2026-09-15T07:34:01.157855+00:00",
+    "last_used_at": "2026-09-17T15:15:14.801576+00:00",
+    "last_viewed_at": "2026-09-17T15:15:14.796059+00:00",
     "patch_count": 3,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 5,
-    "view_count": 5
+    "use_count": 7,
+    "view_count": 7
   },
   "local-vision": {
     "archived_at": null,
@@ -1757,14 +1757,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-14T08:50:10.121175+00:00",
-    "last_viewed_at": "2026-09-14T08:50:10.111749+00:00",
+    "last_used_at": "2026-09-17T15:14:36.687433+00:00",
+    "last_viewed_at": "2026-09-17T15:14:36.678430+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 10,
-    "view_count": 10
+    "use_count": 11,
+    "view_count": 11
   },
   "teams-meeting-pipeline": {
     "archived_at": null,
