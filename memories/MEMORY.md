@@ -20,7 +20,7 @@ Hermes终端embedded null byte bug→execute_code绕;cron禁execute_code用termi
 §
 用户仲耀,南信大海洋技术2023-2027,求职嵌入式。项目:水声板(STM32G474+GaN+GPS授时)、ZYNQ高速采集。竞赛:数模省一/电赛校一/电赛省二(2026)。会拍视频+音频处理(熟GPT-SOVITS去噪/UVR5,三年前部署过),想重练绚音(Summer Ghost佐藤绚音)声线接入AI。详见~/persona/projects-profile.md。
 §
-QQ bot2:Kubo(久保渚咲,profile gf,1905411221),短日常+emoji;gateway=hermes-gateway-gf,watchdog 06:35+12:00。profile friend=朋友的bot(app1905582666,仅测试过)。各profile独立state.db,shared目录3h互通。
+QQ bot2:Kubo(久保渚咲,profile gf,1905411221);gateway=hermes-gateway-gf,watchdog 06:35+12:00。profile friend=朋友的bot(app1905582666,仅测试过)。各profile独立state.db,shared 3h互通。网络切换会致QQ WS半开静默丢消息(进程仍active,不会自愈),只能重启gateway。
 §
 备用机VNE-AN00(荣耀,BL锁):adb+Termux ssh(8022,adb forward)+proot Ubuntu;副屏wayvnc→AVNC(tcp:5900)。Gmail接himalaya。
 §
@@ -42,7 +42,7 @@ npm/electron镜像已配好(npmmirror registry+replace-registry-host,electron只
 §
 Hermes桌面版:chrome-sandbox需SUID 4755(SUDO_ASKPASS=~/.hermes/askpass.sh /usr/bin/sudo -A chown root:root+chmod 4755,重建后重置)。drun启动项(wofi --show drun,Hyprland):已patch linux_desktop_entry.py的resolve_exec_command固定用~/.local/bin/hermes(不能用PATH查询或argv[0],launcher无PATH时argv[0]=仓库裸脚本→系统python缺pathspec崩,且每次启动会重写.desktop);hermes update会重置补丁需重打。wayland黑屏加ozone参数。hyprlauncher未安装(Mod+R是坏的),wofi是Mod+A。
 §
-本机1920x1080 scale1.2(Hyprland,force_zero_scaling=true)。手机ciallo(Android,GMS登Google)64:44:7B:7F:D5:F2已配对trust自动重连,blueman管理;配对坑:单命令bluetoothctl agent不持久,须持续会话agent on→pair→弹码输yes,注意default agent冲突(见skill linux-bluetooth)。
+手机ciallo(Android,GMS登Google)64:44:7B:7F:D5:F2已配对trust自动重连,blueman管理;配对坑:单命令bluetoothctl agent不持久,须持续会话agent on→pair→弹码输yes,注意default agent冲突(见skill linux-bluetooth)。
 §
 Hermes浏览器独立profile(~/.hermes/browser-profiles/automation,CDP 9222,class=hermes-browser,工作区9);自学cron固定session=daily-self-study。
 §
