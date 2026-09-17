@@ -65,3 +65,5 @@ Hyprland快捷键偏好:保留普通Ctrl+C/V，同时用Ctrl+Shift+C/V作为统�
 处理旧式.doc时，用户偏好保留WPS原格式，优先用WPS原生另存/压图；不走LibreOffice往返转换，复杂版式需目检。
 §
 对AI行业新名词(harness/MCP/multi-agent等)务实怀疑、不追配置感:认为自建agent-pool已等价于多Agent harness,MCP仅在有高频外部系统需求时才值得接。
+§
+AI使用轨迹：2023大一时靠《C Primer Plus》自学C并手写测试，能直接读编译报错、定位分号等基础问题；经历“手写→AI修错→精确描述需求→Agent代执行”，仍重视保留读代码、调试和电子设计的基本功。
