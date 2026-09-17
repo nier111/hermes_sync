@@ -98,6 +98,7 @@ QQ turn) and require a successful upload/send result with a media message ID.
 - **QQ credentials imply auto-enable** in some startup paths: removing or disabling only the config flag may still leave a retrying adapter while `QQ_APP_ID` and `QQ_CLIENT_SECRET` remain active.
 - **`systemctl enable --now` does not restart an already active gateway**. After changing credentials, perform a real profile gateway restart and verify a new PID plus `Ready` in that profile's log.
 - **QQ 30-min session timeout** — auto-reconnect works in seconds normally, but post-outage may need the watchdog restart.
+- **Wi-Fi/interface switching can leave a half-open QQ WebSocket** — systemd stays `active` and the adapter may still say `Connected`, yet C2C events stop arriving and messages sent during the gap are not replayed by QQ. Diagnose by correlating NetworkManager DHCP/BSSID changes with an absence of `inbound message` lines. The adapter must track op-11 heartbeat ACKs: after two heartbeat intervals without ACK, close the stale socket so the normal reconnect/Resume loop runs. A watchdog that only checks process state cannot detect this condition.
 
 ## Related skills
 
