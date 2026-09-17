@@ -59,6 +59,39 @@ stale (Kubo doesn't always compact them). Cheap 3-step sweep, in order:
 3. Search Kubo's sessions if needed
 4. Extract relevant facts and use them
 
+### Sweep MY side too (the Kubo→shared direction alone leaves holes)
+
+The cron usually fires the check *toward* Kubo, so new facts learned in the
+default profile never reach the shared file — Kubo then doesn't know things the
+user expects both bots to know. Seen 2026-09-16: four sync runs reported "no new
+facts" while Aoi-side facts from 09-15/16 (sleep/melatonin, bipolar self-check,
+考纲 strategy change, vocab-tool UI spec) sat unwritten.
+
+Before declaring "无新增事实", also diff my own side against the shared file:
+
+- `stat -c '%y %n'` on `~/.hermes/memories/USER.md`, `~/.hermes/memories/MEMORY.md`
+  vs `shared/user-preferences.md`.
+- Read *real* user messages (not the cron `[IMPORTANT]` prompts) from my DB:
+
+  ```bash
+  python3 - << 'EOF'
+  import sqlite3
+  c=sqlite3.connect('/home/sato/.hermes/state.db')
+  q="""select datetime(timestamp,'unixepoch','localtime'), substr(replace(content,char(10),' '),1,140)
+  from messages where role='user'
+    and datetime(timestamp,'unixepoch','localtime') > '<shared-file-mtime>'
+    and content not like '%[IMPORTANT%' and content not like '/%'
+  order by timestamp asc"""
+  for r in c.execute(q): print(r[0],'|',r[1])
+  EOF
+  ```
+
+- Append anything the user would expect Kubo to know: health/作息 changes,
+  explicit style or permission decisions, study-strategy shifts, tool specs and
+  paths. Skip pure Aoi-side technical trivia and anything already bulleted.
+- Cron `[IMPORTANT] …skill…` lines are the job's own invocations, not user facts —
+  filter them out.
+
 ## Pitfalls
 
 - Kubo is designed to be short and non-technical — her conversation style differs
