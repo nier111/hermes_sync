@@ -63,3 +63,5 @@ Hyprland快捷键偏好:保留普通Ctrl+C/V，同时用Ctrl+Shift+C/V作为统�
 用户偏好用“标题提示→闭书默写定义、公式与推导→对题验证”的主动回忆法复习；手写笔记可由理成紧凑A4标题清单和带留白练习册供打印，避免整页答案造成假熟练。
 §
 处理旧式.doc时，用户偏好保留WPS原格式，优先用WPS原生另存/压图；不走LibreOffice往返转换，复杂版式需目检。
+§
+对AI行业新名词(harness/MCP/multi-agent等)务实怀疑、不追配置感:认为自建agent-pool已等价于多Agent harness,MCP仅在有高频外部系统需求时才值得接。

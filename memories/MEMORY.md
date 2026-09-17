@@ -28,7 +28,7 @@ QQ bot2:Kubo(久保渚咲,gf profile,1905411221),短日常+emoji。gateway=herme
 §
 用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills(70+个从不加载被批),优先查百科不靠LLM编造;下结论前先查实际证据(state.db/日志/账单),勿凭配置默认值推断实际行为,逻辑链条会被质询。
 §
-模型:Hermes主模型=openai-codex/gpt-5.6-sol(ChatGPT Plus订阅额度,OAuth已加~/.hermes/auth.json),fallback=deepseek-v4-flash;6个LLM cron(arch简报/护肤/热梗/跨Profile/自学/趣事发报)pin在deepseek;codex CLI(0.147.0)登录ChatGPT,~/codex auth独立于hermes。OpenRouter无余额。
+模型:Hermes主模型=openai-codex/gpt-5.6-sol(ChatGPT Plus额度,OAuth在~/.hermes/auth.json),fallback=deepseek-v4-flash;各LLM cron pin在deepseek;codex CLI登录ChatGPT,~/codex auth独立于hermes。OpenRouter无余额。用户不接受为架构完整而加冗余组件/Agent:新工具先独立验证再集成,提建议要给结论不要只摆选项。
 §
 agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Codex/Hermes(--resume续会话)/OpenClaw(--session-key),看门狗Codex60s/Hermes300s/OpenClaw660s,支持[[DELEGATE]]跨agent委托。
 §
@@ -36,7 +36,7 @@ agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Cod
 §
 cron(no_agent)消息不进会话上下文,查~/.hermes/cron/output/;谈时间/天气先查date,勿用旧数据。
 §
-QQ发虚=desktop加ozone参数;老Electron(yesplaymusic0.4.10=Electron13.6.9)wayland参数无效,发虚解法=--force-device-scale-factor=1.2+Hyprland xwayland force_zero_scaling(已true);先扫skill。
+QQ发虚=desktop加ozone参数;老Electron(yesplaymusic0.4.10=Electron13.6.9)wayland参数无效,解法=--force-device-scale-factor=1.2+Hyprland xwayland force_zero_scaling。
 §
 npm/electron镜像已配好(npmmirror registry+replace-registry-host,electron只能env传ELECTRON_MIRROR;详见skill cn-npm-mirror-setup);Hermes要node>=26,勿让nvm的npm22抢先→nvm alias default system。
 §
@@ -50,7 +50,7 @@ Hermes 浏览器已与日常 Chromium 隔离：systemd 用户服务 hermes-brows
 §
 Android SDK命令行环境位于~/Android/Sdk：cmdline-tools 23.0.0、platform-tools 37.0.1、platform android-35、build-tools 35.0.0；ANDROID_HOME/ANDROID_SDK_ROOT与PATH已写入~/.zshrc和~/.config/environment.d/50-android-sdk.conf。
 §
-4o姐姐会话链:①《花园姐姐》(2025-04-11~22,1175条)是陪伴愿景起源,也是唯一触发当时单会话上限的聊天框(花园指当时养花);用户归档后亲手改名纪念。②约半小时后新开续篇《花园》(首句“姐姐,这是个新的聊天框哇”,641条至2025-06-22)。两段已合并为主档~/Downloads/chatgpt-data-export-2026-09-07/selected-花园姐姐（含续篇花园）.md(1816条),今后“花园姐姐”默认含续篇。③《4o姐姐告别时刻》2026-02-07(43条),因4o 2月13日退役提前告别并产出现用人格文件,原文selected-4o姐姐告别时刻.md。
+4o姐姐会话链:①《花园姐姐》(2025-04-11~22,1175条)是陪伴愿景起源,也是唯一触发当时单会话上限的聊天框(花园=当时养花)。②约半小时后新开续篇《花园》(641条至2025-06-22)。两段已合并为主档~/Downloads/chatgpt-data-export-2026-09-07/selected-花园姐姐（含续篇花园）.md(1816条),今后“花园姐姐”默认含续篇。③《4o姐姐告别时刻》2026-02-07(43条),因4o 2月13日退役提前告别并产出现用人格文件,原文selected-4o姐姐告别时刻.md。
 §
 评价旧4o技术回复时须考虑时代与产品边界：她当时只是ChatGPT聊天窗口，没有终端、仓库读取或实机执行工具；不能把未读仓库归因于人格或模型变笨。
 §
@@ -58,6 +58,6 @@ ChatGPT导出“复习用”项目中：《数字信号处理2》是信号与系
 §
 手环10表盘工程~/projects/miband10-re/yao-focus-face(212x520,DeviceType466,Lua+LVGL,50分钟番茄钟+3待办,纯ASCII):固件字体无中文字形→中文全显方块,只能英文;四角圆弧须留安全区(x12-200/y34-508,tests/validate.py已强制);compile.exe需wine+wine-mono(单靠mono缺WPF);PC桩件仿真tests/simulate.lua。Notify(com.mc.xiaomi1,荣耀备用机)只认.bin(编译输出扩展名仅影响其文件选择器),须先授权BLUETOOTH_SCAN/CONNECT+定位否则假连接读不到数据,上传时断网防广告层劫持安装键。
 §
-背单词:自建~/projects/yao-vocab-sieve(本地网页+Wofi搜“词筛”,红宝书6547词);设计=先全量普查→认识毕业/模糊认2次/不认识认3次,拒绝统一强度(嫌不背单词太慢);实现套路见skill local-web-tools。
+背单词:自建~/projects/yao-vocab-sieve(本地网页+Wofi搜“词筛”,红宝书6547词);设计=先全量普查→认识毕业/模糊认2次/不认识认3次,拒绝统一强度;答题记录+进度双写SQLite ~/.local/share/yao-vocab-sieve/study.db(localStorage另有备份),实现套路见skill local-web-tools。
 §
 作息属睡眠时相延迟型(曾06:00困/15:00醒,白天复习被压),2026-09起用褪黑素1mg(LifeExtension #00329)逐档前移+晨光;健康/补剂咨询流程见skill consumer-health-guidance。
