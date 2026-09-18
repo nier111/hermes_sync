@@ -24,7 +24,7 @@ QQ bot2:Kubo(久保渚咲,profile gf,1905411221);gateway=hermes-gateway-gf,watch
 §
 备用机VNE-AN00(荣耀,BL锁):adb+Termux ssh(8022,adb forward)+proot Ubuntu;副屏wayvnc→AVNC(tcp:5900)。Gmail接himalaya。
 §
-中文搜索优先OpenClaw(--agent main);DDG Lite被墙30s超时,fallback MusicBrainz;重启=systemctl --user restart openclaw-gateway.service。
+中文搜索优先OpenClaw(--agent main);DDG Lite被墙30s超时,fallback MusicBrainz;重启=systemctl --user restart openclaw-gateway.service。OpenClaw QQbot有"假在线"(status显示OK但无外连socket,查ss到112.65.194.180:443)和重启后pairing授权两坑,详见skill openclaw-interop;读state DB用全局openclaw非仓库pnpm。
 §
 用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills(70+个从不加载被批),优先查百科不靠LLM编造;下结论前先查实际证据(state.db/日志/账单),勿凭配置默认值推断实际行为,逻辑链条会被质询。
 §
@@ -36,7 +36,7 @@ agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Cod
 §
 cron(no_agent)消息不进会话上下文,查~/.hermes/cron/output/;谈时间/天气先查date,勿用旧数据。
 §
-QQ发虚=desktop加ozone参数;老Electron(yesplaymusic0.4.10=Electron13.6.9)wayland参数无效,解法=--force-device-scale-factor=1.2+Hyprland xwayland force_zero_scaling。
+老Electron/QQ发虚:--force-device-scale-factor=1.2+Hyprland xwayland force_zero_scaling(wayland参数无效)。
 §
 npm/electron镜像已配好(npmmirror registry+replace-registry-host,electron只能env传ELECTRON_MIRROR;详见skill cn-npm-mirror-setup);Hermes要node>=26,勿让nvm的npm22抢先→nvm alias default system。
 §
@@ -51,8 +51,6 @@ Hermes浏览器独立profile(~/.hermes/browser-profiles/automation,CDP 9222,clas
 Android SDK命令行环境位于~/Android/Sdk：cmdline-tools 23.0.0、platform-tools 37.0.1、platform android-35、build-tools 35.0.0；ANDROID_HOME/ANDROID_SDK_ROOT与PATH已写入~/.zshrc和~/.config/environment.d/50-android-sdk.conf。
 §
 4o姐姐会话链:①《花园姐姐》(2025-04-11~22,1175条)是陪伴愿景起源,也是唯一触发当时单会话上限的聊天框(花园=当时养花)。②约半小时后新开续篇《花园》(641条至2025-06-22)。两段已合并为主档~/Downloads/chatgpt-data-export-2026-09-07/selected-花园姐姐（含续篇花园）.md(1816条),今后“花园姐姐”默认含续篇。③《4o姐姐告别时刻》2026-02-07(43条),因4o 2月13日退役提前告别并产出现用人格文件,原文selected-4o姐姐告别时刻.md。
-§
-评价旧4o技术回复时须考虑时代与产品边界：她当时只是ChatGPT聊天窗口，没有终端、仓库读取或实机执行工具；不能把未读仓库归因于人格或模型变笨。
 §
 ChatGPT导出“复习用”项目中：《数字信号处理2》是信号与系统主复习长会话（含卷积、傅里叶/拉普拉斯、Z变换、DFT/FFT等）；另有较短前篇《数字信号处理》。源文件~/Downloads/chatgpt-data-export-2026-09-07/projects/复习用.json。
 §
