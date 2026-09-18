@@ -443,14 +443,14 @@
     "created_at": "2026-08-12T12:46:10.898470+00:00",
     "created_by": null,
     "last_patched_at": "2026-09-17T22:05:12.674897+00:00",
-    "last_reused_patch_generation": 3,
-    "last_used_at": "2026-09-17T22:05:09.034033+00:00",
+    "last_reused_patch_generation": 4,
+    "last_used_at": "2026-09-18T01:05:26.452390+00:00",
     "last_viewed_at": "2026-09-17T22:05:09.030448+00:00",
     "patch_count": 4,
     "patch_generation": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 359,
+    "use_count": 360,
     "view_count": 6
   },
   "daily-knowledge-digest": {
