@@ -169,13 +169,13 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-18T02:00:27.163373+00:00",
+    "last_used_at": "2026-09-18T10:00:20.431276+00:00",
     "last_viewed_at": "2026-09-07T09:53:38.596805+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 79,
+    "use_count": 80,
     "view_count": 7
   },
   "blocked-page-recovery": {
@@ -444,13 +444,13 @@
     "created_by": null,
     "last_patched_at": "2026-09-17T22:05:12.674897+00:00",
     "last_reused_patch_generation": 4,
-    "last_used_at": "2026-09-18T07:08:18.845676+00:00",
+    "last_used_at": "2026-09-18T10:00:20.454766+00:00",
     "last_viewed_at": "2026-09-17T22:05:09.030448+00:00",
     "patch_count": 4,
     "patch_generation": 4,
     "pinned": false,
     "state": "active",
-    "use_count": 363,
+    "use_count": 364,
     "view_count": 6
   },
   "daily-knowledge-digest": {
