@@ -232,6 +232,43 @@ Kimi Coding applies: putting it in the *middle* of a fallback chain is
 self-limiting (a drained window → 429 → Hermes cascades to the next entry),
 but it will burn fast on a 160K+ context session.
 
+### PITFALL — "looks like 13 chars, must be a placeholder"
+
+Truncation is silent on this machine. Multiple times observed (2026-09-19):
+
+- `echo $MINIMAX_API_KEY` from a Hermes terminal command prints only the first
+  ~13 visible chars (`sk-cp-...XXXX`), the rest is hidden in the stdout stream.
+  Even when piped through `awk` / `cut` / `wc -c` the visible length looks
+  short, but the **actual file holds 124-125 bytes** — the key is fine.
+- A short key (`sk-cp-...atGk`, 13 chars) printed the same way **looks
+  identical** to a real one in any snapshot. The only honest check is the
+  byte length from `len(open(path).read())` in Python, or `wc -c`.
+- Conversely, an invalid 125-char key (`sk-cp-...Vnls` found in this machine's
+  OpenClaw sqlite auth store) returns HTTP 401 on **every** MiniMax endpoint
+  including `/v1/models` and `/v1/token_plan/remains`. The status_msg is
+  `login fail: Please carry the API secret key in the 'Authorization' field
+  of the request header (1004)`. Don't trust a key until a real POST round-trip
+  to `/anthropic/v1/messages` returns 200 with the expected content.
+
+When adding a MiniMax key to a new profile:
+
+1. `python3 -c 'print(len(open(path).read().strip()))'` to confirm the byte
+   length is 124-125 (not 13).
+2. `curl -sS https://api.minimax.io/anthropic/v1/messages -X POST -H 'x-api-key:
+   $KEY' -H 'anthropic-version: 2023-06-01' -H 'content-type: application/json'
+   -d '{"model":"MiniMax-M3","max_tokens":16,"messages":[{"role":"user","content":"Reply with exactly: MINIMAX_OK"}]}'`
+   — must return 200 with text `MINIMAX_OK`.
+3. Only then write the key to the profile's `.env` / sqlite store and restart
+   the gateway.
+
+For OpenClaw specifically: the key lives in
+`~/.openclaw/state/openclaw.sqlite` `config_machine_state` row where
+`state_key='authProfiles.store'`, under
+`profiles."minimax:default".key`. Update it with
+`UPDATE config_machine_state SET value_json=?, updated_at_ms=? WHERE state_key='authProfiles.store'`
+after `json.dumps(data, separators=(',',':'))` — keep the same compact
+serialization, the gateway caches a hash of the JSON shape.
+
 ## Verifying end-to-end (do this, don't assume)
 
 ```bash

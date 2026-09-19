@@ -60,6 +60,6 @@ ChatGPT导出“复习用”项目:《数字信号处理2》=信号与系统主�
 §
 作息属睡眠时相延迟型(曾06:00困/15:00醒,白天复习被压),2026-09起用褪黑素1mg(LifeExtension #00329)逐档前移+晨光;健康/补剂咨询流程见skill consumer-health-guidance。
 §
-curator审查轮:skill_manage patch/edit常被read-before-write守卫拒(skill_view去重不返回内容)→改用write_file往references/加新文件。
+curator审查轮:已存在文件patch/write_file/remove_file均被read-before-write守卫拒(skill_view去重);仅全新路径write_file可用。
 §
 execute_code读聊天记录明文API key并发网络请求会被硬拦(BLOCKED:用户未同意),明确授权亦无效,禁换工具重试;须让用户手动把key存进本机凭据文件(chmod600),之后只引用环境变量名。AI订阅额度(Kimi/MiniMax Token Plan)均有5h+周窗口,长会话cache_read暴涨会快速耗尽,勿按营销月池估算耐用度。
