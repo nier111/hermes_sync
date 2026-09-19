@@ -42,3 +42,12 @@ npm config set fund false
   partial tree (e.g. missing electron, missing node-pty prebuilds). Re-run to
   completion; "Re-building because directory ... does not exist" is the node-pty
   check failing, not corruption.
+- The npmmirror registry does NOT cover the electron BINARY download, so a build
+  can look "hung" while every npm fetch already succeeded: node_modules sits in
+  the low MB with one ESTAB TCP to a GitHub IP growing by nothing for minutes.
+  The mirror env vars must be in the environment of the process that RUNS the
+  build — a build spawned as a child of another tool (e.g. `hermes update`
+  triggering `desktop --build-only`) does not inherit your interactive shell's
+  exports. Export them in the parent's environment, or run the build yourself.
+- Tell stalled from merely slow with `du -sh node_modules` (bytes not moving) plus
+  `ss -tnp | grep "pid=<node pid>"`; then kill children before parents.

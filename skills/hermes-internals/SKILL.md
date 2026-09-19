@@ -54,7 +54,30 @@ sqlite3 -header -column ~/.hermes/state.db \
 ```
 Per-profile bots have their OWN db at `~/.hermes/profiles/<name>/state.db` — check it before attributing spend to that bot. Config `default=flash` ≠ the bot ran today; last_activity_at/last_seen tells you if it even fired.
 
+## Did the install actually update?
+`hermes --version` prints the RELEASE TAG (e.g. `v0.21.3`) and does not move when
+upstream advances within the same release — two different commits report the same
+version string. So "the version number didn't change" proves neither failure nor
+success; it is a non-signal. Verify in the repo instead:
+```
+git -C ~/.hermes/hermes-agent status -sb          # ahead N / behind M vs origin/main
+git -C ~/.hermes/hermes-agent log --oneline -3    # upstream commit + carried local commits
+git -C ~/.hermes/hermes-agent rev-parse origin/main
+```
+An update that carries local commits legitimately leaves the branch `ahead N`
+with a clean worktree and NO stash entry — that is the expected shape, not an
+unfinished pull. Also compare `git rev-parse FETCH_HEAD` with the local HEAD when
+someone claims the update ran.
+
+Running `hermes update` from inside a gateway-hosted agent session restarts that
+gateway, i.e. kills the session mid-update — see `hermes-desktop-linux` for the
+run/rebuild procedure and for diagnosing a hung update.
+
 ## Pitfalls
-- When the user says "the qqbot / the bot" on a machine with BOTH Hermes and OpenClaw deployed, check BOTH `~/.hermes` and `~/.openclaw` — each has a qqbot; only one is live (see the `openclaw` skill for the other side).
+- When the user says "the qqbot / the bot" — or just "更新 / 升级" — on a machine
+  with BOTH Hermes and OpenClaw deployed, confirm WHICH product before starting:
+  check both `~/.hermes` and `~/.openclaw` (each has a qqbot; only one is live,
+  see the `openclaw` skill for the other side). Assuming the wrong one costs a
+  full build cycle before the user corrects it.
 - Grepping config.yaml for credentials finds nothing: provider creds live in `auth.json`, channel creds in the gateway's own store.
 - `sessions.json` looks like a session list but is a mirror — use `state.db` / `hermes sessions list` for the real list.

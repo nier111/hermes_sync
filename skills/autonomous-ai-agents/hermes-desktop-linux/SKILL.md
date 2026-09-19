@@ -23,6 +23,30 @@ description: "Hermes desktop on Linux: build/launch/sandbox/entry fixes."
   (~/.local/share/applications/hermes.desktop) — so a manual .desktop edit gets
   overwritten; fix the generator, not the file.
 
+## `hermes update` rebuilds the desktop app — and THAT step is the one that hangs
+- The update pipeline's last stage is a desktop rebuild decision ("checking if
+  desktop app needs rebuilding") → `python -m hermes_cli.main desktop
+  --build-only` → `npm ci` in `apps/desktop` → electron's
+  `node_modules/electron/install.js` postinstall. The decision is stamp-based
+  (`~/.hermes/desktop-build-stamp.json`), so an unfinished rebuild is simply
+  retried by the next update — killing it is safe, not a lost update.
+- Do NOT run `hermes update` from inside an agent session hosted by the default
+  gateway: the gateway IS that session's parent process, so the restart stage
+  kills your own session mid-update (the gateway may also be restarted by
+  systemd independently, which then leaves the CLI hanging with no output). Have
+  the user run it from a real shell, or from a different surface/profile.
+- A rebuild started by the update inherits the update process's environment. On a
+  CN network, export the electron mirrors in THAT environment (or simply run
+  `hermes desktop --build-only` yourself afterwards with them set — see
+  cn-npm-mirror-setup); otherwise the postinstall stalls on GitHub releases.
+- Sleeping vs stalled: the whole chain blocks on its child's pipe (`wchan:
+  anon_pipe_read`), and a stalled electron download shows `node_modules` stuck
+  at a few MB with one ESTAB TCP to a GitHub IP and zero growth. Full recipe:
+  references/update-hang-forensics.md.
+- Proving the update itself landed: check git in the repo, NOT `hermes
+  --version` (a release tag that does not move within one release) — see
+  hermes-internals, "Did the install actually update?".
+
 ## Linux failure modes (check in this order)
 1. chrome-sandbox not SUID → Electron aborts instantly; `hermes desktop` may
    exit 1 silently (no message when AppArmor userns restriction is absent).
