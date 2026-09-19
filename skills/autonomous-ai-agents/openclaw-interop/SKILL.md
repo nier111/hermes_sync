@@ -64,8 +64,9 @@ cd ~/projects/openclaw && pnpm openclaw agent --agent main -m "message text" [--
 - pnpm mismatch: the pacman `/usr/bin/pnpm` (e.g. 11.3.0) does NOT satisfy `packageManager`. Fix: `corepack enable` (writes a shim into the nvm bin dir), then any `pnpm` run INSIDE the project dir auto-downloads/activates the pinned version — verify with `pnpm --version` there.
 - node mismatch: `Error: Failed to render source browser help: openclaw: Node.js >=22.22.3 <23 ... is required (current: v22.22.0)` LOOKS like a rendering error but is the engines gate. Fix: `source ~/.nvm/nvm.sh && nvm install 22.22.3 && nvm use 22.22.3`.
 - After switching node via nvm, re-run `corepack enable` — the pnpm shim lives under the OLD nvm bin dir and falls off PATH.
-- Build is memory-hungry (tsdown; ~3.7GB peak). On a 7.4GB box: run `pnpm build > /tmp/openclaw-build.log 2>&1` in background, then `grep -nE "error|Error|failed" /tmp/openclaw-build.log` — the real error is a single line buried among fastfetch banner noise.
+- Build is memory-hungry (tsdown; ~3.7GB peak). On this 7.4GB box set the heap explicitly and run it in the background: `OPENCLAW_TSDOWN_MAX_OLD_SPACE_MB=7168 pnpm build > /tmp/openclaw-build.log 2>&1` — a cold build takes ~13 min (observed 801s), with `write-unified-entry-dts` alone around 9 of those minutes. Then `grep -nE "error|Error|failed" /tmp/openclaw-build.log` — the real error is a single line buried among fastfetch banner noise.
 - Retry is cheap: build reuses cached phases (tsdown-unified, ui:build...) after a version fix.
+- **Updating this checkout = `git pull` + `pnpm build`** — it is a git install, so pulling `origin/main` and rebuilding is the whole procedure, and it is the user's standing flow. `openclaw update` is the package-release path and has been failing here (pitfall 7 in the `openclaw` skill): don't make it the plan for "update OpenClaw".
 
 ## QQ Bot health check
 
