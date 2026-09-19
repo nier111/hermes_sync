@@ -77,6 +77,11 @@ cd ~/projects/openclaw && export PATH="$HOME/.nvm/versions/node/v22.22.3/bin:$PA
 pnpm openclaw status 2>&1 | grep -A 2 "QQ Bot"
 ```
 
+If `status` aborts with a schema-version error instead of printing a table, that is the
+DB-vs-build gate, not a QQ problem — and `pnpm openclaw --version` succeeding proves nothing,
+because it never opens the databases. Details: `openclaw` skill →
+`references/schema-version-preflight.md`.
+
 **Check recent disconnect/reconnect events:**
 ```bash
 grep -E "(qqbot.*(disconnect|resumed|timeout|closed))" /tmp/openclaw/openclaw-$(date +%F).log | tail -5
