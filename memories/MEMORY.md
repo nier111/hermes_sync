@@ -28,9 +28,9 @@ QQ bot2:Kubo(久保渚咲,profile gf);gateway=hermes-gateway-gf。friend=朋友�
 §
 用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills(70+个从不加载被批),优先查百科不靠LLM编造;下结论前先查实际证据(state.db/日志/账单),勿凭配置默认值推断实际行为,逻辑链条会被质询。
 §
-模型:主模型2026-09-19起=MiniMax-M3(base_url须api.minimaxi.com/anthropic,.cn会走x-api-key被401),fallback=deepseek-v4-flash;Codex(gpt-5.6-sol)周额度耗尽→429跳过;各LLM cron pin deepseek;codex CLI auth独立;OpenRouter无余额。用户不接受为架构完整加冗余组件/Agent:新工具先独立验证再集成,提建议给结论不摆选项。
+各LLM cron pin deepseek;OpenRouter无余额;M3偶发退化重复(单字刷满输出上限,曾吐13万「嗒」);额度查minimax /v1/token_plan/remains。
 §
-agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Codex/Hermes(--resume续会话)/OpenClaw(--session-key),看门狗Codex60s/Hermes300s/OpenClaw660s,支持[[DELEGATE]]跨agent委托。
+agent-pool(~/projects/agent-pool,Qt6多agent聊天UI):接Codex/Hermes(--resume)/OpenClaw(--session-key),看门狗60/300/660s,[[DELEGATE]]跨agent委托。
 §
 个人知识库~/projects/HelpListCreatedByAyane(git+Obsidian):HelpListMD/按主题(Arch/水声板/电赛/Openclaw/FPGA/Termux等),遇用户历史问题先查此库。
 §
@@ -62,4 +62,4 @@ ChatGPT导出“复习用”项目:《数字信号处理2》=信号与系统主�
 §
 curator审查轮:已存在文件patch/write_file/remove_file均被read-before-write守卫拒(skill_view去重);仅全新路径write_file可用。
 §
-execute_code/terminal读明文API key+出网会被硬拦(BLOCKED:用户未同意),明确授权亦无效,禁换工具重试(读.env同样拦);最稳是让用户自己跑curl探针。AI订阅额度(Kimi/MiniMax Token Plan)均有5h+周窗口,长会话cache_read暴涨会快速耗尽,勿按营销月池估算耐用度。
+execute_code读凭据+出网受阻于gateway审批卡:卡未送达或不点则超时,报"用户未同意"(聊天打字同意不算,只有审批UI算);已BLOCK禁重试/换工具,改给用户curl。详见skill hermes-internals。AI订阅额度(Kimi/MiniMax Token Plan)均有5h+周窗口,长会话cache_read暴涨会快速耗尽,勿按营销月池估算耐用度。
