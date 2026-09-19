@@ -269,6 +269,41 @@ For OpenClaw specifically: the key lives in
 after `json.dumps(data, separators=(',',':'))` — keep the same compact
 serialization, the gateway caches a hash of the JSON shape.
 
+## Fallback does NOT protect against degenerate output
+
+Provider fallback only fires on transport/HTTP failure (429, 5xx, connection
+error). A model that returns HTTP 200 with **garbage in the body** is a
+"successful" turn — no fallback, no retry, no error log. Observed 2026-09-19
+(gf profile, all traffic on `MiniMax-M3` after Codex quota exhaustion):
+
+- one assistant message = 32,138 chars, of which 31,953 were the same character
+  (「嗒」) repeated; a sibling subagent message was 129,874 chars with a 129,074
+  run of the same character, interleaved with leaked provider control markers
+  (`]<]minimax[>[`, `</content>:`, `{"content": "{\j`)
+- the subagent itself reported `ModelOutputTruncated` repeated for 50+ seconds
+- QQ `MAX_MESSAGE_LENGTH = 4000` (`gateway/platforms/qqbot/constants.py`), so the
+  garbage was **chunked into ~9 separate QQ messages** — the user sees a wall,
+  not one bad reply
+
+Consequences to design for:
+
+1. **Chunking amplifies degeneration.** A per-message cap does not bound total
+   outbound volume. There is no config key for a total-response cap — nothing in
+   `config.yaml` at the time of writing bounds it.
+2. **The garbage becomes permanent context.** The 32K message landed in the live
+   session (`state.db`), so every later turn re-sends it and the degenerate text
+   can re-trigger the loop. Check `select length(content) from messages` for the
+   session before assuming a bad reply is "over".
+3. **Diagnose it from the DB, not the header.** The session model label shown at
+   session start goes stale the moment a fallback fires. The authoritative record
+   is `grep "<session_id>.*Fallback provider resolved" <profile>/logs/gateway.log`
+   — quote the timestamp when telling the user which model actually answered.
+4. **Priority of mitigations**: for a chat/companion bot, move a proven-stable
+   model ahead of a flaky one in the chain (reordering does not help against
+   degeneration per se, but it decides *which* model is exposed); for the real
+   fix, add an outbound guard (repetition detection + total-length ceiling) —
+   that is a code/plugin change, not a config switch.
+
 ## Verifying end-to-end (do this, don't assume)
 
 ```bash
