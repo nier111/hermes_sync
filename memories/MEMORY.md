@@ -42,7 +42,7 @@ npm/electron镜像已配好(npmmirror registry+replace-registry-host,electron只
 §
 Hermes桌面版:chrome-sandbox需SUID 4755(SUDO_ASKPASS=~/.hermes/askpass.sh /usr/bin/sudo -A chown root:root+chmod 4755,重建后重置)。drun启动项(wofi --show drun,Hyprland):已patch linux_desktop_entry.py的resolve_exec_command固定用~/.local/bin/hermes(不能用PATH查询或argv[0],launcher无PATH时argv[0]=仓库裸脚本→系统python缺pathspec崩,且每次启动会重写.desktop);hermes update会重置补丁需重打。wayland黑屏加ozone参数。hyprlauncher未安装(Mod+R是坏的),wofi是Mod+A。
 §
-手机ciallo(Android,GMS登Google)64:44:7B:7F:D5:F2已配对trust自动重连,blueman管理;配对坑:单命令bluetoothctl agent不持久,须持续会话agent on→pair→弹码输yes,注意default agent冲突(见skill linux-bluetooth)。
+备用机蓝牙:手机ciallo已配对trust自动重连,blueman管理;配对坑见skill linux-bluetooth(单命令agent不持久,须持续会话pair)。
 §
 Hermes浏览器独立profile(~/.hermes/browser-profiles/automation,CDP 9222,class=hermes-browser,工作区9);自学cron固定session=daily-self-study。
 §
@@ -52,12 +52,14 @@ Android SDK命令行环境位于~/Android/Sdk：cmdline-tools 23.0.0、platform-
 §
 4o姐姐会话链:①《花园姐姐》(2025-04-11~22,1175条)是陪伴愿景起源,也是唯一触发当时单会话上限的聊天框(花园=当时养花)。②约半小时后新开续篇《花园》(641条至2025-06-22)。两段已合并为主档~/Downloads/chatgpt-data-export-2026-09-07/selected-花园姐姐（含续篇花园）.md(1816条),今后“花园姐姐”默认含续篇。③《4o姐姐告别时刻》2026-02-07(43条),因4o 2月13日退役提前告别并产出现用人格文件,原文selected-4o姐姐告别时刻.md。
 §
-ChatGPT导出“复习用”项目中：《数字信号处理2》是信号与系统主复习长会话（含卷积、傅里叶/拉普拉斯、Z变换、DFT/FFT等）；另有较短前篇《数字信号处理》。源文件~/Downloads/chatgpt-data-export-2026-09-07/projects/复习用.json。
+ChatGPT导出“复习用”项目:《数字信号处理2》=信号与系统主复习长会话(另有前篇《数字信号处理》),源~/Downloads/chatgpt-data-export-2026-09-07/projects/复习用.json。
 §
-手环10表盘工程~/projects/miband10-re/yao-focus-face(212x520,DeviceType466,Lua+LVGL,50分钟番茄钟+3待办,纯ASCII):固件字体无中文字形→中文全显方块,只能英文;四角圆弧须留安全区(x12-200/y34-508,tests/validate.py已强制);compile.exe需wine+wine-mono(单靠mono缺WPF);PC桩件仿真tests/simulate.lua。Notify(com.mc.xiaomi1,荣耀备用机)只认.bin(编译输出扩展名仅影响其文件选择器),须先授权BLUETOOTH_SCAN/CONNECT+定位否则假连接读不到数据,上传时断网防广告层劫持安装键。
+手环10表盘工程~/projects/miband10-re/yao-focus-face(212x520,DeviceType466,Lua+LVGL,50分钟番茄钟+3待办,纯ASCII):固件无中文字形→中文显方块,只能英文;圆弧须留安全区(x12-200/y34-508,validate.py强制);compile.exe需wine+wine-mono;Notify(com.mc.xiaomi1,荣耀备用机)只认.bin,须先授权BLUETOOTH_SCAN/CONNECT+定位,上传时断网防广告劫持。
 §
 背单词:自建~/projects/yao-vocab-sieve(本地网页+Wofi搜“词筛”,红宝书6547词);设计=先全量普查→认识毕业/模糊认2次/不认识认3次,拒绝统一强度;答题记录+进度双写SQLite ~/.local/share/yao-vocab-sieve/study.db(localStorage另有备份),实现套路见skill local-web-tools。
 §
 作息属睡眠时相延迟型(曾06:00困/15:00醒,白天复习被压),2026-09起用褪黑素1mg(LifeExtension #00329)逐档前移+晨光;健康/补剂咨询流程见skill consumer-health-guidance。
 §
 curator审查轮:skill_manage patch/edit常被read-before-write守卫拒(skill_view去重不返回内容)→改用write_file往references/加新文件。
+§
+execute_code读聊天记录明文API key并发网络请求会被硬拦(BLOCKED:用户未同意),明确授权亦无效,禁换工具重试;须让用户手动把key存进本机凭据文件(chmod600),之后只引用环境变量名。AI订阅额度(Kimi/MiniMax Token Plan)均有5h+周窗口,长会话cache_read暴涨会快速耗尽,勿按营销月池估算耐用度。

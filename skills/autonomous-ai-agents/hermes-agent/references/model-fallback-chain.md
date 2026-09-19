@@ -193,6 +193,45 @@ for `kimi-k2.5` now gets HTTP 404 `model not found`). Observed available
 whole budget went to thinking (`reasoning_tokens: 11`) and the reply text came
 back empty — the call still returned HTTP 200. Use ≥64 to see output.
 
+## MiniMax — Token Plan keys are `sk-cp-*`
+
+Verified 2026-09-19 on this machine: `MINIMAX_API_KEY=sk-cp-…` (Token Plan /
+coding-plan key, NOT the PAYG `api.minimaxi.com` style) works against the
+provider plugin defaults, no `base_url` override needed:
+
+| item | value |
+|---|---|
+| provider | `minimax` (global) / `minimax-cn` (China) |
+| env var | `MINIMAX_API_KEY` / `MINIMAX_CN_API_KEY` |
+| base_url | `https://api.minimax.io/anthropic` (`/anthropic` → anthropic_messages transport) |
+| models (live, 2026-09) | `MiniMax-M3` (1M ctx), `MiniMax-M2.7`, `M2.7-highspeed`, `M2.5`, `M2.1` |
+| prompt caching | yes — response carries `cache_read_input_tokens` |
+
+Two endpoints are useful for free probing (both need the key header):
+
+```bash
+curl -sS https://api.minimax.io/v1/models            -H "Authorization: Bearer $MINIMAX_API_KEY"
+curl -sS https://api.minimax.io/v1/token_plan/remains -H "Authorization: Bearer $MINIMAX_API_KEY"
+```
+
+`/v1/token_plan/remains` returns `model_remains[]` with the plan windows —
+observed: a 5-hour interval window (resets 08:00 / 13:00 / … local) plus a
+weekly window (Mon 08:00 → Mon 08:00), fields
+`current_interval_remaining_percent` / `current_weekly_remaining_percent`.
+For `model_name:"general"` the count fields read `0/0` even on a key that
+works, so treat the *percent* fields as the only signal and do not trust the
+counters as an absolute token budget. `/v1/user/balance` is a 404 here — that
+endpoint is Moonshot, not MiniMax.
+
+`anthropic` transport wants `x-api-key` + `anthropic-version: 2023-06-01`;
+`/v1/models` wants `Authorization: Bearer`. Reasoning models need
+`max_tokens ≥ 64` or the whole budget goes to thinking and the text is empty.
+
+A `sk-cp-` key means a subscription window, so the same economics warning as
+Kimi Coding applies: putting it in the *middle* of a fallback chain is
+self-limiting (a drained window → 429 → Hermes cascades to the next entry),
+but it will burn fast on a 160K+ context session.
+
 ## Verifying end-to-end (do this, don't assume)
 
 ```bash
