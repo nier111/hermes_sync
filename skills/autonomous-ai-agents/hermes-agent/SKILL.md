@@ -86,6 +86,8 @@ Profiles use `~/.hermes/profiles/<name>/` with the same layout. When a profile i
 
 | User wants... | Load |
 |---|---|
+| "Is there anything to update?", "should we update?", "is upstream ahead?", "what's new?" | `references/pre-update-check.md` |
+| "I couldn't find evidence of X, so X is false", "didn't see it in the logs, so it didn't happen", "no record, so not real" | `references/evidence-doesnt-prove-absence.md` |
 | CLI commands, subcommands, flags, "how do I run X" | `references/cli-reference.md` |
 | In-session slash commands | `references/slash-commands.md` |
 | Provider setup, API keys, OAuth | `references/providers-and-models.md` |

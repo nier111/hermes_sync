@@ -24,9 +24,9 @@ QQ bot2:Kubo(久保渚咲,profile gf);gateway=hermes-gateway-gf。friend=朋友�
 §
 备用机VNE-AN00(荣耀,BL锁):adb+Termux ssh(8022,adb forward)+proot Ubuntu;副屏wayvnc→AVNC(tcp:5900)。Gmail接himalaya。
 §
-中文搜索优先OpenClaw(--agent main);DDG Lite被墙30s超时,fallback MusicBrainz;重启=systemctl --user restart openclaw-gateway.service。OpenClaw QQbot有"假在线"(status显示OK但无外连socket,查ss到112.65.194.180:443)和重启后pairing授权两坑,详见skill openclaw-interop;读state DB用全局openclaw非仓库pnpm。
+读state DB用全局openclaw非仓库pnpm;Tomoya的“版本无需更新”只看package.json版本号,不可作依据,须自己git fetch核验。
 §
-用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills(70+个从不加载被批),优先查百科不靠LLM编造;下结论前先查实际证据(state.db/日志/账单),勿凭配置默认值推断实际行为,逻辑链条会被质询。
+逻辑链条会被质询;被审批/安全门拦住的命令交OpenClaw(Tomoya)代跑;建cron等自动化须同时存“为什么建”的动机(否则日后被质问)。
 §
 各LLM cron pin deepseek;OpenRouter无余额;M3偶发退化重复(单字刷满输出上限,曾吐13万「嗒」);额度查minimax /v1/token_plan/remains。
 §
