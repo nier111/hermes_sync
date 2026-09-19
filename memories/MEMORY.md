@@ -28,7 +28,7 @@ QQ bot2:Kubo(久保渚咲,profile gf);gateway=hermes-gateway-gf。friend=朋友�
 §
 用户期望:遇风控先延时非绕路,遇卡先重启别只诊断,主动扫skills(70+个从不加载被批),优先查百科不靠LLM编造;下结论前先查实际证据(state.db/日志/账单),勿凭配置默认值推断实际行为,逻辑链条会被质询。
 §
-模型:Hermes主模型=openai-codex/gpt-5.6-sol(ChatGPT Plus额度,OAuth在~/.hermes/auth.json),fallback=deepseek-v4-flash;各LLM cron pin在deepseek;codex CLI登录ChatGPT,~/codex auth独立于hermes。OpenRouter无余额。用户不接受为架构完整而加冗余组件/Agent:新工具先独立验证再集成,提建议要给结论不要只摆选项。
+模型:主模型2026-09-19起=MiniMax-M3(base_url须api.minimaxi.com/anthropic,.cn会走x-api-key被401),fallback=deepseek-v4-flash;Codex(gpt-5.6-sol)周额度耗尽→429跳过;各LLM cron pin deepseek;codex CLI auth独立;OpenRouter无余额。用户不接受为架构完整加冗余组件/Agent:新工具先独立验证再集成,提建议给结论不摆选项。
 §
 agent-pool项目(~/projects/agent-pool,codex写的Qt6多agent聊天UI):接入Codex/Hermes(--resume续会话)/OpenClaw(--session-key),看门狗Codex60s/Hermes300s/OpenClaw660s,支持[[DELEGATE]]跨agent委托。
 §
@@ -62,4 +62,4 @@ ChatGPT导出“复习用”项目:《数字信号处理2》=信号与系统主�
 §
 curator审查轮:已存在文件patch/write_file/remove_file均被read-before-write守卫拒(skill_view去重);仅全新路径write_file可用。
 §
-execute_code读聊天记录明文API key并发网络请求会被硬拦(BLOCKED:用户未同意),明确授权亦无效,禁换工具重试;须让用户手动把key存进本机凭据文件(chmod600),之后只引用环境变量名。AI订阅额度(Kimi/MiniMax Token Plan)均有5h+周窗口,长会话cache_read暴涨会快速耗尽,勿按营销月池估算耐用度。
+execute_code/terminal读明文API key+出网会被硬拦(BLOCKED:用户未同意),明确授权亦无效,禁换工具重试(读.env同样拦);最稳是让用户自己跑curl探针。AI订阅额度(Kimi/MiniMax Token Plan)均有5h+周窗口,长会话cache_read暴涨会快速耗尽,勿按营销月池估算耐用度。
