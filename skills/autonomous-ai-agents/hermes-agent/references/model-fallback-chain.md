@@ -124,6 +124,75 @@ Restarting a Hermes gateway from inside its own agent is blocked (SIGTERM
 propagates to children, plus a self-kill guard). Ask the user, or drive it from
 an independent gateway (e.g. OpenClaw) in the user's own chat window.
 
+## Cost economics — measure context BEFORE choosing a fallback provider
+
+Do this in order. Skipping step 1 is how a subscription window (or a PAYG
+balance) gets destroyed in minutes.
+
+```bash
+# 1. the session's real per-request context
+grep -oE 'context=~[0-9,]+ tokens' ~/.hermes/logs/agent.log | tail -5
+```
+
+A long-lived companion session can reach **600K+ tokens per request**. Multiply
+that by the provider's price before recommending anything:
+
+| provider / model | window | input (hit) | input (miss) | output | cost per 671K-token turn |
+|---|---|---|---|---|---|
+| deepseek-v4-flash | 1M | ¥0.0028/M | ¥0.14/M | ¥0.28/M | **≈ ¥0.002** |
+| kimi-k3 (platform) | 1M | ¥2.00/M | ¥20.00/M | ¥100.00/M | ≈ ¥1.39 |
+| kimi-k2.6 (platform) | 256K | ¥1.10/M | ¥6.50/M | ¥27.00/M | ≈ ¥0.75 (window too small) |
+| kimi-k2.7-code (platform) | 256K | ¥1.30/M | ¥6.50/M | ¥27.00/M | ≈ ¥0.78 (window too small) |
+
+Two lessons that cost real money to learn:
+
+1. **Subscriptions and PAYG credits are ~700x more expensive than a cheap
+   cache-friendly model for a huge-context session.** ¥20 on k3 buys ~15 turns;
+   the same ¥20 on DeepSeek buys ~10,000. A single cache-miss turn on k3 at
+   671K context costs ~¥13.
+2. **Do not stack a quota-limited plan under a heavy agent.** The 5-hour
+   subscription window is sized for short contexts. Observed: one agentic
+   task in another agent (38 backend requests / 19 min, each carrying a few
+   hundred K tokens) emptied an entire 5-hour window in **under 20 minutes** —
+   and the user only saw *two* replies in the chat UI. A visible turn is not
+   one API request: tool loops, `active-memory` recall subagents, and memory
+   consolidation all fan out.
+
+### Diagnostic: how many requests did one visible turn actually make?
+
+```bash
+grep -c 'model-fetch. start' <agent>.log        # backend requests
+```
+
+Logs often carry **no token accounting** at all (OpenClaw's do not), so
+balance deltas from `/users/me/balance` are the only honest measurement.
+
+## Moonshot (PAYG) vs Kimi Coding (subscription) — do not confuse them
+
+| | Kimi Coding | Moonshot platform |
+|---|---|---|
+| host | `api.kimi.com/coding` | `api.moonshot.cn/v1` (CN) / `api.moonshot.ai/v1` (intl) |
+| key shape | `sk-kimi-…` | `sk-…` |
+| billed by | membership window | prepaid balance |
+
+Probing the wrong host yields a misleading `401 Invalid Authentication`; a
+valid key on the right host returns `200`. Free endpoints to check before
+spending anything:
+
+```bash
+curl -sS $HOST/v1/models -H "Authorization: Bearer $KEY"
+curl -sS $HOST/v1/users/me/balance -H "Authorization: Bearer $KEY"
+# → {"available_balance":…,"voucher_balance":…,"cash_balance":…}
+```
+
+**Never trust a hardcoded model id** — Moonshot retires slugs (a config asking
+for `kimi-k2.5` now gets HTTP 404 `model not found`). Observed available
+2026-09: `kimi-k2.6`, `kimi-k2.7-code`, `kimi-k2.7-code-highspeed`, `kimi-k3`.
+
+**Reasoning models need headroom in `max_tokens`.** With `max_tokens=12` the
+whole budget went to thinking (`reasoning_tokens: 11`) and the reply text came
+back empty — the call still returned HTTP 200. Use ≥64 to see output.
+
 ## Verifying end-to-end (do this, don't assume)
 
 ```bash
