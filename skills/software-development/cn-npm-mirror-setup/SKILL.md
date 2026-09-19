@@ -49,5 +49,10 @@ npm config set fund false
   build — a build spawned as a child of another tool (e.g. `hermes update`
   triggering `desktop --build-only`) does not inherit your interactive shell's
   exports. Export them in the parent's environment, or run the build yourself.
+- When that parent is a systemd unit (a gateway-launched update), no shell export
+  can ever reach it: put the proxy in the unit itself — a drop-in with
+  `EnvironmentFiles=` pointing at one shared env file, then `daemon-reload` and
+  restart from an outside shell (see hermes-desktop-linux). Without that, every
+  update re-stalls on the electron binary download.
 - Tell stalled from merely slow with `du -sh node_modules` (bytes not moving) plus
   `ss -tnp | grep "pid=<node pid>"`; then kill children before parents.

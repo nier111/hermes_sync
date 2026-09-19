@@ -35,16 +35,37 @@ description: "Hermes desktop on Linux: build/launch/sandbox/entry fixes."
   kills your own session mid-update (the gateway may also be restarted by
   systemd independently, which then leaves the CLI hanging with no output). Have
   the user run it from a real shell, or from a different surface/profile.
-- A rebuild started by the update inherits the update process's environment. On a
-  CN network, export the electron mirrors in THAT environment (or simply run
-  `hermes desktop --build-only` yourself afterwards with them set — see
-  cn-npm-mirror-setup); otherwise the postinstall stalls on GitHub releases.
+  `systemctl --user restart hermes-gateway*` from inside such a session is
+  refused outright (the guardrail names SIGTERM propagation back into your own
+  process) — the restart has to come from an outside shell; on QQ there is no
+  terminal-approval surface, so the user does it by hand. Restarting the sibling
+  gateways (friend/gf) is included in the update's own plan, so a profile that
+  shows `code_sha: null` in the receipt was NOT restarted and still runs old code.
+- A rebuild started by the update inherits the UPDATE PROCESS's environment, not
+  your shell's. When that process was launched by a systemd unit, systemd's
+  stripped env has no proxy, so the electron postinstall goes direct to GitHub
+  releases and stalls forever — this is the usual cause of an update that "hangs"
+  at the desktop stage.
+- Durable fix (once per machine): one shared env file + a drop-in on every unit.
+  `~/.hermes/.systemd-proxy.env` holds HTTP_PROXY / HTTPS_PROXY / ALL_PROXY (plus
+  NO_PROXY for LAN), and each `hermes-*.service` (gateway, gateway-friend,
+  gateway-gf, ...) gets `~/.config/systemd/user/<unit>.d/override.conf`:
+  `[Service]` + `EnvironmentFiles=%h/.hermes/.systemd-proxy.env`. Then
+  `systemctl --user daemon-reload` and restart the units FROM AN OUTSIDE SHELL.
+  One shared env file beats N copies — change the proxy in one place. Verify with
+  `systemctl --user show <unit> -p EnvironmentFiles` before believing it applied.
+- Lighter alternative when YOU run the build (not the updater): export the
+  electron/mirror vars in that command's env — cn-npm-mirror-setup. Per-run
+  exports can never reach a systemd-launched update, so they do not fix the hang
+  above.
 - Sleeping vs stalled: the whole chain blocks on its child's pipe (`wchan:
   anon_pipe_read`), and a stalled electron download shows `node_modules` stuck
   at a few MB with one ESTAB TCP to a GitHub IP and zero growth. Full recipe:
   references/update-hang-forensics.md.
-- Proving the update itself landed: check git in the repo, NOT `hermes
-  --version` (a release tag that does not move within one release) — see
+- Proving the update itself landed: read the receipt the updater writes,
+  `~/.hermes/logs/update_receipts/latest.json`, and the desktop stamp
+  `apps/desktop/build/install-stamp.json`. Check git in the repo, NOT `hermes
+  --version` (a release tag that does not move within one release) — details in
   hermes-internals, "Did the install actually update?".
 
 ## Linux failure modes (check in this order)

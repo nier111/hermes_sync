@@ -96,6 +96,29 @@ grep -E "(qqbot.*(disconnect|resumed|timeout|closed))" /tmp/openclaw/openclaw-$(
 
 **Service config drift:** if `pnpm openclaw gateway status` shows "Service config issue: Gateway service was installed by OpenClaw X; current CLI is Y", run `pnpm openclaw doctor --repair` to sync. Harmless but cleans up PATH warnings.
 
+## Retuning the OpenClaw agent (persona / memory)
+
+Its identity is plain markdown in `~/.openclaw/workspace/` — `SOUL.md` (character/voice), `USER.md`, `AGENTS.md` (workspace rules), `MEMORY.md` (long-term), `memory/YYYY-MM-DD.md` (raw daily notes), `IDENTITY.md`. Nothing in `openclaw.json` references any of it; the agent reads it because its prompt says to. Boot order: `SOUL.md` → `USER.md` → `memory/<today|yesterday>.md` → `MEMORY.md` (last two only in the main session).
+
+"Teach the other agent your experience" means editing these files, not sending it instructions in chat. Order and target:
+
+1. `SOUL.md` — voice plus hard boundaries. Anything that must WIN belongs in the identity section at the top; delete the contradicting template tone rather than appending a second voice at the bottom (a snarky base voice plus a soft appended block yields neither).
+2. `USER.md` — durable facts about the user (projects, goals, preferences, toolchain).
+3. `AGENTS.md` — operational rules: verify-before-claiming-done, don't hand-roll around canonical commands, how to launch long background tasks.
+4. `memory/<today>.md` — raw notes for what happened; promote the keepers into `MEMORY.md`.
+5. Reload and prove it:
+   ```bash
+   cd ~/projects/openclaw && pnpm openclaw gateway restart --safe
+   systemctl --user status openclaw-gateway | head -6   # Active: running + a NEW Main PID
+   ```
+   `gateway restart` is the native CLI path (`--safe` drains active work first; `--force` skips that, `--skip-deferral` needs `--safe`). Restarting OpenClaw's gateway from inside a Hermes session is fine — Hermes' self-restart guardrail only fires on restarting Hermes' own gateway, which must be done from an external shell.
+
+Pitfalls:
+
+- **Do not use an HTTP health probe to confirm an OpenClaw gateway restart.** `curl http://127.0.0.1:18789/healthz` returns `HTTP 000` / connection refused and `ss -ltn` shows nothing on 18789 — this gateway speaks WebSocket, not an HTTP health route, so this is not a failed restart. Evidence is `systemctl --user status openclaw-gateway` showing `Active: running` with a changed `Main PID` and a fresh start time. (Hermes' own gateways do answer HTTP; don't carry that expectation across.)
+- **Read each file fully, in the same task, before overwriting it.** A paginated/partial read — or a read done in an earlier session — is refused by the read-before-write guard, so re-`read_file` the whole file first.
+- **Which axis actually differs?** A persona rewrite cannot rescue a weaker model, and a model swap cannot fix a thin persona: when the sibling agent feels "dumber", check both before spending effort on wording.
+
 ## Pitfalls
 
 - **Hermes terminal env is a per-command snapshot (verified 2026-08-06)**: `nvm use 22.22.3` only sticks within the command that ran it — the next Hermes terminal call gets the old PATH (node 22.22.0) again, and `pnpm openclaw ...` fails the engines gate with "detected Node 22.22.0 (exec: .../v22.22.0/bin/node)" even though `node -v` showed the new version earlier. Fix: prefix EVERY command with `export PATH="$HOME/.nvm/versions/node/v22.22.3/bin:$PATH"` (also set `nvm alias default 22.22.3` once so interactive shells pick it up). Same applies to background builds.
@@ -103,6 +126,6 @@ grep -E "(qqbot.*(disconnect|resumed|timeout|closed))" /tmp/openclaw/openclaw-$(
 - **Mid-update mixed state**: while `openclaw update --yes` runs, disk `dist/` files are newer than the running process → API returns 404 for routes the frontend knows. Wait for restart before relying on the API.
 - Updates run through a local proxy if configured (env `HTTPS_PROXY=http://127.0.0.1:7890` etc. in the update process cmdline) — mirror it when you need outbound network for OpenClaw tooling.
 - `~/.openclaw/memory/main.sqlite` being tiny (a handful of chunks) is normal — OpenClaw leans on session files for context.
-- Persona/personality files (if any) are plain markdown under `workspace/memory/`, not wired into `openclaw.json`; check there when asked about OpenClaw's "人格"/persona.
+- **Personality lives in plain markdown, never in config (verified 2026-09-19)**: check `~/.openclaw/workspace/` (see "Retuning the OpenClaw agent" above) when asked about OpenClaw's "人格"/persona — nobody should have to rediscover that it is a set of workspace markdown files rather than a config key.
 - **Gateway can be systemd-managed (verified 2026-08-06)**: `systemctl --user start openclaw-gateway.service` — its ExecStart uses `/usr/bin/node` (v26.5.1, satisfies engines), so it works even when the nvm node is pinned differently. If the user hand-started the gateway in a terminal (process named `openclaw-gateway`), kill that pid first, then start the service; port 18789 flips cleanly and the gateway survives reboots.
 - **Memory diet (gateway RSS ~1GB is baseline)**: disable unused channel plugins via `pnpm openclaw plugins disable <id>` (e.g. whatsapp/telegram; keep qqbot) — output says "Restart the gateway to apply". Orphaned chromium trees (ppid=1, `--proxy-server=socks5://127.0.0.1:7891`, no openclaw/hermes env markers) can pile up ~1.5GB after browser-tool use — safe to kill the whole tree (`for p in $(ps -eo pid,ppid,comm | awk '$2==1 && $3=="chromium" {print $1}'); do kill $p; done`).

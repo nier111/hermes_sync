@@ -64,6 +64,17 @@ git -C ~/.hermes/hermes-agent status -sb          # ahead N / behind M vs origin
 git -C ~/.hermes/hermes-agent log --oneline -3    # upstream commit + carried local commits
 git -C ~/.hermes/hermes-agent rev-parse origin/main
 ```
+Best evidence is the receipt the updater writes itself:
+`~/.hermes/logs/update_receipts/latest.json` (also kept as
+`update_<ts>_<pid>.json`). It carries `outcome`, `exit_code`, `stop_reason`,
+`pre_update`/`post_update` {sha, version, source}, `steps`, `skips`, and
+`plan.runtimes[]` — one entry per gateway with its `pid`, `code_sha` and
+`restart_via`. Read it before theorising: `pre_update.sha == post_update.sha`
+means there was genuinely nothing to pull (already current), which is a normal
+success, NOT a failed update; and `plan.runtimes[].code_sha: null` means that
+profile's gateway was skipped and is still on old code. The desktop side has its
+own stamp at `apps/desktop/build/install-stamp.json` (`commit`, `builtAt`).
+
 An update that carries local commits legitimately leaves the branch `ahead N`
 with a clean worktree and NO stash entry — that is the expected shape, not an
 unfinished pull. Also compare `git rev-parse FETCH_HEAD` with the local HEAD when
